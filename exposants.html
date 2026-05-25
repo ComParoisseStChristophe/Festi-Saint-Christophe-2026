@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dossier Exposant — FESTI SAINT CHRISTOPHE 2026</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{font-family:'Outfit',sans-serif;background:#F4F4F0;color:#2A2A35}
+.expo-wrap{max-width:780px;margin:0 auto;padding:24px 16px 60px}
+
+/* Header */
+.expo-header{background:#0D4F7A;border-radius:16px;padding:28px 24px;text-align:center;margin-bottom:28px}
+.expo-header-logos{display:flex;justify-content:center;align-items:center;gap:16px;margin-bottom:16px}
+.expo-header h1{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:#fff;margin-bottom:6px}
+.expo-header h2{font-size:16px;color:#D4A017;font-weight:600;margin-bottom:4px}
+.expo-header p{font-size:13px;color:rgba(255,255,255,.65);font-style:italic}
+
+/* Sections */
+.expo-section{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;border:0.5px solid #e0e0e0}
+.expo-section h3{font-family:'Playfair Display',serif;font-size:18px;color:#0D4F7A;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #D4A017}
+
+/* Champs */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.form-row.full{grid-template-columns:1fr}
+.form-group{display:flex;flex-direction:column;gap:5px}
+.form-group label{font-size:12px;font-weight:600;color:#666;letter-spacing:1px;text-transform:uppercase}
+.form-group input,.form-group textarea,.form-group select{
+  padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;
+  font-size:14px;font-family:'Outfit',sans-serif;outline:none;
+  transition:border-color .2s;background:#fff
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#1A78B4}
+.form-group input.required-field{border-color:#E24B4A}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+
+/* Checkboxes domaines */
+.domaines-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.domaine-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1.5px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:.2s;font-size:14px}
+.domaine-item:hover{border-color:#1A78B4;background:#E8F4FB}
+.domaine-item input[type=checkbox]{width:18px;height:18px;accent-color:#0D4F7A;cursor:pointer;flex-shrink:0}
+.domaine-item.checked{border-color:#0D4F7A;background:#E8F4FB}
+@media(max-width:600px){.domaines-grid{grid-template-columns:1fr}}
+
+/* Électricité */
+.radio-group{display:flex;gap:16px;margin-top:8px}
+.radio-item{display:flex;align-items:center;gap:8px;padding:10px 18px;border:1.5px solid #e0e0e0;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;transition:.2s}
+.radio-item:hover{border-color:#1A78B4}
+.radio-item input{accent-color:#0D4F7A;width:18px;height:18px}
+.radio-item.selected{border-color:#0D4F7A;background:#E8F4FB}
+
+/* Conditions */
+.conditions-text{background:#F4F4F0;border-radius:8px;padding:16px;font-size:13px;color:#444;line-height:1.7;max-height:280px;overflow-y:auto;margin-bottom:16px}
+.conditions-text h4{font-size:14px;font-weight:700;color:#0D4F7A;margin:14px 0 6px}
+.conditions-text h4:first-child{margin-top:0}
+.lu-approuve{display:flex;align-items:flex-start;gap:12px;padding:14px;background:#E8F4FB;border:1.5px solid #1A78B4;border-radius:8px;cursor:pointer}
+.lu-approuve input{width:20px;height:20px;accent-color:#0D4F7A;margin-top:2px;flex-shrink:0}
+.lu-approuve span{font-size:14px;font-weight:600;color:#0D4F7A;line-height:1.5}
+
+/* Signature */
+.signature-wrap{border:2px dashed #1A78B4;border-radius:10px;background:#F8FBFF;overflow:hidden;position:relative}
+canvas#sig-canvas{display:block;width:100%;touch-action:none;cursor:crosshair}
+.sig-toolbar{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#E8F4FB;border-top:1px solid #C6E4F4}
+.sig-hint{font-size:12px;color:#666;font-style:italic}
+.btn-clear-sig{background:#fff;border:1px solid #1A78B4;color:#0D4F7A;font-size:12px;font-weight:600;padding:5px 12px;border-radius:6px;cursor:pointer;font-family:'Outfit',sans-serif}
+
+/* Bouton submit */
+.btn-submit-expo{width:100%;padding:16px;background:#0D4F7A;color:#D4A017;font-size:16px;font-weight:700;border:none;border-radius:10px;cursor:pointer;font-family:'Outfit',sans-serif;transition:.2s;margin-top:8px}
+.btn-submit-expo:hover{background:#1A78B4}
+.btn-submit-expo:disabled{background:#ccc;color:#fff;cursor:default}
+
+/* Messages */
+.msg-success{background:#E1F5EE;border:1px solid #5DCAA5;border-radius:10px;padding:20px;text-align:center;color:#085041;font-size:15px;font-weight:600;display:none;margin-top:16px}
+.msg-error{background:#FCEBEB;border:1px solid #E24B4A;border-radius:10px;padding:16px;text-align:center;color:#791F1F;font-size:14px;display:none;margin-top:12px}
+
+/* Deadline */
+.deadline-banner{background:#FDF6E3;border:1.5px solid #D4A017;border-radius:10px;padding:14px 18px;text-align:center;margin-bottom:20px}
+.deadline-banner strong{color:#9A7010;font-size:15px}
+.deadline-banner span{color:#9A7010;font-size:13px}
+</style>
+</head>
+<body style="padding-top:0">
+
+<div class="expo-wrap">
+
+  <!-- HEADER -->
+  <div class="expo-header">
+    <div class="expo-header-logos">
+      <img src="logo_paroisse_rond.png" alt="Paroisse" style="width:56px;height:56px;border-radius:50%">
+      <img src="logo_comite.png" alt="Comité des Fêtes" style="width:56px;height:56px;border-radius:50%;background:#fff">
+    </div>
+    <h1>FESTI SAINT CHRISTOPHE 2026</h1>
+    <h2>7ème Édition — « L'Essenciel »</h2>
+    <p>Dimanche 28 juin 2026 · Paroisse Saint Christophe, Kerlys, Fort-de-France</p>
+  </div>
+
+  <!-- DEADLINE -->
+  <div class="deadline-banner">
+    <strong>📅 Date limite d'envoi du dossier : 14 juin 2026</strong><br>
+    <span>Seuls les dossiers dûment complétés et signés seront pris en compte.</span>
+  </div>
+
+  <form id="expo-form">
+
+    <!-- PRÉSENTATION -->
+    <div class="expo-section">
+      <h3>Présentation</h3>
+      <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:12px">
+        <strong>FESTI SAINT CHRISTOPHE</strong> est une manifestation paroissiale d'envergure qui vivra cette année sa <strong>7ème édition</strong> sous le thème inspirant : <strong>« L'Essenciel »</strong>.
+      </p>
+      <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:12px">
+        Cette nouvelle rencontre s'inscrit dans la continuité d'un chemin d'unité, de fraternité et de foi vivante. Nous désirons faire de ce temps fort une véritable effusion d'amour, de fraternité, de joie et de mission.
+      </p>
+      <p style="font-size:14px;color:#555;line-height:1.7">
+        Vous souhaitez proposer vos produits et réserver votre stand sur l'espace exposants ? Complétez ce dossier de candidature.
+      </p>
+    </div>
+
+    <!-- FICHE DE RENSEIGNEMENTS -->
+    <div class="expo-section">
+      <h3>Fiche de renseignements exposant</h3>
+
+      <div class="form-row full">
+        <div class="form-group">
+          <label>Nom de l'entreprise / Association *</label>
+          <input type="text" name="entreprise" placeholder="Nom de votre entreprise ou association" required>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="form-group">
+          <label>Adresse *</label>
+          <input type="text" name="adresse" placeholder="Adresse complète" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Code postal *</label>
+          <input type="text" name="code_postal" placeholder="97200" required>
+        </div>
+        <div class="form-group">
+          <label>Commune *</label>
+          <input type="text" name="commune" placeholder="Fort-de-France" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nom *</label>
+          <input type="text" name="nom" placeholder="Votre nom" required>
+        </div>
+        <div class="form-group">
+          <label>Prénom *</label>
+          <input type="text" name="prenom" placeholder="Votre prénom" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Téléphone contact *</label>
+          <input type="tel" name="telephone" placeholder="+596 6XX XX XX XX" required>
+        </div>
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" name="email" placeholder="votre@email.com" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Effectif sur le stand *</label>
+          <input type="number" name="effectif" placeholder="Nombre de personnes" min="1" required>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOMAINES D'ACTIVITÉ -->
+    <div class="expo-section">
+      <h3>Domaine(s) d'activité(s)</h3>
+      <p style="font-size:13px;color:#666;margin-bottom:12px">Cochez les catégories de produits que vous proposerez sur votre stand.</p>
+      <div class="domaines-grid" id="domaines-grid">
+        <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de gâteaux"> Vente de gâteaux</label>
+        <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de tableaux"> Vente de tableaux</label>
+        <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de bijoux"> Vente de bijoux</label>
+        <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de produits religieux"> Vente de produits religieux</label>
+        <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de plantes et fleurs"> Vente de plantes et fleurs</label>
+        <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de produits de bien-être"> Vente de produits de bien-être</label>
+        <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de friandises"> Vente de friandises</label>
+        <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de glaces"> Vente de glaces</label>
+        <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de boissons"> Vente de boissons</label>
+        <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de thé et/ou café"> Vente de thé et/ou café</label>
+        <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de vêtements"> Vente de vêtements</label>
+        <label class="domaine-item" id="autre-label"><input type="checkbox" name="domaines" value="Autre" id="autre-cb"> Autre (préciser)</label>
+      </div>
+      <div id="autre-detail" style="display:none;margin-top:10px">
+        <input type="text" name="autre_detail" placeholder="Précisez votre activité..." style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Outfit',sans-serif;outline:none">
+      </div>
+    </div>
+
+    <!-- RACCORDEMENT ÉLECTRIQUE -->
+    <div class="expo-section">
+      <h3>Raccordement électrique</h3>
+      <p style="font-size:13px;color:#666;margin-bottom:10px">Avez-vous besoin d'un raccordement électrique ? (Rallonge non fournie — précisez la puissance totale de vos appareils)</p>
+      <div class="radio-group">
+        <label class="radio-item" id="elec-oui-label">
+          <input type="radio" name="electricite" value="OUI" id="elec-oui"> OUI
+        </label>
+        <label class="radio-item" id="elec-non-label">
+          <input type="radio" name="electricite" value="NON" id="elec-non"> NON
+        </label>
+      </div>
+      <div id="puissance-detail" style="display:none;margin-top:12px">
+        <div class="form-group">
+          <label>Puissance totale des appareils électriques *</label>
+          <input type="text" name="puissance" placeholder="Ex : 2000W — fer à repasser + micro-ondes">
+        </div>
+      </div>
+    </div>
+
+    <!-- CONDITIONS GÉNÉRALES -->
+    <div class="expo-section">
+      <h3>Conditions générales d'inscription et de participation</h3>
+
+      <div class="conditions-text">
+        <h4>Détail de la prestation proposée</h4>
+        <p>La prestation globale proposée aux exposants comprend la mise à disposition d'une surface individuelle dans l'espace exposants comprenant :</p>
+        <ul style="margin:8px 0 8px 20px;font-size:13px">
+          <li><strong>1 surface aménageable d'environ 9 m² maximum</strong> (prévoir votre chapiteau 3x3 — nous n'avons pas de stock), sauf autorisation pour un chapiteau plus grand.</li>
+          <li><strong>2 chaises</strong> (2 tables peuvent être fournies à la demande si vous n'avez pas de matériel).</li>
+          <li><strong>1 raccordement électrique</strong> si demande — rallonge non fournie.</li>
+        </ul>
+        <p><strong>N.B. :</strong> Une autorisation spéciale est accordée à certains exposants ayant un véhicule comme espace de travail habituel.</p>
+        <p style="margin-top:8px"><strong>La participation de l'exposant est un don fait à la paroisse Saint Christophe du montant de son choix, à verser à l'issue de la période d'exposition.</strong></p>
+
+        <h4>1. Objet</h4>
+        <p>Le « FESTI SAINT CHRISTOPHE » est un événement organisé par la paroisse Saint Christophe, 6 rue Saint Christophe – 97200 Fort-de-France, représentée par son curé le Père Jean-Michel MONCONTHOUR qui donne délégation à son Comité des Fêtes. Toute demande de participation implique l'adhésion entière et sans réserve du participant aux présentes conditions.</p>
+
+        <h4>2. Date et lieu</h4>
+        <p>Le FESTI SAINT CHRISTOPHE aura lieu le <strong>28 juin 2026 de 07H30 à 20H00</strong> sur le site de la paroisse Saint Christophe, 6 rue Saint Christophe, 97200 Fort-de-France. En cas de force majeure, l'organisateur pourra modifier la date ou le lieu.</p>
+
+        <h4>3. Annulation – désistement</h4>
+        <p>L'organisateur pourra annuler la manifestation après en avoir avisé le participant. En cas de désistement du participant, l'emplacement sera proposé à un autre exposant sur liste d'attente.</p>
+
+        <h4>4. Condition d'admission</h4>
+        <p>Seules les demandes dûment complétées et signées seront prises en compte. L'organisateur se réserve le droit de refuser toute demande ne s'inscrivant pas dans un esprit chrétien et fraternel.</p>
+
+        <h4>5. Droits et obligations du participant</h4>
+        <p>Le participant ne peut présenter que les produits correspondant à sa fiche d'inscription. Il lui est interdit de céder ou sous-louer son stand sans accord écrit. Il doit fournir la liste des personnes présentes sur son stand et avertir l'organisateur avant de quitter l'emplacement.</p>
+
+        <h4>6. Occupation du stand et sécurité</h4>
+        <p>Le stand devra être occupé en permanence. L'exposant s'engage à respecter scrupuleusement les consignes de sécurité sous peine d'exclusion.</p>
+      </div>
+
+      <label class="lu-approuve" id="lu-approuve-label">
+        <input type="checkbox" id="lu-approuve-cb" required>
+        <span>Je déclare avoir lu et approuvé les conditions générales d'inscription et de participation au FESTI SAINT CHRISTOPHE 2026.</span>
+      </label>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="expo-section">
+      <h3>Signature électronique</h3>
+      <p style="font-size:13px;color:#666;margin-bottom:12px">Signez dans le cadre ci-dessous avec votre doigt (mobile) ou votre souris (ordinateur).</p>
+      <div class="signature-wrap">
+        <canvas id="sig-canvas" height="180"></canvas>
+        <div class="sig-toolbar">
+          <span class="sig-hint" id="sig-hint">✏ Signez ici</span>
+          <button type="button" class="btn-clear-sig" onclick="clearSignature()">Effacer</button>
+        </div>
+      </div>
+      <input type="hidden" id="sig-data" name="signature">
+    </div>
+
+    <!-- LIEU ET DATE -->
+    <div class="expo-section">
+      <h3>Lieu et date de signature</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Fait à *</label>
+          <input type="text" name="fait_a" placeholder="Fort-de-France" required>
+        </div>
+        <div class="form-group">
+          <label>Le *</label>
+          <input type="date" name="fait_le" required>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <button type="submit" class="btn-submit-expo" id="submit-btn">
+      📨 Envoyer mon dossier de candidature
+    </button>
+    <div class="msg-success" id="msg-success">
+      ✅ Votre dossier a bien été envoyé !<br>
+      <span style="font-size:13px;font-weight:400">Le Comité des Fêtes reviendra vers vous très prochainement.<br>
+      Conservez une copie de ce dossier pour vos archives.</span>
+    </div>
+    <div class="msg-error" id="msg-error">
+      Une erreur est survenue. Veuillez réessayer ou contacter le Comité des Fêtes au +596 696 10 12 98.
+    </div>
+
+  </form>
+
+  <!-- CONTACT -->
+  <div style="text-align:center;margin-top:32px;padding:20px;background:#fff;border-radius:12px;border:0.5px solid #e0e0e0">
+    <p style="font-size:13px;color:#555;margin-bottom:6px"><strong>Contact Comité des Fêtes</strong></p>
+    <p style="font-size:13px;color:#555">Julien BRISCAN — Responsable Comité des Fêtes</p>
+    <p style="font-size:13px;color:#1A78B4">📞 +596 696 10 12 98</p>
+    <p style="font-size:13px;color:#1A78B4">✉ comitedfetes.stchristophe@gmail.com</p>
+  </div>
+
+</div>
+
+<script>
+// ── CANVAS SIGNATURE ──────────────────────────────────────────────────────────
+const canvas = document.getElementById('sig-canvas');
+const ctx = canvas.getContext('2d');
+let drawing = false, hasSig = false;
+
+function resizeCanvas(){
+  const rect = canvas.getBoundingClientRect();
+  const ratio = window.devicePixelRatio || 1;
+  canvas.width = rect.width * ratio;
+  canvas.height = 180 * ratio;
+  canvas.style.height = '180px';
+  ctx.scale(ratio, ratio);
+  ctx.strokeStyle = '#0D4F7A';
+  ctx.lineWidth = 2.5;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+function getPos(e){
+  const rect = canvas.getBoundingClientRect();
+  if(e.touches) return {x: e.touches[0].clientX - rect.left, y: e.touches[0].clientY - rect.top};
+  return {x: e.clientX - rect.left, y: e.clientY - rect.top};
+}
+
+canvas.addEventListener('mousedown', e => { drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); });
+canvas.addEventListener('mousemove', e => { if(!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSig = true; document.getElementById('sig-hint').textContent = '✓ Signature enregistrée'; });
+canvas.addEventListener('mouseup', () => { drawing = false; saveSignature(); });
+canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); }, {passive:false});
+canvas.addEventListener('touchmove', e => { e.preventDefault(); if(!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSig = true; document.getElementById('sig-hint').textContent = '✓ Signature enregistrée'; }, {passive:false});
+canvas.addEventListener('touchend', () => { drawing = false; saveSignature(); });
+
+function saveSignature(){ document.getElementById('sig-data').value = canvas.toDataURL('image/png'); }
+function clearSignature(){
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  hasSig = false;
+  document.getElementById('sig-data').value = '';
+  document.getElementById('sig-hint').textContent = '✏ Signez ici';
+}
+
+// ── CHECKBOXES DOMAINES ───────────────────────────────────────────────────────
+document.querySelectorAll('.domaine-item input').forEach(cb => {
+  cb.addEventListener('change', function(){
+    this.closest('.domaine-item').classList.toggle('checked', this.checked);
+  });
+});
+document.getElementById('autre-cb').addEventListener('change', function(){
+  document.getElementById('autre-detail').style.display = this.checked ? 'block' : 'none';
+});
+
+// ── RADIO ÉLECTRICITÉ ─────────────────────────────────────────────────────────
+document.querySelectorAll('input[name="electricite"]').forEach(r => {
+  r.addEventListener('change', function(){
+    document.querySelectorAll('.radio-item').forEach(el => el.classList.remove('selected'));
+    this.closest('.radio-item').classList.add('selected');
+    document.getElementById('puissance-detail').style.display = this.value === 'OUI' ? 'block' : 'none';
+  });
+});
+
+// ── LU ET APPROUVÉ ────────────────────────────────────────────────────────────
+document.getElementById('lu-approuve-cb').addEventListener('change', function(){
+  document.getElementById('lu-approuve-label').style.background = this.checked ? '#E1F5EE' : '#E8F4FB';
+  document.getElementById('lu-approuve-label').style.borderColor = this.checked ? '#5DCAA5' : '#1A78B4';
+});
+
+// ── SOUMISSION ────────────────────────────────────────────────────────────────
+document.getElementById('expo-form').addEventListener('submit', async function(e){
+  e.preventDefault();
+
+  // Vérifier signature
+  if(!hasSig){
+    alert('Merci de signer le dossier avant de l\'envoyer.');
+    canvas.scrollIntoView({behavior:'smooth'});
+    return;
+  }
+
+  // Vérifier au moins un domaine
+  const domaines = document.querySelectorAll('input[name="domaines"]:checked');
+  if(domaines.length === 0){
+    alert('Merci de sélectionner au moins un domaine d\'activité.');
+    return;
+  }
+
+  // Vérifier électricité
+  if(!document.querySelector('input[name="electricite"]:checked')){
+    alert('Merci d\'indiquer si vous avez besoin d\'un raccordement électrique.');
+    return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Envoi en cours...';
+  btn.disabled = true;
+
+  // Construire les données
+  const fd = new FormData(this);
+
+  // Domaines cochés
+  const domainesList = [...domaines].map(d => d.value).join(', ');
+  fd.set('domaines', domainesList);
+
+  // Signature en base64 — on envoie juste une confirmation (pas la vraie image via Formspree)
+  fd.set('signature', hasSig ? 'Signature électronique apposée le ' + new Date().toLocaleDateString('fr-FR') : 'Non signée');
+
+  try {
+    const res = await fetch('https://formspree.io/f/mzdwaajl', {
+      method: 'POST',
+      body: fd,
+      headers: { 'Accept': 'application/json' }
+    });
+    if(res.ok){
+      document.getElementById('msg-success').style.display = 'block';
+      document.getElementById('msg-error').style.display = 'none';
+      btn.textContent = '✅ Dossier envoyé';
+      this.scrollIntoView({behavior:'smooth'});
+    } else { throw new Error(); }
+  } catch(err){
+    document.getElementById('msg-error').style.display = 'block';
+    btn.textContent = '📨 Envoyer mon dossier de candidature';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
