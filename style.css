@@ -84,6 +84,12 @@ footer{background:#060D14;padding:48px 24px 24px}
   .nav-links{display:none}
   .hamburger{display:flex}
   .footer-grid{grid-template-columns:1fr}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr!important}
+  .page-hero{padding:80px 16px 32px}
+  .page-hero-inner{grid-template-columns:1fr!important}
+  .page-hero-inner img{width:120px!important;height:110px!important}
+  .sec{padding:48px 16px}
+  .sec-inner{padding:0}
 }
 
 /* UTILITAIRES */
