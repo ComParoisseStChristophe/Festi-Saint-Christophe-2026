@@ -1,0 +1,97 @@
+/* ── FESTI SAINT CHRISTOPHE — Charte graphique commune ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bleu:#0D4F7A; --bleu2:#1A78B4; --bleu-clair:#E8F4FB;
+  --or:#D4A017; --or2:#F0C040; --or-pale:#FDF6E3;
+  --blanc:#FFFFFF; --gris:#F4F4F0; --texte:#2A2A35; --texte2:#666;
+  --gris-ligne:#E0E0E0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;color:var(--texte);background:var(--blanc);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,79,122,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,160,23,.3)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:58px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-text{color:var(--or);font-family:'Playfair Display',serif;font-size:15px;font-weight:700;line-height:1.2}
+.nav-links{display:flex;gap:4px}
+.nav-links a{color:rgba(255,255,255,.75);font-size:13px;font-weight:500;padding:6px 12px;border-radius:6px;text-decoration:none;transition:.2s}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.1)}
+.nav-cta{background:var(--or)!important;color:var(--bleu)!important;font-weight:700!important;border-radius:20px!important;padding:7px 16px!important}
+.nav-cta:hover{background:var(--or2)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;display:block}
+.mobile-menu{display:none;position:fixed;top:58px;left:0;right:0;background:#0D4F7A;z-index:99;padding:16px;flex-direction:column;gap:4px}
+.mobile-menu a{color:#fff;text-decoration:none;padding:12px 16px;border-radius:8px;font-size:15px}
+.mobile-menu a:hover{background:rgba(255,255,255,.1)}
+.mobile-menu.open{display:flex}
+
+/* HERO GÉNÉRIQUE */
+.page-hero{min-height:280px;background:var(--bleu);display:flex;align-items:center;padding:90px 24px 48px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:rgba(26,120,180,.15)}
+.page-hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative}
+.page-hero-label{display:inline-block;background:rgba(212,160,23,.2);border:1px solid rgba(212,160,23,.4);color:var(--or);font-size:11px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:14px;text-transform:uppercase}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px}
+.page-hero h1 em{color:var(--or);font-style:italic}
+.page-hero p{font-size:16px;color:rgba(255,255,255,.65);max-width:600px;line-height:1.7}
+
+/* SECTIONS */
+.sec{padding:72px 24px}
+.sec-inner{max-width:1100px;margin:0 auto}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:3px;color:var(--bleu2);text-transform:uppercase;margin-bottom:8px}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,40px);font-weight:900;color:var(--bleu);line-height:1.15;margin-bottom:14px}
+.sec-title em{color:var(--or);font-style:italic}
+.sec-intro{font-size:16px;color:var(--texte2);line-height:1.8;max-width:640px;margin-bottom:36px}
+.filet{width:48px;height:4px;background:var(--or);border-radius:2px;margin-bottom:18px}
+.bg-bleu{background:var(--bleu)}
+.bg-gris{background:var(--gris)}
+.bg-blanc{background:var(--blanc)}
+
+/* CARDS */
+.card{background:var(--blanc);border:0.5px solid var(--gris-ligne);border-radius:14px;padding:24px;transition:.2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.07)}
+
+/* BOUTONS */
+.btn{display:inline-block;padding:13px 28px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;transition:.2s;cursor:pointer;border:none;font-family:'Outfit',sans-serif}
+.btn-primary{background:var(--bleu);color:#fff}
+.btn-primary:hover{background:var(--bleu2)}
+.btn-or{background:var(--or);color:var(--bleu)}
+.btn-or:hover{background:var(--or2)}
+.btn-outline{background:transparent;color:var(--bleu);border:2px solid var(--bleu)}
+.btn-outline:hover{background:var(--bleu);color:#fff}
+
+/* FOOTER */
+footer{background:#060D14;padding:48px 24px 24px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-brand-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--or);font-weight:900;margin-bottom:6px;font-style:normal;letter-spacing:.5px}
+.footer-brand-sub{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:16px}
+.footer-brand-creole{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--or);opacity:.8}
+.footer-col h4{font-size:12px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:14px}
+.footer-col a{display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:8px;transition:.2s}
+.footer-col a:hover{color:var(--or)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.25)}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+/* UTILITAIRES */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+.text-center{text-align:center}
+.mb-8{margin-bottom:8px}
+.mb-16{margin-bottom:16px}
+.mb-32{margin-bottom:32px}

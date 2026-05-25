@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>7ème Édition 2026 — « L'Essenciel » — FESTI SAINT CHRISTOPHE</title>
+<meta name="description" content="FESTI SAINT CHRISTOPHE 2026 — 7ème édition — « L'Essenciel » — Dimanche 28 juin 2026, Paroisse Saint Christophe, Kerlys, Fort-de-France.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="index.html" class="nav-logo">
+    <img src="logo_paroisse_rond.png" alt="Paroisse Saint Christophe" style="width:36px;height:36px;border-radius:50%;object-fit:cover">
+    <div class="nav-logo-text">FESTI<br>Saint Christophe</div>
+  </a>
+  <div class="nav-links" id="nav-links"></div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="mobile-menu" id="mobile-menu"></div>
+
+<!-- HERO -->
+<div class="page-hero" style="min-height:360px">
+  <div class="page-hero-inner" style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px">
+    <div>
+      <div class="page-hero-label">Dimanche 28 juin 2026</div>
+      <h1>7ème édition — <em>« L'Essenciel »</em></h1>
+      <p>En écho au Festival d'Art Sacré de la Martinique 2026 · Paroisse Saint Christophe, Kerlys, Fort-de-France</p>
+      <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#programme" class="btn btn-or">Voir le programme →</a>
+        <a href="#artistes" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.4)">Les artistes</a>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center">
+      <img src="logo_paroisse.png" alt="Paroisse Saint Christophe" style="width:160px;height:138px;object-fit:contain;opacity:.9">
+    </div>
+  </div>
+</div>
+
+<!-- COMPTE À REBOURS -->
+<div style="background:var(--or);padding:32px 24px">
+  <div style="max-width:800px;margin:0 auto;text-align:center">
+    <div style="font-size:12px;font-weight:700;letter-spacing:3px;color:var(--bleu);text-transform:uppercase;margin-bottom:16px">La fête commence dans</div>
+    <div id="countdown" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap"></div>
+    <p style="margin-top:16px;font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--bleu);font-weight:700">« Manmay, vini fété épi nou ! »</p>
+  </div>
+</div>
+
+<!-- THÈME -->
+<section class="sec bg-bleu fade-up">
+  <div class="sec-inner">
+    <div class="sec-label" style="color:rgba(255,255,255,.5)">Thème 2026</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+      <div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px">« L'Essen<em style="color:var(--or)">ciel</em> »</h2>
+        <p style="font-size:15px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:20px">Un mot, trois sens superposés — une invitation à retrouver ce qui compte vraiment.</p>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="background:rgba(255,255,255,.07);border-left:3px solid var(--or);border-radius:0 8px 8px 0;padding:12px 16px">
+            <div style="color:var(--or);font-weight:700;font-size:14px;margin-bottom:4px">✦ L'Essentiel</div>
+            <p style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.6">Revenir à ce qui compte : la foi, l'amour du prochain, la joie partagée.</p>
+          </div>
+          <div style="background:rgba(255,255,255,.07);border-left:3px solid var(--or);border-radius:0 8px 8px 0;padding:12px 16px">
+            <div style="color:var(--or);font-weight:700;font-size:14px;margin-bottom:4px">✦ Le Sens</div>
+            <p style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.6">Retrouver une boussole intérieure dans un monde saturé de bruit.</p>
+          </div>
+          <div style="background:rgba(255,255,255,.07);border-left:3px solid var(--or);border-radius:0 8px 8px 0;padding:12px 16px">
+            <div style="color:var(--or);font-weight:700;font-size:14px;margin-bottom:4px">✦ Le Ciel</div>
+            <p style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.6">Lever les yeux, rappeler notre vocation à la transcendance.</p>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px">
+          <div style="font-size:22px;font-weight:700;color:#fff;font-style:italic;line-height:1.5;margin-bottom:12px">« Tu aimeras le Seigneur ton Dieu de tout ton cœur, de toute ton âme et de tout ton esprit. Voilà le grand commandement, le premier. »</div>
+          <div style="font-size:13px;color:var(--or)">— Matthieu 22, 37-38</div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px">
+          <div style="font-size:18px;font-weight:600;color:#fff;font-style:italic;margin-bottom:8px">« Réjouissez-vous dans le Seigneur en tout temps ; je le répète, réjouissez-vous ! »</div>
+          <div style="font-size:13px;color:var(--or)">— Philippiens 4, 4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMME -->
+<section id="programme" class="sec bg-gris fade-up">
+  <div class="sec-inner">
+    <div class="sec-label">Journée du 28 juin 2026</div>
+    <h2 class="sec-title">Programme <em>de la journée</em></h2>
+    <p class="sec-intro">De 06H15 à 20H00 — une journée complète pour prier, se retrouver, fêter et s'émouvoir.</p>
+
+    <!-- Trois temps -->
+    <div class="grid-3" style="margin-bottom:32px">
+      <div style="background:var(--bleu-fonce,#0D4F7A);border-radius:12px;padding:20px;text-align:center">
+        <div style="color:var(--or);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">🌅 Matin</div>
+        <div style="color:#fff;font-size:13px;opacity:.8">3 messes · Petit-déjeuner<br>Lancement officiel</div>
+      </div>
+      <div style="background:#1A78B4;border-radius:12px;padding:20px;text-align:center">
+        <div style="color:var(--or);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">☀️ Après-midi</div>
+        <div style="color:#fff;font-size:13px;opacity:.8">Animations · Plateau artistique<br>Déjeuner · Défilé · Théâtre</div>
+      </div>
+      <div style="background:var(--or);border-radius:12px;padding:20px;text-align:center">
+        <div style="color:var(--bleu);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">🌙 Soirée</div>
+        <div style="color:var(--bleu);font-size:13px;opacity:.9">Concert Pastorale des Artistes<br>18H00 → 20H00</div>
+      </div>
+    </div>
+
+    <!-- Tableau programme -->
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;gap:16px;background:#fff;border-radius:10px;padding:14px 18px;border-left:4px solid var(--bleu)"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--bleu);min-width:60px">06H15</div><div style="font-size:14px;color:var(--texte);font-weight:500">🙏 1ère Messe<br><span style="color:var(--texte2);font-weight:400;font-size:13px">Petit-déjeuner offert par la paroisse à l'issue de la messe</span></div></div>
+      <div style="display:flex;gap:16px;background:#fff;border-radius:10px;padding:14px 18px;border-left:4px solid var(--bleu-clair)"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--bleu);min-width:60px">08H00</div><div style="font-size:14px;color:var(--texte);font-weight:500">🏪 Ouverture des stands<br><span style="color:var(--texte2);font-weight:400;font-size:13px">Village artisanal & exposants</span></div></div>
+      <div style="display:flex;gap:16px;background:#fff;border-radius:10px;padding:14px 18px;border-left:4px solid var(--bleu)"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--bleu);min-width:60px">08H30</div><div style="font-size:14px;color:var(--texte);font-weight:500">🙏 2ème Messe</div></div>
+      <div style="display:flex;gap:16px;background:var(--or-pale);border-radius:10px;padding:14px 18px;border-left:4px solid var(--or)"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--or);min-width:60px">10H00</div><div style="font-size:14px;color:var(--texte);font-weight:500">🎙 Lancement officiel<br><span style="color:var(--texte2);font-weight:400;font-size:13px">Allocution du Père Jean-Michel MONCONTHOUR</span></div></div>
+      <div style="display:flex;gap:16px;background:#fff;border-radius:10px;padding:14px 18px;border-left:4px solid var(--bleu)"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--bleu);min-width:60px">10H30</div><div style="font-size:14px;color:var(--texte);font-weight:500">🙏 3ème Messe</div></div>
+      <div style="display:flex;gap:16px;background:#fff;border-radius:10px;padding:14px 18px;border-left:4px solid var(--bleu-clair)"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--bleu);min-width:60px">11H30</div><div style="font-size:14px;color:var(--texte);font-weight:500">🎮 Animations matinée<br><span style="color:var(--texte2);font-weight:400;font-size:13px">Jeux & concours avec le public</span></div></div>
+      <div style="display:flex;gap:16px;background:#fff;border-radius:10px;padding:14px 18px;border-left:4px solid var(--bleu-clair)"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--bleu);min-width:60px">12H00</div><div style="font-size:14px;color:var(--texte);font-weight:500">🍽 Déjeuner<br><span style="color:var(--texte2);font-weight:400;font-size:13px">Tickets en prévente & sur place</span></div></div>
+      <div style="display:flex;gap:16px;background:var(--or-pale);border-radius:10px;padding:14px 18px;border-left:4px solid var(--or)"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--or);min-width:60px">14H00</div><div style="font-size:14px;color:var(--texte);font-weight:500">💃 Plateau artistique — 1er temps<br><span style="color:var(--texte2);font-weight:400;font-size:13px">Danse & spectacle de majorettes</span></div></div>
+      <div style="display:flex;gap:16px;background:var(--or-pale);border-radius:10px;padding:14px 18px;border-left:4px solid var(--or)"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--or);min-width:60px">15H30</div><div style="font-size:14px;color:var(--texte);font-weight:500">👗 Plateau artistique — 2ème temps<br><span style="color:var(--texte2);font-weight:400;font-size:13px">Défilé de mode, robes traditionnelles</span></div></div>
+      <div style="display:flex;gap:16px;background:var(--or-pale);border-radius:10px;padding:14px 18px;border-left:4px solid var(--or)"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--or);min-width:60px">16H30</div><div style="font-size:14px;color:var(--texte);font-weight:500">🎭 Plateau artistique — 3ème temps<br><span style="color:var(--texte2);font-weight:400;font-size:13px">Théâtre Trio Téat (sous réserve) · Jeux & animations public</span></div></div>
+      <div style="display:flex;gap:16px;background:var(--bleu);border-radius:10px;padding:14px 18px;border-left:4px solid var(--or)"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--or);min-width:60px">18H00</div><div style="font-size:14px;color:#fff;font-weight:600">🌟 Concert final — Pastorale des Artistes du Diocèse de Martinique</div></div>
+      <div style="display:flex;gap:16px;background:#fff;border-radius:10px;padding:14px 18px;border-left:4px solid var(--gris-ligne)"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--texte2);min-width:60px">20H00</div><div style="font-size:14px;color:var(--texte2);font-weight:500">🕯 Clôture de la journée</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTISTES -->
+<section id="artistes" class="sec bg-bleu fade-up">
+  <div class="sec-inner">
+    <div class="sec-label" style="color:rgba(255,255,255,.5)">Plateau 2026</div>
+    <h2 class="sec-title" style="color:#fff">Les <em>artistes</em></h2>
+    <div class="grid-3" style="margin-top:8px">
+      <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px;text-align:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(212,160,23,.2);border:2px solid var(--or);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:26px">🎤</div>
+        <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:4px">FAIV'</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:10px">Artiste martiniquaise</div>
+        <div style="background:var(--or);color:var(--bleu);font-size:11px;font-weight:700;padding:3px 12px;border-radius:10px;display:inline-block">Plateau artistique</div>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px;text-align:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(212,160,23,.2);border:2px solid var(--or);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:26px">🎵</div>
+        <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:4px">Dominique ZOROBABEL</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:10px">Ex-Zouk Machine</div>
+        <div style="background:var(--or);color:var(--bleu);font-size:11px;font-weight:700;padding:3px 12px;border-radius:10px;display:inline-block">Plateau artistique</div>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px;text-align:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(212,160,23,.2);border:2px solid var(--or);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:26px">🎶</div>
+        <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:4px">Pastorale des Artistes</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:10px">Diocèse de Martinique</div>
+        <div style="background:var(--or);color:var(--bleu);font-size:11px;font-weight:700;padding:3px 12px;border-radius:10px;display:inline-block">Concert final 18H00</div>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px;text-align:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(212,160,23,.2);border:2px solid var(--or);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:26px">💃</div>
+        <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:4px">Danse & Majorettes</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:10px">Spectacle chorégraphique</div>
+        <div style="background:var(--or);color:var(--bleu);font-size:11px;font-weight:700;padding:3px 12px;border-radius:10px;display:inline-block">14H00</div>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px;text-align:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(212,160,23,.2);border:2px solid var(--or);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:26px">👗</div>
+        <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:4px">Défilé de mode</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:10px">Robes traditionnelles</div>
+        <div style="background:var(--or);color:var(--bleu);font-size:11px;font-weight:700;padding:3px 12px;border-radius:10px;display:inline-block">15H30</div>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px;text-align:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(212,160,23,.2);border:2px solid var(--or);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:26px">🎭</div>
+        <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:4px">Trio Téat</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:10px">Théâtre (sous réserve)</div>
+        <div style="background:var(--or);color:var(--bleu);font-size:11px;font-weight:700;padding:3px 12px;border-radius:10px;display:inline-block">16H30</div>
+      </div>
+    </div>
+    <div style="margin-top:24px;background:rgba(212,160,23,.1);border:1px solid rgba(212,160,23,.3);border-radius:12px;padding:18px;text-align:center">
+      <p style="color:var(--or);font-size:14px;font-style:italic">🕯 La 7ème édition rend un hommage particulier à Claudy LARGEN (1958–2021), grand artiste martiniquais qui avait illuminé la 1ère édition de sa présence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAPSULES VIDÉO -->
+<section class="sec bg-gris fade-up">
+  <div class="sec-inner">
+    <div class="sec-label">Dès juin 2026</div>
+    <h2 class="sec-title">Capsules <em>« L'Essenciel de... »</em></h2>
+    <p class="sec-intro">Chaque semaine de juin, une personnalité répond : <em>« Pour toi, c'est quoi l'essentiel ? »</em></p>
+    <div class="grid-3">
+      <div class="card"><div style="height:130px;background:var(--bleu);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative"><div style="width:44px;height:44px;border-radius:50%;background:var(--or);display:flex;align-items:center;justify-content:center"><span style="border-style:solid;border-width:7px 0 7px 14px;border-color:transparent transparent transparent var(--bleu);margin-left:3px;display:inline-block"></span></div><div style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,.5);color:#fff;font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px">Bientôt</div></div><div style="font-size:11px;color:var(--bleu2);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Début juin</div><div style="font-size:14px;font-weight:600;color:var(--texte)">L'Essenciel du Père Jean-Michel</div></div>
+      <div class="card"><div style="height:130px;background:var(--bleu);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative"><div style="width:44px;height:44px;border-radius:50%;background:var(--or);display:flex;align-items:center;justify-content:center"><span style="border-style:solid;border-width:7px 0 7px 14px;border-color:transparent transparent transparent var(--bleu);margin-left:3px;display:inline-block"></span></div><div style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,.5);color:#fff;font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px">Bientôt</div></div><div style="font-size:11px;color:var(--bleu2);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Semaine 2</div><div style="font-size:14px;font-weight:600;color:var(--texte)">L'Essenciel de FAIV'</div></div>
+      <div class="card"><div style="height:130px;background:var(--bleu);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative"><div style="width:44px;height:44px;border-radius:50%;background:var(--or);display:flex;align-items:center;justify-content:center"><span style="border-style:solid;border-width:7px 0 7px 14px;border-color:transparent transparent transparent var(--bleu);margin-left:3px;display:inline-block"></span></div><div style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,.5);color:#fff;font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px">J–7</div></div><div style="font-size:11px;color:var(--bleu2);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">J–7</div><div style="font-size:14px;font-weight:600;color:var(--texte)">Teaser officiel 2026</div></div>
+    </div>
+    <div style="text-align:center;margin-top:24px"><a href="galerie.html" class="btn btn-outline">Voir toutes les capsules →</a></div>
+  </div>
+</section>
+
+<!-- PARTENAIRES RÉSUMÉ -->
+<section class="sec bg-blanc fade-up">
+  <div class="sec-inner">
+    <div class="sec-label">Soutenez-nous</div>
+    <h2 class="sec-title">Devenir <em>partenaire</em></h2>
+    <div class="grid-3" style="margin-bottom:24px">
+      <div style="background:#FDF6E3;border:2px solid #B8860B;border-radius:14px;padding:22px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#9A7010;margin-bottom:4px">★★★ OR</div>
+        <div style="font-size:18px;font-weight:700;color:#B8860B">500 € – 1 000 €</div>
+        <div style="font-size:11px;color:#9A7010;margin-top:4px;font-style:italic">Reconduction tacite</div>
+      </div>
+      <div style="background:#F4F4F0;border:2px solid #B4B2A9;border-radius:14px;padding:22px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#5F5E5A;margin-bottom:4px">★★ ARGENT</div>
+        <div style="font-size:18px;font-weight:700;color:#888780">250 € – 500 €</div>
+        <div style="font-size:11px;color:#5F5E5A;margin-top:4px;font-style:italic">Reconduction tacite</div>
+      </div>
+      <div style="background:#FFF5F0;border:2px solid #F09595;border-radius:14px;padding:22px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#712B13;margin-bottom:4px">★ BRONZE</div>
+        <div style="font-size:18px;font-weight:700;color:#D85A30">100 € – 250 €</div>
+        <div style="font-size:11px;color:#712B13;margin-top:4px;font-style:italic">Reconduction tacite</div>
+      </div>
+    </div>
+    <div style="text-align:center;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="partenaires.html" class="btn btn-primary">Voir toutes les formules →</a>
+      <a href="contact.html" class="btn btn-outline">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+          <img src="logo_paroisse_rond.png" alt="Paroisse" style="width:44px;height:44px;border-radius:50%">
+          <img src="logo_comite.png" alt="Comité des Fêtes" style="width:44px;height:44px;border-radius:50%;background:#fff">
+        </div>
+        <div class="footer-brand-title">FESTI SAINT CHRISTOPHE</div>
+        <div class="footer-brand-sub">Paroisse Saint Christophe · Kerlys<br>97200 Fort-de-France · Martinique<br>Tél. +596 596 71 48 86</div>
+        <div class="footer-brand-creole">« L'Essenciel » — 28 juin 2026</div>
+      </div>
+      <div>
+        <h4 style="font-size:12px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:14px">Navigation</h4>
+        <a href="index.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:8px">Accueil</a>
+        <a href="editions.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:8px">Toutes les éditions</a>
+        <a href="2026.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:8px">Édition 2026</a>
+        <a href="galerie.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:8px">Galerie</a>
+        <a href="quiz.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:8px">Quiz</a>
+        <a href="partenaires.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:8px">Partenaires</a>
+        <a href="contact.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">Contact</a>
+      </div>
+      <div>
+        <h4 style="font-size:12px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:14px">Contact</h4>
+        <div style="color:rgba(255,255,255,.7);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Pastorale communication</div>
+        <a href="tel:+596696101298" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:10px">+596 696 10 12 98</a>
+        <a href="mailto:com.stchristophe@gmail.com" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:6px">com.stchristophe@gmail.com</a>
+        <a href="mailto:comitedfetes.stchristophe@gmail.com" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:6px">comitedfetes.stchristophe@gmail.com</a>
+        <a href="mailto:paroisse.stchristophe@eglisemartinique.fr" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:10px">paroisse.stchristophe@eglisemartinique.fr</a>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:4px">
+          <a href="https://www.facebook.com/ParoisseSaintChristophe" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">
+            <span style="background:#1877F2;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0">f</span>
+            Paroisse Saint Christophe
+          </a>
+          <a href="https://www.youtube.com/@paroissesaintchristophe" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">
+            <span style="background:#FF0000;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;flex-shrink:0">▶</span>
+            Paroisse Saint Christophe
+          </a>
+          <a href="https://wa.me/596696101298" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">
+            <span style="background:#25D366;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;flex-shrink:0">W</span>
+            WhatsApp Paroisse Saint Christophe
+          </a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <span style="font-size:12px;color:rgba(255,255,255,.25)">© 2026 Paroisse Saint Christophe · comparoissestchristophe.github.io</span>
+      <span style="font-size:12px;color:rgba(255,255,255,.25)">Site réalisé avec ❤ pour la communauté</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+.cd-box{background:rgba(13,79,122,.85);border:2px solid rgba(255,255,255,.3);border-radius:12px;padding:14px 20px;min-width:76px;text-align:center}
+.cd-num{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:#fff;line-height:1}
+.cd-unit{font-size:11px;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+@media(max-width:768px){.page-hero-inner{grid-template-columns:1fr!important}.page-hero-inner>div:last-child{display:none}}
+</style>
+
+<script src="nav.js"></script>
+<script>
+initNav('2026.html');
+function updateCD(){
+  const t=new Date('2026-06-28T06:15:00'),n=new Date(),d=t-n;
+  if(d<=0)return;
+  const j=Math.floor(d/86400000),h=Math.floor((d%86400000)/3600000),m=Math.floor((d%3600000)/60000),s=Math.floor((d%60000)/1000);
+  document.getElementById('countdown').innerHTML=
+    `<div class="cd-box"><div class="cd-num">${String(j).padStart(2,'0')}</div><div class="cd-unit">Jours</div></div>
+     <div class="cd-box"><div class="cd-num">${String(h).padStart(2,'0')}</div><div class="cd-unit">Heures</div></div>
+     <div class="cd-box"><div class="cd-num">${String(m).padStart(2,'0')}</div><div class="cd-unit">Minutes</div></div>
+     <div class="cd-box"><div class="cd-num">${String(s).padStart(2,'0')}</div><div class="cd-unit">Secondes</div></div>`;
+}
+setInterval(updateCD,1000);updateCD();
+</script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galerie — FESTI SAINT CHRISTOPHE</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="index.html" class="nav-logo"><img src="logo_paroisse_rond.png" alt="Paroisse Saint Christophe" style="width:36px;height:36px;border-radius:50%;object-fit:cover"><div class="nav-logo-text">FESTI<br>Saint Christophe</div></a><div class="nav-links" id="nav-links"></div><button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu" id="mobile-menu"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner" style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px">
+    <div class="page-hero-label">Souvenirs</div>
+    <h1>Galerie <em>photos & vidéos</em></h1>
+    <p>Les plus beaux moments des 7 éditions du FESTI SAINT CHRISTOPHE.</p>
+  </div>
+</div>
+
+<section class="sec bg-blanc">
+  <div class="sec-inner">
+    <!-- Filtre par année -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px" id="filtres">
+      <button onclick="filtrer('all')" class="filtre-btn active" data-filter="all">Toutes les éditions</button>
+      <button onclick="filtrer('2025')" class="filtre-btn" data-filter="2025">2025</button>
+      <button onclick="filtrer('2024')" class="filtre-btn" data-filter="2024">2024</button>
+      <button onclick="filtrer('2023')" class="filtre-btn" data-filter="2023">2023</button>
+      <button onclick="filtrer('2019')" class="filtre-btn" data-filter="2019">2019</button>
+      <button onclick="filtrer('2018')" class="filtre-btn" data-filter="2018">2018</button>
+      <button onclick="filtrer('2017')" class="filtre-btn" data-filter="2017">2017</button>
+    </div>
+
+    <!-- Grille galerie -->
+    <div id="galerie-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
+      <!-- Les cartes photo sont générées dynamiquement -->
+    </div>
+
+    <!-- Message upload -->
+    <div style="margin-top:48px;background:var(--bleu-clair);border:2px dashed var(--bleu2);border-radius:16px;padding:40px;text-align:center" class="fade-up">
+      <div style="font-size:40px;margin-bottom:12px">📸</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--bleu);margin-bottom:8px">Ajoutez vos photos !</h3>
+      <p style="font-size:15px;color:var(--texte2);max-width:480px;margin:0 auto 20px;line-height:1.7">Vous avez des photos ou vidéos des éditions précédentes ? Partagez-les avec la communauté !</p>
+      <a href="contact.html" class="btn btn-primary">Nous contacter pour partager →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Section capsules vidéo -->
+<section class="sec bg-gris fade-up">
+  <div class="sec-inner">
+    <div class="sec-label">Juin 2026</div>
+    <h2 class="sec-title">Capsules <em>« L'Essenciel de... »</em></h2>
+    <p class="sec-intro">Chaque semaine de juin, une personnalité répond : <em>« Pour toi, c'est quoi l'essentiel ? »</em></p>
+    <div class="grid-3">
+      <div class="card">
+        <div style="height:160px;background:var(--bleu);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative;overflow:hidden">
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.05),rgba(255,255,255,.05) 1px,transparent 1px,transparent 8px)"></div>
+          <div style="width:52px;height:52px;border-radius:50%;background:var(--or);display:flex;align-items:center;justify-content:center;position:relative;z-index:1">
+            <span style="border-style:solid;border-width:9px 0 9px 16px;border-color:transparent transparent transparent var(--bleu);margin-left:4px;display:inline-block"></span>
+          </div>
+          <div style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);color:#fff;font-size:10px;font-weight:600;padding:3px 8px;border-radius:10px;letter-spacing:1px">Bientôt</div>
+        </div>
+        <div style="font-size:11px;color:var(--bleu2);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Début juin</div>
+        <div style="font-size:15px;font-weight:600;color:var(--texte)">L'Essenciel du Père Jean-Michel</div>
+        <div style="font-size:12px;color:var(--texte2);margin-top:4px">Lancement officiel du FESTI 2026</div>
+      </div>
+      <div class="card">
+        <div style="height:160px;background:var(--bleu);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative;overflow:hidden">
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.05),rgba(255,255,255,.05) 1px,transparent 1px,transparent 8px)"></div>
+          <div style="width:52px;height:52px;border-radius:50%;background:var(--or);display:flex;align-items:center;justify-content:center;position:relative;z-index:1">
+            <span style="border-style:solid;border-width:9px 0 9px 16px;border-color:transparent transparent transparent var(--bleu);margin-left:4px;display:inline-block"></span>
+          </div>
+          <div style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);color:#fff;font-size:10px;font-weight:600;padding:3px 8px;border-radius:10px;letter-spacing:1px">Bientôt</div>
+        </div>
+        <div style="font-size:11px;color:var(--bleu2);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Semaine 2</div>
+        <div style="font-size:15px;font-weight:600;color:var(--texte)">L'Essenciel de FAIV'</div>
+        <div style="font-size:12px;color:var(--texte2);margin-top:4px">Artiste martiniquaise</div>
+      </div>
+      <div class="card">
+        <div style="height:160px;background:var(--bleu);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative;overflow:hidden">
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.05),rgba(255,255,255,.05) 1px,transparent 1px,transparent 8px)"></div>
+          <div style="width:52px;height:52px;border-radius:50%;background:var(--or);display:flex;align-items:center;justify-content:center;position:relative;z-index:1">
+            <span style="border-style:solid;border-width:9px 0 9px 16px;border-color:transparent transparent transparent var(--bleu);margin-left:4px;display:inline-block"></span>
+          </div>
+          <div style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);color:#fff;font-size:10px;font-weight:600;padding:3px 8px;border-radius:10px">J–7</div>
+        </div>
+        <div style="font-size:11px;color:var(--bleu2);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">J–7</div>
+        <div style="font-size:15px;font-weight:600;color:var(--texte)">Teaser officiel 2026</div>
+        <div style="font-size:12px;color:var(--texte2);margin-top:4px">Programme complet dévoilé !</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+          <img src="logo_paroisse_rond.png" alt="Paroisse" style="width:44px;height:44px;border-radius:50%">
+          <img src="logo_comite.png" alt="Comité des Fêtes" style="width:44px;height:44px;border-radius:50%;background:#fff">
+        </div>
+        <div class="footer-brand-title">FESTI SAINT CHRISTOPHE</div>
+        <div class="footer-brand-sub">Paroisse Saint Christophe · Kerlys<br>97200 Fort-de-France · Martinique<br>Tél. +596 596 71 48 86</div>
+        <div class="footer-brand-creole">« L'Essenciel » — 28 juin 2026</div>
+      </div>
+      <div>
+        <h4 style="font-size:12px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:14px">Navigation</h4>
+        <a href="index.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:8px">Accueil</a>
+        <a href="editions.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:8px">Toutes les éditions</a>
+        <a href="2026.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:8px">Édition 2026</a>
+        <a href="galerie.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:8px">Galerie</a>
+        <a href="quiz.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:8px">Quiz</a>
+        <a href="partenaires.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:8px">Partenaires</a>
+        <a href="contact.html" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">Contact</a>
+      </div>
+      <div>
+        <h4 style="font-size:12px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:14px">Contact</h4>
+        <div style="color:rgba(255,255,255,.7);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Pastorale communication</div>
+        <a href="tel:+596696101298" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:10px">+596 696 10 12 98</a>
+        <a href="mailto:com.stchristophe@gmail.com" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:6px">com.stchristophe@gmail.com</a>
+        <a href="mailto:comitedfetes.stchristophe@gmail.com" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:6px">comitedfetes.stchristophe@gmail.com</a>
+        <a href="mailto:paroisse.stchristophe@eglisemartinique.fr" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:10px">paroisse.stchristophe@eglisemartinique.fr</a>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:4px">
+          <a href="https://www.facebook.com/ParoisseSaintChristophe" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">
+            <span style="background:#1877F2;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0">f</span>
+            Paroisse Saint Christophe
+          </a>
+          <a href="https://www.youtube.com/@paroissesaintchristophe" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">
+            <span style="background:#FF0000;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;flex-shrink:0">▶</span>
+            Paroisse Saint Christophe
+          </a>
+          <a href="https://wa.me/596696101298" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">
+            <span style="background:#25D366;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;flex-shrink:0">W</span>
+            WhatsApp Paroisse Saint Christophe
+          </a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <span style="font-size:12px;color:rgba(255,255,255,.25)">© 2026 Paroisse Saint Christophe · comparoissestchristophe.github.io</span>
+      <span style="font-size:12px;color:rgba(255,255,255,.25)">Site réalisé avec ❤ pour la communauté</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+.filtre-btn{background:var(--gris);border:1px solid var(--gris-ligne);color:var(--texte);font-size:13px;font-weight:500;padding:7px 16px;border-radius:20px;cursor:pointer;transition:.2s;font-family:'Outfit',sans-serif}
+.filtre-btn:hover,.filtre-btn.active{background:var(--bleu);color:#fff;border-color:var(--bleu)}
+.photo-card{border-radius:12px;overflow:hidden;background:var(--gris);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;transition:.2s}
+.photo-card:hover{transform:scale(1.02)}
+.photo-card-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(13,79,122,.9));color:#fff;padding:20px 14px 12px;font-size:13px;font-weight:600}
+.photo-card-year{position:absolute;top:10px;left:10px;background:var(--or);color:var(--bleu);font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px}
+</style>
+<script src="nav.js"></script>
+<script>
+initNav('galerie.html');
+
+const PHOTOS = [
+  {annee:'2025',label:'Village artisanal — 6ème édition',emoji:'🏪'},
+  {annee:'2025',label:'Plateau artistique — Jacky RAPON',emoji:'🎤'},
+  {annee:'2024',label:'Concert BÈLÈ LÉGLIZ — 5ème édition',emoji:'🎶'},
+  {annee:'2024',label:'Animations — jeux gonflables',emoji:'🎈'},
+  {annee:'2023',label:'Jean-Michel CABRIMOL sur scène',emoji:'🌟'},
+  {annee:'2023',label:'Reprise après COVID — grand retour !',emoji:'🙌'},
+  {annee:'2019',label:'Garden Party — Entre Terre et Mer',emoji:'🌊'},
+  {annee:'2019',label:'Anna TEKO — prestation internationale',emoji:'🎵'},
+  {annee:'2018',label:'Course de vieux pneus — An Tan Lontan',emoji:'🏃'},
+  {annee:'2018',label:'Stands exposants — 2ème édition',emoji:'🛒'},
+  {annee:'2017',label:'1ère édition — Journée de la Famille',emoji:'👨‍👩‍👧‍👦'},
+  {annee:'2017',label:'Concert BÈLÈ LÉGLIZ — édition fondatrice',emoji:'🎸'},
+];
+
+const colors = {'2025':'#8E44AD','2024':'#B8860B','2023':'#C0392B','2019':'#2A9D6A','2018':'#1A78B4','2017':'#0D4F7A'};
+
+function renderGalerie(filter){
+  const grid = document.getElementById('galerie-grid');
+  const photos = filter==='all' ? PHOTOS : PHOTOS.filter(p=>p.annee===filter);
+  grid.innerHTML = photos.map(p=>`
+    <div class="photo-card fade-up" style="background:${colors[p.annee]}22;border:1px solid ${colors[p.annee]}44" onclick="alert('Photo ${p.annee} — à remplacer par la vraie photo !')">
+      <div style="font-size:48px">${p.emoji}</div>
+      <div class="photo-card-year" style="background:${colors[p.annee]}">${p.annee}</div>
+      <div class="photo-card-label">${p.label}</div>
+    </div>
+  `).join('');
+  initFadeUp();
+}
+
+function filtrer(annee){
+  document.querySelectorAll('.filtre-btn').forEach(b=>b.classList.toggle('active',b.dataset.filter===annee));
+  renderGalerie(annee);
+}
+
+renderGalerie('all');
+</script>
+</body>
+</html>
