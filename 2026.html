@@ -90,13 +90,13 @@
 
     <!-- Trois temps -->
     <div class="grid-3" style="margin-bottom:32px">
-      <div style="background:var(--bleu-fonce,#0D4F7A);border-radius:12px;padding:20px;text-align:center">
+      <div style="background:#0D4F7A;border-radius:12px;padding:20px;text-align:center">
         <div style="color:var(--or);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">🌅 Matin</div>
-        <div style="color:#fff;font-size:13px;opacity:.8">3 messes · Petit-déjeuner<br>Lancement officiel</div>
+        <div style="color:#fff;font-size:13px;opacity:.8">3 messes · Lancement officiel<br>Bénédictions</div>
       </div>
       <div style="background:#1A78B4;border-radius:12px;padding:20px;text-align:center">
         <div style="color:var(--or);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">☀️ Après-midi</div>
-        <div style="color:#fff;font-size:13px;opacity:.8">Animations · Plateau artistique<br>Déjeuner · Défilé · Théâtre</div>
+        <div style="color:#fff;font-size:13px;opacity:.8">Déjeuner · Plateau artistique<br>Animations · Défilé · Danse · Théâtre</div>
       </div>
       <div style="background:var(--or);border-radius:12px;padding:20px;text-align:center">
         <div style="color:var(--bleu);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">🌙 Soirée</div>
@@ -290,5 +290,10 @@ function updateCD(){
 }
 setInterval(updateCD,1000);updateCD();
 </script>
+
+<!-- Bouton Contact flottant -->
+<a href="contact.html" style="position:fixed;bottom:24px;right:24px;background:var(--or);color:var(--bleu);font-size:14px;font-weight:700;padding:14px 22px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.25);z-index:999;display:flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;transition:.2s" onmouseover="this.style.background='#F0C040'" onmouseout="this.style.background='#D4A017'">
+  ✉ Nous contacter
+</a>
 </body>
 </html>
