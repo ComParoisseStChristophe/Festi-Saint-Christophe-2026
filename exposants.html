@@ -4,6 +4,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Dossier Exposant — FESTI SAINT CHRISTOPHE 2026</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 body{font-family:'Outfit',sans-serif;background:#F4F4F0;color:#2A2A35}
 .expo-wrap{max-width:780px;margin:0 auto;padding:24px 16px 60px}
@@ -301,8 +302,66 @@ canvas#sig-canvas{display:block;width:100%;touch-action:none;cursor:crosshair}
 
   </form>
 
-  <!-- CONTACT -->
-  <div style="text-align:center;margin-top:32px;padding:20px;background:#fff;border-radius:12px;border:0.5px solid #e0e0e0">
+  <!-- PAGE DE REMERCIEMENT -->
+  <div id="merci-page" style="display:none">
+    <!-- Bannière principale -->
+    <div style="background:#0D4F7A;border-radius:16px;padding:40px 28px;text-align:center;margin-bottom:24px;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(212,160,23,.1)"></div>
+      <div style="position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.05)"></div>
+      <img src="logo_paroisse_rond.png" alt="Paroisse" style="width:80px;height:80px;border-radius:50%;margin-bottom:16px;border:3px solid #D4A017;position:relative">
+      <div style="font-size:48px;margin-bottom:8px">🙏</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:28px;color:#D4A017;margin-bottom:8px;position:relative">Mèsi ! Merci !</h2>
+      <h3 style="font-size:18px;color:#fff;margin-bottom:16px;font-weight:500;position:relative">Votre dossier de candidature a bien été reçu.</h3>
+      <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:20px;max-width:480px;margin:0 auto;position:relative">
+        <p style="font-size:15px;color:rgba(255,255,255,.85);line-height:1.8;font-style:italic">
+          « Tu aimeras le Seigneur ton Dieu de tout ton cœur,<br>
+          de toute ton âme et de tout ton esprit.<br>
+          Voilà le grand commandement, le premier. »
+        </p>
+        <p style="font-size:13px;color:#D4A017;margin-top:8px">— Matthieu 22, 37-38</p>
+      </div>
+    </div>
+
+    <!-- Infos suite -->
+    <div style="background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;border:0.5px solid #e0e0e0">
+      <h3 style="font-family:'Playfair Display',serif;font-size:18px;color:#0D4F7A;margin-bottom:16px;border-bottom:2px solid #D4A017;padding-bottom:8px">Prochaines étapes</h3>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <div style="background:#E8F4FB;color:#0D4F7A;font-size:18px;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
+          <div><strong style="font-size:14px;color:#0D4F7A">Confirmation par email</strong><p style="font-size:13px;color:#666;margin-top:2px">Le Comité des Fêtes reviendra vers vous pour confirmer votre inscription.</p></div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <div style="background:#E8F4FB;color:#0D4F7A;font-size:18px;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
+          <div><strong style="font-size:14px;color:#0D4F7A">Confirmation de votre emplacement</strong><p style="font-size:13px;color:#666;margin-top:2px">Le Comité des Fêtes vous contactera pour vous communiquer votre emplacement et les consignes de sécurité.</p></div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <div style="background:#E8F4FB;color:#0D4F7A;font-size:18px;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
+          <div><strong style="font-size:14px;color:#0D4F7A">Le jour J — 28 juin 2026</strong><p style="font-size:13px;color:#666;margin-top:2px">Arrivée et installation dès 07H30 sur le site de la Paroisse Saint Christophe, Kerlys.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bouton télécharger PDF -->
+    <div style="background:#FDF6E3;border:1.5px solid #D4A017;border-radius:12px;padding:24px;margin-bottom:20px;text-align:center">
+      <div style="font-size:32px;margin-bottom:8px">📥</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:18px;color:#9A7010;margin-bottom:8px">Conservez une copie de votre dossier</h3>
+      <p style="font-size:13px;color:#8B6914;margin-bottom:16px">Comme indiqué dans les conditions générales, nous vous invitons à conserver une copie de votre dossier d'inscription.</p>
+      <button onclick="genererPDF()" style="background:#0D4F7A;color:#D4A017;font-size:15px;font-weight:700;padding:14px 28px;border:none;border-radius:10px;cursor:pointer;font-family:'Outfit',sans-serif;display:inline-flex;align-items:center;gap:10px">
+        📄 Télécharger mon dossier en PDF
+      </button>
+    </div>
+
+    <!-- Contact -->
+    <div style="text-align:center;padding:20px;background:#fff;border-radius:12px;border:0.5px solid #e0e0e0;margin-bottom:24px">
+      <p style="font-size:13px;color:#555;margin-bottom:6px"><strong>Contact Comité des Fêtes</strong></p>
+      <p style="font-size:13px;color:#555">Julien BRISCAN — Responsable Comité des Fêtes</p>
+      <p style="font-size:13px;color:#1A78B4">📞 +596 696 10 12 98</p>
+      <p style="font-size:13px;color:#1A78B4">✉ comitedfetes.stchristophe@gmail.com</p>
+    </div>
+  </div>
+
+  <!-- CONTACT (formulaire normal) -->
+  <div id="contact-normal" style="text-align:center;margin-top:32px;padding:20px;background:#fff;border-radius:12px;border:0.5px solid #e0e0e0">
     <p style="font-size:13px;color:#555;margin-bottom:6px"><strong>Contact Comité des Fêtes</strong></p>
     <p style="font-size:13px;color:#555">Julien BRISCAN — Responsable Comité des Fêtes</p>
     <p style="font-size:13px;color:#1A78B4">📞 +596 696 10 12 98</p>
@@ -423,10 +482,32 @@ document.getElementById('expo-form').addEventListener('submit', async function(e
       headers: { 'Accept': 'application/json' }
     });
     if(res.ok){
-      document.getElementById('msg-success').style.display = 'block';
-      document.getElementById('msg-error').style.display = 'none';
-      btn.textContent = '✅ Dossier envoyé';
-      this.scrollIntoView({behavior:'smooth'});
+        // Collecter données pour PDF
+      const formData = {
+        entreprise: document.querySelector('[name="entreprise"]').value || '—',
+        nom: document.querySelector('[name="nom"]').value,
+        prenom: document.querySelector('[name="prenom"]').value,
+        adresse: document.querySelector('[name="adresse"]').value,
+        code_postal: document.querySelector('[name="code_postal"]').value,
+        commune: document.querySelector('[name="commune"]').value,
+        telephone: document.querySelector('[name="telephone"]').value,
+        email: document.querySelector('[name="email"]').value,
+        effectif: document.querySelector('[name="effectif"]').value,
+        domaines: [...document.querySelectorAll('[name="domaines"]:checked')].map(d=>d.value).join(', '),
+        autre_detail: document.querySelector('[name="autre_detail"]') ? document.querySelector('[name="autre_detail"]').value : '',
+        electricite: document.querySelector('[name="electricite"]:checked') ? document.querySelector('[name="electricite"]:checked').value : '—',
+        puissance: document.querySelector('[name="puissance"]') ? document.querySelector('[name="puissance"]').value : '—',
+        fait_a: document.querySelector('[name="fait_a"]').value,
+        fait_le: document.querySelector('[name="fait_le"]').value,
+        signature: hasSig
+      };
+      window._expoFormData = formData;
+
+      // Afficher page de remerciement
+      document.getElementById('expo-form').style.display = 'none';
+      document.querySelector('.deadline-banner').style.display = 'none';
+      document.getElementById('merci-page').style.display = 'block';
+      window.scrollTo({top:0, behavior:'smooth'});
     } else { throw new Error(); }
   } catch(err){
     document.getElementById('msg-error').style.display = 'block';
@@ -434,6 +515,112 @@ document.getElementById('expo-form').addEventListener('submit', async function(e
     btn.disabled = false;
   }
 });
+
+// ── GÉNÉRATION PDF ────────────────────────────────────────────────────────────
+function genererPDF(){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+  const d = window._expoFormData;
+  if(!d){ alert('Données non disponibles.'); return; }
+
+  const bleu = [13, 79, 122];
+  const or = [184, 134, 11];
+  const gris = [244, 244, 240];
+  const texte = [42, 42, 53];
+  const w = 210, m = 18, cw = w - 2*m;
+
+  let y = 0;
+
+  // En-tête
+  doc.setFillColor(...bleu);
+  doc.rect(0, 0, w, 40, 'F');
+  doc.setTextColor(212, 160, 23);
+  doc.setFontSize(16);
+  doc.setFont('helvetica','bold');
+  doc.text('FESTI SAINT CHRISTOPHE 2026 — 7ème Édition', w/2, 14, {align:'center'});
+  doc.setFontSize(11);
+  doc.setFont('helvetica','normal');
+  doc.setTextColor(255,255,255);
+  doc.text('« L'Essenciel » — Dimanche 28 juin 2026', w/2, 22, {align:'center'});
+  doc.text('Paroisse Saint Christophe, Kerlys, Fort-de-France', w/2, 29, {align:'center'});
+  doc.setFontSize(13);
+  doc.setFont('helvetica','bold');
+  doc.setTextColor(212,160,23);
+  doc.text('DOSSIER DE CANDIDATURE EXPOSANT', w/2, 37, {align:'center'});
+
+  y = 50;
+
+  // Fonction ligne
+  const ligne = (label, valeur, alt=false) => {
+    if(y > 265){ doc.addPage(); y = 20; }
+    if(alt){ doc.setFillColor(...gris); doc.rect(m, y-4, cw, 10, 'F'); }
+    doc.setFontSize(9); doc.setFont('helvetica','bold'); doc.setTextColor(...bleu);
+    doc.text(label, m+2, y+2);
+    doc.setFont('helvetica','normal'); doc.setTextColor(...texte);
+    doc.text(valeur||'—', m+55, y+2);
+    y += 11;
+  };
+
+  const sectionTitre = (t) => {
+    if(y > 265){ doc.addPage(); y = 20; }
+    doc.setFillColor(...bleu);
+    doc.rect(m, y-2, cw, 10, 'F');
+    doc.setFontSize(10); doc.setFont('helvetica','bold'); doc.setTextColor(212,160,23);
+    doc.text(t, m+4, y+5);
+    y += 16;
+  };
+
+  // Fiche renseignements
+  sectionTitre('FICHE DE RENSEIGNEMENTS EXPOSANT');
+  ligne('Entreprise / Association :', d.entreprise, false);
+  ligne('Nom :', d.nom, true);
+  ligne('Prénom :', d.prenom, false);
+  ligne('Adresse :', d.adresse, true);
+  ligne('Code postal :', d.code_postal, false);
+  ligne('Commune :', d.commune, true);
+  ligne('Téléphone :', d.telephone, false);
+  ligne('Email :', d.email, true);
+  ligne('Effectif sur le stand :', d.effectif, false);
+
+  y += 4;
+  sectionTitre('DOMAINE(S) D'ACTIVITÉ(S)');
+  doc.setFontSize(9); doc.setFont('helvetica','normal'); doc.setTextColor(...texte);
+  const domainesLines = doc.splitTextToSize(d.domaines || '—', cw-4);
+  doc.text(domainesLines, m+2, y);
+  y += domainesLines.length * 6 + 8;
+  if(d.autre_detail){ ligne('Précision "Autre" :', d.autre_detail, true); }
+
+  y += 4;
+  sectionTitre('RACCORDEMENT ÉLECTRIQUE');
+  ligne('Besoin électricité :', d.electricite, false);
+  if(d.electricite === 'OUI'){ ligne('Puissance totale :', d.puissance, true); }
+
+  y += 4;
+  sectionTitre('SIGNATURE');
+  ligne('Lu et approuvé :', 'Oui — conditions générales acceptées', false);
+  ligne('Signature électronique :', d.signature ? 'Apposée le '+d.fait_le : 'Non signée', true);
+  ligne('Fait à :', d.fait_a, false);
+  ligne('Le :', d.fait_le, true);
+
+  y += 8;
+  // Note conservation
+  doc.setFillColor(253,246,227);
+  doc.rect(m, y, cw, 16, 'F');
+  doc.setFontSize(8); doc.setFont('helvetica','italic'); doc.setTextColor(139,105,20);
+  doc.text('Document à conserver — Dossier envoyé au Comité des Fêtes de la Paroisse Saint Christophe', m+4, y+6);
+  doc.text('Date limite d'envoi : 14 juin 2026 | comitedfetes.stchristophe@gmail.com | +596 696 10 12 98', m+4, y+12);
+  y += 22;
+
+  // Footer
+  doc.setFillColor(...bleu);
+  doc.rect(0, 285, w, 12, 'F');
+  doc.setFontSize(8); doc.setFont('helvetica','normal'); doc.setTextColor(212,160,23);
+  doc.text('FESTI SAINT CHRISTOPHE 2026 — comparoissestchristophe.github.io/Festi-Saint-Christophe-2026/', w/2, 293, {align:'center'});
+
+  const nom = (d.nom+' '+d.prenom).replace(/\s+/g,'_');
+  doc.save('Dossier_Exposant_FESTI_2026_'+nom+'.pdf');
+}
+
 </script>
 </body>
 </html>
