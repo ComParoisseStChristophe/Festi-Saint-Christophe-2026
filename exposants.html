@@ -8,82 +8,82 @@
 <style>
 body{font-family:'Outfit',sans-serif;background:#F4F4F0;color:#2A2A35}
 .expo-wrap{max-width:780px;margin:0 auto;padding:24px 16px 60px}
-
-/* Header */
 .expo-header{background:#0D4F7A;border-radius:16px;padding:28px 24px;text-align:center;margin-bottom:28px}
 .expo-header-logos{display:flex;justify-content:center;align-items:center;gap:16px;margin-bottom:16px}
 .expo-header h1{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:#fff;margin-bottom:6px}
 .expo-header h2{font-size:16px;color:#D4A017;font-weight:600;margin-bottom:4px}
 .expo-header p{font-size:13px;color:rgba(255,255,255,.65);font-style:italic}
-
-/* Sections */
 .expo-section{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;border:0.5px solid #e0e0e0}
 .expo-section h3{font-family:'Playfair Display',serif;font-size:18px;color:#0D4F7A;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #D4A017}
-
-/* Champs */
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
 .form-row.full{grid-template-columns:1fr}
 .form-group{display:flex;flex-direction:column;gap:5px}
 .form-group label{font-size:12px;font-weight:600;color:#666;letter-spacing:1px;text-transform:uppercase}
-.form-group input,.form-group textarea,.form-group select{
-  padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;
-  font-size:14px;font-family:'Outfit',sans-serif;outline:none;
-  transition:border-color .2s;background:#fff
-}
+.form-group input,.form-group textarea,.form-group select{padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Outfit',sans-serif;outline:none;transition:border-color .2s;background:#fff}
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#1A78B4}
-.form-group input.required-field{border-color:#E24B4A}
 @media(max-width:600px){.form-row{grid-template-columns:1fr}}
-
-/* Checkboxes domaines */
 .domaines-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-.domaine-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1.5px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:.2s;font-size:14px}
+.domaine-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1.5px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:.2s;font-size:14px;user-select:none}
 .domaine-item:hover{border-color:#1A78B4;background:#E8F4FB}
 .domaine-item input[type=checkbox]{width:18px;height:18px;accent-color:#0D4F7A;cursor:pointer;flex-shrink:0}
 .domaine-item.checked{border-color:#0D4F7A;background:#E8F4FB}
 @media(max-width:600px){.domaines-grid{grid-template-columns:1fr}}
-
-/* Électricité */
-.radio-group{display:flex;gap:16px;margin-top:8px}
-.radio-item{display:flex;align-items:center;gap:8px;padding:10px 18px;border:1.5px solid #e0e0e0;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;transition:.2s}
+.radio-group{display:flex;gap:16px;margin-top:8px;flex-wrap:wrap}
+.radio-item{display:flex;align-items:center;gap:8px;padding:10px 18px;border:1.5px solid #e0e0e0;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;transition:.2s;user-select:none}
 .radio-item:hover{border-color:#1A78B4}
 .radio-item input{accent-color:#0D4F7A;width:18px;height:18px}
 .radio-item.selected{border-color:#0D4F7A;background:#E8F4FB}
-
-/* Conditions */
 .conditions-text{background:#F4F4F0;border-radius:8px;padding:16px;font-size:13px;color:#444;line-height:1.7;max-height:280px;overflow-y:auto;margin-bottom:16px}
 .conditions-text h4{font-size:14px;font-weight:700;color:#0D4F7A;margin:14px 0 6px}
 .conditions-text h4:first-child{margin-top:0}
-.lu-approuve{display:flex;align-items:flex-start;gap:12px;padding:14px;background:#E8F4FB;border:1.5px solid #1A78B4;border-radius:8px;cursor:pointer}
-.lu-approuve input{width:20px;height:20px;accent-color:#0D4F7A;margin-top:2px;flex-shrink:0}
+.lu-approuve{display:flex;align-items:flex-start;gap:12px;padding:14px;background:#E8F4FB;border:1.5px solid #1A78B4;border-radius:8px;cursor:pointer;transition:.2s}
+.lu-approuve input{width:20px;height:20px;accent-color:#0D4F7A;margin-top:2px;flex-shrink:0;cursor:pointer}
 .lu-approuve span{font-size:14px;font-weight:600;color:#0D4F7A;line-height:1.5}
-
-/* Signature */
-.signature-wrap{border:2px dashed #1A78B4;border-radius:10px;background:#F8FBFF;overflow:hidden;position:relative}
-canvas#sig-canvas{display:block;width:100%;touch-action:none;cursor:crosshair}
+.sig-wrap{border:2px dashed #1A78B4;border-radius:10px;background:#F8FBFF;overflow:hidden;position:relative}
+canvas{display:block;cursor:crosshair;touch-action:none}
 .sig-toolbar{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#E8F4FB;border-top:1px solid #C6E4F4}
 .sig-hint{font-size:12px;color:#666;font-style:italic}
-.btn-clear-sig{background:#fff;border:1px solid #1A78B4;color:#0D4F7A;font-size:12px;font-weight:600;padding:5px 12px;border-radius:6px;cursor:pointer;font-family:'Outfit',sans-serif}
-
-/* Bouton submit */
-.btn-submit-expo{width:100%;padding:16px;background:#0D4F7A;color:#D4A017;font-size:16px;font-weight:700;border:none;border-radius:10px;cursor:pointer;font-family:'Outfit',sans-serif;transition:.2s;margin-top:8px}
-.btn-submit-expo:hover{background:#1A78B4}
-.btn-submit-expo:disabled{background:#ccc;color:#fff;cursor:default}
-
-/* Messages */
-.msg-success{background:#E1F5EE;border:1px solid #5DCAA5;border-radius:10px;padding:20px;text-align:center;color:#085041;font-size:15px;font-weight:600;display:none;margin-top:16px}
+.btn-clear{background:#fff;border:1px solid #1A78B4;color:#0D4F7A;font-size:12px;font-weight:600;padding:5px 12px;border-radius:6px;cursor:pointer;font-family:'Outfit',sans-serif}
+.btn-submit{width:100%;padding:16px;background:#0D4F7A;color:#D4A017;font-size:16px;font-weight:700;border:none;border-radius:10px;cursor:pointer;font-family:'Outfit',sans-serif;transition:.2s;margin-top:8px}
+.btn-submit:hover{background:#1A78B4}
+.btn-submit:disabled{background:#ccc;color:#fff;cursor:default}
 .msg-error{background:#FCEBEB;border:1px solid #E24B4A;border-radius:10px;padding:16px;text-align:center;color:#791F1F;font-size:14px;display:none;margin-top:12px}
+.deadline{background:#FDF6E3;border:1.5px solid #D4A017;border-radius:10px;padding:14px 18px;text-align:center;margin-bottom:20px}
+.deadline strong{color:#9A7010;font-size:15px}
+.deadline span{color:#9A7010;font-size:13px;display:block;margin-top:2px}
 
-/* Deadline */
-.deadline-banner{background:#FDF6E3;border:1.5px solid #D4A017;border-radius:10px;padding:14px 18px;text-align:center;margin-bottom:20px}
-.deadline-banner strong{color:#9A7010;font-size:15px}
-.deadline-banner span{color:#9A7010;font-size:13px}
+/* PAGE REMERCIEMENT */
+#merci{display:none}
+.merci-hero{background:#0D4F7A;border-radius:16px;padding:40px 28px;text-align:center;margin-bottom:24px;position:relative;overflow:hidden}
+.merci-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(212,160,23,.1)}
+.merci-hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.05)}
+.merci-logo{width:80px;height:80px;border-radius:50%;border:3px solid #D4A017;margin-bottom:16px;position:relative;z-index:1}
+.merci-icon{font-size:48px;margin-bottom:8px;position:relative;z-index:1}
+.merci-titre{font-family:'Playfair Display',serif;font-size:28px;color:#D4A017;margin-bottom:8px;position:relative;z-index:1}
+.merci-sous{font-size:18px;color:#fff;margin-bottom:20px;font-weight:500;position:relative;z-index:1}
+.merci-verset{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:20px;max-width:480px;margin:0 auto;position:relative;z-index:1}
+.merci-verset p{font-size:15px;color:rgba(255,255,255,.85);line-height:1.8;font-style:italic}
+.merci-verset cite{font-size:13px;color:#D4A017;display:block;margin-top:8px}
+.etapes{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;border:0.5px solid #e0e0e0}
+.etapes h3{font-family:'Playfair Display',serif;font-size:18px;color:#0D4F7A;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #D4A017}
+.etape{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.etape-num{background:#E8F4FB;color:#0D4F7A;font-size:16px;font-weight:700;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.etape strong{font-size:14px;color:#0D4F7A;display:block;margin-bottom:2px}
+.etape p{font-size:13px;color:#666;margin:0}
+.pdf-box{background:#FDF6E3;border:1.5px solid #D4A017;border-radius:12px;padding:24px;margin-bottom:20px;text-align:center}
+.pdf-box h3{font-family:'Playfair Display',serif;font-size:18px;color:#9A7010;margin-bottom:8px}
+.pdf-box p{font-size:13px;color:#8B6914;margin-bottom:16px}
+.btn-pdf{background:#0D4F7A;color:#D4A017;font-size:15px;font-weight:700;padding:14px 28px;border:none;border-radius:10px;cursor:pointer;font-family:'Outfit',sans-serif}
+.btn-pdf:hover{background:#1A78B4}
+.contact-box{text-align:center;padding:20px;background:#fff;border-radius:12px;border:0.5px solid #e0e0e0}
+.contact-box p{font-size:13px;color:#555;margin-bottom:4px}
+.contact-box a{color:#1A78B4;text-decoration:none;font-size:13px;display:block}
 </style>
 </head>
 <body style="padding-top:0">
-
 <div class="expo-wrap">
 
-  <!-- HEADER -->
+  <!-- EN-TÊTE -->
   <div class="expo-header">
     <div class="expo-header-logos">
       <img src="logo_paroisse_rond.png" alt="Paroisse" style="width:56px;height:56px;border-radius:50%">
@@ -95,91 +95,51 @@ canvas#sig-canvas{display:block;width:100%;touch-action:none;cursor:crosshair}
   </div>
 
   <!-- DEADLINE -->
-  <div class="deadline-banner">
-    <strong>📅 Date limite d'envoi du dossier : 14 juin 2026</strong><br>
+  <div class="deadline">
+    <strong>📅 Date limite d'envoi du dossier : 14 juin 2026</strong>
     <span>Seuls les dossiers dûment complétés et signés seront pris en compte.</span>
   </div>
 
+  <!-- ══ FORMULAIRE ══ -->
   <form id="expo-form">
 
-    <!-- PRÉSENTATION -->
     <div class="expo-section">
       <h3>Présentation</h3>
-      <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:12px">
-        <strong>FESTI SAINT CHRISTOPHE</strong> est une manifestation paroissiale d'envergure qui vivra cette année sa <strong>7ème édition</strong> sous le thème inspirant : <strong>« L'Essenciel »</strong>.
-      </p>
-      <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:12px">
-        Cette nouvelle rencontre s'inscrit dans la continuité d'un chemin d'unité, de fraternité et de foi vivante. Nous désirons faire de ce temps fort une véritable effusion d'amour, de fraternité, de joie et de mission.
-      </p>
-      <p style="font-size:14px;color:#555;line-height:1.7">
-        Vous souhaitez proposer vos produits et réserver votre stand sur l'espace exposants ? Complétez ce dossier de candidature.
-      </p>
+      <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:10px"><strong>FESTI SAINT CHRISTOPHE</strong> est une manifestation paroissiale d'envergure qui vivra cette année sa <strong>7ème édition</strong> sous le thème : <strong>« L'Essenciel »</strong>.</p>
+      <p style="font-size:14px;color:#555;line-height:1.7">Vous souhaitez proposer vos produits et réserver votre stand ? Complétez ce dossier de candidature.</p>
     </div>
 
-    <!-- FICHE DE RENSEIGNEMENTS -->
     <div class="expo-section">
       <h3>Fiche de renseignements exposant</h3>
-
-      <div class="form-row full">
-        <div class="form-group">
-          <label>Nom de l'entreprise / Association <span style="font-size:11px;color:#999;font-style:italic">(optionnel)</span></label>
-          <input type="text" name="entreprise" placeholder="Nom de votre entreprise, association ou mouvement paroissial">
-        </div>
-      </div>
-
-      <div class="form-row full">
-        <div class="form-group">
-          <label>Adresse *</label>
-          <input type="text" name="adresse" placeholder="Adresse complète" required>
-        </div>
-      </div>
-
+      <div class="form-row full"><div class="form-group">
+        <label>Nom de l'entreprise / Association <span style="font-size:11px;color:#999;font-style:italic;text-transform:none">(optionnel)</span></label>
+        <input type="text" name="entreprise" placeholder="Nom de votre entreprise, association ou mouvement paroissial">
+      </div></div>
+      <div class="form-row full"><div class="form-group">
+        <label>Adresse *</label>
+        <input type="text" name="adresse" placeholder="Adresse complète" required>
+      </div></div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Code postal *</label>
-          <input type="text" name="code_postal" placeholder="97200" required>
-        </div>
-        <div class="form-group">
-          <label>Commune *</label>
-          <input type="text" name="commune" placeholder="Fort-de-France" required>
-        </div>
+        <div class="form-group"><label>Code postal *</label><input type="text" name="code_postal" placeholder="97200" required></div>
+        <div class="form-group"><label>Commune *</label><input type="text" name="commune" placeholder="Fort-de-France" required></div>
       </div>
-
       <div class="form-row">
-        <div class="form-group">
-          <label>Nom *</label>
-          <input type="text" name="nom" placeholder="Votre nom" required>
-        </div>
-        <div class="form-group">
-          <label>Prénom *</label>
-          <input type="text" name="prenom" placeholder="Votre prénom" required>
-        </div>
+        <div class="form-group"><label>Nom *</label><input type="text" name="nom" placeholder="Votre nom" required></div>
+        <div class="form-group"><label>Prénom *</label><input type="text" name="prenom" placeholder="Votre prénom" required></div>
       </div>
-
       <div class="form-row">
-        <div class="form-group">
-          <label>Téléphone contact *</label>
-          <input type="tel" name="telephone" placeholder="+596 6XX XX XX XX" required>
-        </div>
-        <div class="form-group">
-          <label>Email *</label>
-          <input type="email" name="email" placeholder="votre@email.com" required>
-        </div>
+        <div class="form-group"><label>Téléphone *</label><input type="tel" name="telephone" placeholder="+596 6XX XX XX XX" required></div>
+        <div class="form-group"><label>Email *</label><input type="email" name="email" placeholder="votre@email.com" required></div>
       </div>
-
       <div class="form-row">
-        <div class="form-group">
-          <label>Effectif sur le stand *</label>
-          <input type="number" name="effectif" placeholder="Nombre de personnes" min="1" required>
-        </div>
+        <div class="form-group"><label>Effectif sur le stand *</label><input type="number" name="effectif" placeholder="Nombre de personnes" min="1" required></div>
       </div>
     </div>
 
-    <!-- DOMAINES D'ACTIVITÉ -->
     <div class="expo-section">
       <h3>Domaine(s) d'activité(s)</h3>
-      <p style="font-size:13px;color:#666;margin-bottom:12px">Cochez les catégories de produits que vous proposerez sur votre stand.</p>
-      <div class="domaines-grid" id="domaines-grid">
+      <p style="font-size:13px;color:#666;margin-bottom:12px">Cochez les catégories de produits que vous proposerez.</p>
+      <div class="domaines-grid">
         <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de gâteaux"> Vente de gâteaux</label>
         <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de tableaux"> Vente de tableaux</label>
         <label class="domaine-item"><input type="checkbox" name="domaines" value="Vente de bijoux"> Vente de bijoux</label>
@@ -198,222 +158,183 @@ canvas#sig-canvas{display:block;width:100%;touch-action:none;cursor:crosshair}
       </div>
     </div>
 
-    <!-- RACCORDEMENT ÉLECTRIQUE -->
     <div class="expo-section">
       <h3>Raccordement électrique</h3>
-      <p style="font-size:13px;color:#666;margin-bottom:10px">Avez-vous besoin d'un raccordement électrique ? (Rallonge non fournie — précisez la puissance totale de vos appareils)</p>
+      <p style="font-size:13px;color:#666;margin-bottom:10px">Avez-vous besoin d'un raccordement électrique ? (Rallonge non fournie)</p>
       <div class="radio-group">
-        <label class="radio-item" id="elec-oui-label">
-          <input type="radio" name="electricite" value="OUI" id="elec-oui"> OUI
-        </label>
-        <label class="radio-item" id="elec-non-label">
-          <input type="radio" name="electricite" value="NON" id="elec-non"> NON
-        </label>
+        <label class="radio-item" id="lbl-oui"><input type="radio" name="electricite" value="OUI" id="elec-oui"> OUI</label>
+        <label class="radio-item" id="lbl-non"><input type="radio" name="electricite" value="NON" id="elec-non"> NON</label>
       </div>
       <div id="puissance-detail" style="display:none;margin-top:12px">
         <div class="form-group">
-          <label>Puissance totale des appareils électriques *</label>
-          <input type="text" name="puissance" placeholder="Ex : 2000W — fer à repasser + micro-ondes">
+          <label>Puissance totale des appareils *</label>
+          <input type="text" name="puissance" placeholder="Ex : 2000W — précisez tous vos appareils">
         </div>
       </div>
     </div>
 
-    <!-- CONDITIONS GÉNÉRALES -->
     <div class="expo-section">
       <h3>Conditions générales d'inscription et de participation</h3>
-
       <div class="conditions-text">
-        <h4>Détail de la prestation proposée</h4>
-        <p>La prestation globale proposée aux exposants comprend la mise à disposition d'une surface individuelle dans l'espace exposants comprenant :</p>
-        <ul style="margin:8px 0 8px 20px;font-size:13px">
-          <li><strong>1 surface aménageable d'environ 9 m² maximum</strong> (prévoir votre chapiteau 3x3 — nous n'avons pas de stock), sauf autorisation pour un chapiteau plus grand.</li>
-          <li><strong>2 chaises</strong> (2 tables peuvent être fournies à la demande si vous n'avez pas de matériel).</li>
-          <li><strong>1 raccordement électrique</strong> si demande — rallonge non fournie.</li>
-        </ul>
-        <p><strong>N.B. :</strong> Une autorisation spéciale est accordée à certains exposants ayant un véhicule comme espace de travail habituel.</p>
+        <h4>Détail de la prestation</h4>
+        <p>La prestation comprend : 1 surface aménageable d'environ 9 m² max (prévoir votre chapiteau 3x3), 2 chaises (2 tables à la demande), 1 raccordement électrique si demande.</p>
         <p style="margin-top:8px"><strong>La participation de l'exposant est un don fait à la paroisse Saint Christophe du montant de son choix, à verser à l'issue de la période d'exposition.</strong></p>
-
         <h4>1. Objet</h4>
-        <p>Le « FESTI SAINT CHRISTOPHE » est un événement organisé par la paroisse Saint Christophe, 6 rue Saint Christophe – 97200 Fort-de-France, représentée par son curé le Père Jean-Michel MONCONTHOUR qui donne délégation à son Comité des Fêtes. Toute demande de participation implique l'adhésion entière et sans réserve du participant aux présentes conditions.</p>
-
+        <p>Le FESTI SAINT CHRISTOPHE est organisé par la paroisse Saint Christophe, 6 rue Saint Christophe – 97200 Fort-de-France, représentée par le Père Jean-Michel MONCONTHOUR qui donne délégation à son Comité des Fêtes.</p>
         <h4>2. Date et lieu</h4>
-        <p>Le FESTI SAINT CHRISTOPHE aura lieu le <strong>28 juin 2026 de 07H30 à 20H00</strong> sur le site de la paroisse Saint Christophe, 6 rue Saint Christophe, 97200 Fort-de-France. En cas de force majeure, l'organisateur pourra modifier la date ou le lieu.</p>
-
+        <p>Le FESTI aura lieu le <strong>28 juin 2026 de 07H30 à 20H00</strong> sur le site de la paroisse Saint Christophe, 6 rue Saint Christophe, 97200 Fort-de-France.</p>
         <h4>3. Annulation – désistement</h4>
-        <p>L'organisateur pourra annuler la manifestation après en avoir avisé le participant. En cas de désistement du participant, l'emplacement sera proposé à un autre exposant sur liste d'attente.</p>
-
+        <p>En cas de désistement, l'emplacement sera proposé à un autre exposant sur liste d'attente.</p>
         <h4>4. Condition d'admission</h4>
         <p>Seules les demandes dûment complétées et signées seront prises en compte. L'organisateur se réserve le droit de refuser toute demande ne s'inscrivant pas dans un esprit chrétien et fraternel.</p>
-
         <h4>5. Droits et obligations du participant</h4>
-        <p>Le participant ne peut présenter que les produits correspondant à sa fiche d'inscription. Il lui est interdit de céder ou sous-louer son stand sans accord écrit. Il doit fournir la liste des personnes présentes sur son stand et avertir l'organisateur avant de quitter l'emplacement.</p>
-
+        <p>Le participant ne peut présenter que les produits de sa fiche d'inscription. Cession ou sous-location du stand interdite sans accord écrit. Il doit fournir la liste des personnes présentes sur son stand.</p>
         <h4>6. Occupation du stand et sécurité</h4>
-        <p>Le stand devra être occupé en permanence. L'exposant s'engage à respecter scrupuleusement les consignes de sécurité sous peine d'exclusion.</p>
+        <p>Le stand doit être occupé en permanence. L'exposant s'engage à respecter les consignes de sécurité sous peine d'exclusion.</p>
       </div>
-
-      <label class="lu-approuve" id="lu-approuve-label">
-        <input type="checkbox" id="lu-approuve-cb" required>
+      <label class="lu-approuve" id="lu-label">
+        <input type="checkbox" id="lu-cb" required>
         <span>Je déclare avoir lu et approuvé les conditions générales d'inscription et de participation au FESTI SAINT CHRISTOPHE 2026.</span>
       </label>
     </div>
 
-    <!-- SIGNATURE -->
     <div class="expo-section">
       <h3>Signature électronique</h3>
       <p style="font-size:13px;color:#666;margin-bottom:12px">Signez dans le cadre ci-dessous avec votre doigt (mobile) ou votre souris (ordinateur).</p>
-      <div class="signature-wrap">
-        <canvas id="sig-canvas" height="180"></canvas>
+      <div class="sig-wrap">
+        <canvas id="sig" height="180" style="width:100%;height:180px"></canvas>
         <div class="sig-toolbar">
           <span class="sig-hint" id="sig-hint">✏ Signez ici</span>
-          <button type="button" class="btn-clear-sig" onclick="clearSignature()">Effacer</button>
+          <button type="button" class="btn-clear" onclick="clearSig()">Effacer</button>
         </div>
       </div>
-      <input type="hidden" id="sig-data" name="signature">
     </div>
 
-    <!-- LIEU ET DATE -->
     <div class="expo-section">
       <h3>Lieu et date de signature</h3>
       <div class="form-row">
-        <div class="form-group">
-          <label>Fait à *</label>
-          <input type="text" name="fait_a" placeholder="Fort-de-France" required>
-        </div>
-        <div class="form-group">
-          <label>Le *</label>
-          <input type="date" name="fait_le" required>
-        </div>
+        <div class="form-group"><label>Fait à *</label><input type="text" name="fait_a" placeholder="Fort-de-France" required></div>
+        <div class="form-group"><label>Le *</label><input type="date" name="fait_le" required></div>
       </div>
     </div>
 
-    <!-- SUBMIT -->
-    <button type="submit" class="btn-submit-expo" id="submit-btn">
-      📨 Envoyer mon dossier de candidature
-    </button>
-    <div class="msg-success" id="msg-success">
-      ✅ Votre dossier a bien été envoyé !<br>
-      <span style="font-size:13px;font-weight:400">Le Comité des Fêtes reviendra vers vous très prochainement.<br>
-      Conservez une copie de ce dossier pour vos archives.</span>
-    </div>
-    <div class="msg-error" id="msg-error">
-      Une erreur est survenue. Veuillez réessayer ou contacter le Comité des Fêtes au +596 696 10 12 98.
-    </div>
+    <button type="submit" class="btn-submit" id="submit-btn">📨 Envoyer mon dossier de candidature</button>
+    <div class="msg-error" id="msg-error">Une erreur est survenue. Veuillez réessayer ou contacter le Comité des Fêtes au +596 696 10 12 98.</div>
 
   </form>
 
-  <!-- PAGE DE REMERCIEMENT -->
-  <div id="merci-page" style="display:none">
-    <!-- Bannière principale -->
-    <div style="background:#0D4F7A;border-radius:16px;padding:40px 28px;text-align:center;margin-bottom:24px;position:relative;overflow:hidden">
-      <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(212,160,23,.1)"></div>
-      <div style="position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.05)"></div>
-      <img src="logo_paroisse_rond.png" alt="Paroisse" style="width:80px;height:80px;border-radius:50%;margin-bottom:16px;border:3px solid #D4A017;position:relative">
-      <div style="font-size:48px;margin-bottom:8px">🙏</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:28px;color:#D4A017;margin-bottom:8px;position:relative">Mèsi ! Merci !</h2>
-      <h3 style="font-size:18px;color:#fff;margin-bottom:16px;font-weight:500;position:relative">Votre dossier de candidature a bien été reçu.</h3>
-      <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:20px;max-width:480px;margin:0 auto;position:relative">
-        <p style="font-size:15px;color:rgba(255,255,255,.85);line-height:1.8;font-style:italic">
-          « Tu aimeras le Seigneur ton Dieu de tout ton cœur,<br>
-          de toute ton âme et de tout ton esprit.<br>
-          Voilà le grand commandement, le premier. »
-        </p>
-        <p style="font-size:13px;color:#D4A017;margin-top:8px">— Matthieu 22, 37-38</p>
+  <!-- ══ PAGE REMERCIEMENT ══ -->
+  <div id="merci">
+
+    <div class="merci-hero">
+      <img src="logo_paroisse_rond.png" class="merci-logo" alt="Paroisse">
+      <div class="merci-icon">🙏</div>
+      <h2 class="merci-titre">Mèsi ! Merci !</h2>
+      <h3 class="merci-sous">Votre dossier de candidature a bien été reçu.</h3>
+      <div class="merci-verset">
+        <p>« Tu aimeras le Seigneur ton Dieu de tout ton cœur,<br>de toute ton âme et de tout ton esprit.<br>Voilà le grand commandement, le premier. »</p>
+        <cite>— Matthieu 22, 37-38</cite>
       </div>
     </div>
 
-    <!-- Infos suite -->
-    <div style="background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;border:0.5px solid #e0e0e0">
-      <h3 style="font-family:'Playfair Display',serif;font-size:18px;color:#0D4F7A;margin-bottom:16px;border-bottom:2px solid #D4A017;padding-bottom:8px">Prochaines étapes</h3>
-      <div style="display:flex;flex-direction:column;gap:12px">
-        <div style="display:flex;gap:14px;align-items:flex-start">
-          <div style="background:#E8F4FB;color:#0D4F7A;font-size:18px;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
-          <div><strong style="font-size:14px;color:#0D4F7A">Confirmation par email</strong><p style="font-size:13px;color:#666;margin-top:2px">Le Comité des Fêtes reviendra vers vous pour confirmer votre inscription.</p></div>
-        </div>
-        <div style="display:flex;gap:14px;align-items:flex-start">
-          <div style="background:#E8F4FB;color:#0D4F7A;font-size:18px;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
-          <div><strong style="font-size:14px;color:#0D4F7A">Confirmation de votre emplacement</strong><p style="font-size:13px;color:#666;margin-top:2px">Le Comité des Fêtes vous contactera pour vous communiquer votre emplacement et les consignes de sécurité.</p></div>
-        </div>
-        <div style="display:flex;gap:14px;align-items:flex-start">
-          <div style="background:#E8F4FB;color:#0D4F7A;font-size:18px;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
-          <div><strong style="font-size:14px;color:#0D4F7A">Le jour J — 28 juin 2026</strong><p style="font-size:13px;color:#666;margin-top:2px">Arrivée et installation dès 07H30 sur le site de la Paroisse Saint Christophe, Kerlys.</p></div>
-        </div>
+    <div class="etapes">
+      <h3>Prochaines étapes</h3>
+      <div class="etape">
+        <div class="etape-num">1</div>
+        <div><strong>Confirmation par email</strong><p>Le Comité des Fêtes reviendra vers vous pour confirmer votre inscription.</p></div>
+      </div>
+      <div class="etape">
+        <div class="etape-num">2</div>
+        <div><strong>Confirmation de votre emplacement</strong><p>Le Comité des Fêtes vous contactera pour vous communiquer votre emplacement et les consignes de sécurité.</p></div>
+      </div>
+      <div class="etape">
+        <div class="etape-num">3</div>
+        <div><strong>Le jour J — 28 juin 2026</strong><p>Arrivée et installation dès 07H30 sur le site de la Paroisse Saint Christophe, Kerlys.</p></div>
       </div>
     </div>
 
-    <!-- Bouton télécharger PDF -->
-    <div style="background:#FDF6E3;border:1.5px solid #D4A017;border-radius:12px;padding:24px;margin-bottom:20px;text-align:center">
+    <div class="pdf-box">
       <div style="font-size:32px;margin-bottom:8px">📥</div>
-      <h3 style="font-family:'Playfair Display',serif;font-size:18px;color:#9A7010;margin-bottom:8px">Conservez une copie de votre dossier</h3>
-      <p style="font-size:13px;color:#8B6914;margin-bottom:16px">Comme indiqué dans les conditions générales, nous vous invitons à conserver une copie de votre dossier d'inscription.</p>
-      <button onclick="genererPDF()" style="background:#0D4F7A;color:#D4A017;font-size:15px;font-weight:700;padding:14px 28px;border:none;border-radius:10px;cursor:pointer;font-family:'Outfit',sans-serif;display:inline-flex;align-items:center;gap:10px">
-        📄 Télécharger mon dossier en PDF
-      </button>
+      <h3>Conservez une copie de votre dossier</h3>
+      <p>Comme indiqué dans les conditions générales, nous vous invitons à conserver une copie de votre dossier d'inscription.</p>
+      <button class="btn-pdf" onclick="genererPDF()">📄 Télécharger mon dossier en PDF</button>
     </div>
 
-    <!-- Contact -->
-    <div style="text-align:center;padding:20px;background:#fff;border-radius:12px;border:0.5px solid #e0e0e0;margin-bottom:24px">
-      <p style="font-size:13px;color:#555;margin-bottom:6px"><strong>Contact Comité des Fêtes</strong></p>
-      <p style="font-size:13px;color:#555">Julien BRISCAN — Responsable Comité des Fêtes</p>
-      <p style="font-size:13px;color:#1A78B4">📞 +596 696 10 12 98</p>
-      <p style="font-size:13px;color:#1A78B4">✉ comitedfetes.stchristophe@gmail.com</p>
+    <div class="contact-box">
+      <p><strong>Contact Comité des Fêtes</strong></p>
+      <p>Julien BRISCAN — Responsable Comité des Fêtes</p>
+      <a href="tel:+596696101298">📞 +596 696 10 12 98</a>
+      <a href="mailto:comitedfetes.stchristophe@gmail.com">✉ comitedfetes.stchristophe@gmail.com</a>
     </div>
-  </div>
 
-  <!-- CONTACT (formulaire normal) -->
-  <div id="contact-normal" style="text-align:center;margin-top:32px;padding:20px;background:#fff;border-radius:12px;border:0.5px solid #e0e0e0">
-    <p style="font-size:13px;color:#555;margin-bottom:6px"><strong>Contact Comité des Fêtes</strong></p>
-    <p style="font-size:13px;color:#555">Julien BRISCAN — Responsable Comité des Fêtes</p>
-    <p style="font-size:13px;color:#1A78B4">📞 +596 696 10 12 98</p>
-    <p style="font-size:13px;color:#1A78B4">✉ comitedfetes.stchristophe@gmail.com</p>
   </div>
 
 </div>
 
 <script>
 // ── CANVAS SIGNATURE ──────────────────────────────────────────────────────────
-const canvas = document.getElementById('sig-canvas');
+const canvas = document.getElementById('sig');
 const ctx = canvas.getContext('2d');
 let drawing = false, hasSig = false;
 
-function resizeCanvas(){
+function initCanvas(){
   const rect = canvas.getBoundingClientRect();
   const ratio = window.devicePixelRatio || 1;
   canvas.width = rect.width * ratio;
   canvas.height = 180 * ratio;
-  canvas.style.height = '180px';
   ctx.scale(ratio, ratio);
   ctx.strokeStyle = '#0D4F7A';
   ctx.lineWidth = 2.5;
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
 }
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener('load', initCanvas);
+window.addEventListener('resize', initCanvas);
 
-function getPos(e){
-  const rect = canvas.getBoundingClientRect();
-  if(e.touches) return {x: e.touches[0].clientX - rect.left, y: e.touches[0].clientY - rect.top};
-  return {x: e.clientX - rect.left, y: e.clientY - rect.top};
+function getXY(e){
+  const r = canvas.getBoundingClientRect();
+  const ratio = window.devicePixelRatio || 1;
+  if(e.touches){
+    return {x:(e.touches[0].clientX-r.left), y:(e.touches[0].clientY-r.top)};
+  }
+  return {x:(e.clientX-r.left), y:(e.clientY-r.top)};
 }
 
-canvas.addEventListener('mousedown', e => { drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); });
-canvas.addEventListener('mousemove', e => { if(!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSig = true; document.getElementById('sig-hint').textContent = '✓ Signature enregistrée'; });
-canvas.addEventListener('mouseup', () => { drawing = false; saveSignature(); });
-canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); }, {passive:false});
-canvas.addEventListener('touchmove', e => { e.preventDefault(); if(!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSig = true; document.getElementById('sig-hint').textContent = '✓ Signature enregistrée'; }, {passive:false});
-canvas.addEventListener('touchend', () => { drawing = false; saveSignature(); });
+canvas.addEventListener('mousedown', e=>{
+  drawing=true;
+  const p=getXY(e);
+  ctx.beginPath(); ctx.moveTo(p.x,p.y);
+});
+canvas.addEventListener('mousemove', e=>{
+  if(!drawing) return;
+  const p=getXY(e);
+  ctx.lineTo(p.x,p.y); ctx.stroke();
+  hasSig=true;
+  document.getElementById('sig-hint').textContent='✓ Signature enregistrée';
+});
+canvas.addEventListener('mouseup', ()=>{ drawing=false; });
+canvas.addEventListener('mouseleave', ()=>{ drawing=false; });
 
-function saveSignature(){ document.getElementById('sig-data').value = canvas.toDataURL('image/png'); }
-function clearSignature(){
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  hasSig = false;
-  document.getElementById('sig-data').value = '';
-  document.getElementById('sig-hint').textContent = '✏ Signez ici';
+canvas.addEventListener('touchstart', e=>{
+  e.preventDefault(); drawing=true;
+  const p=getXY(e); ctx.beginPath(); ctx.moveTo(p.x,p.y);
+},{passive:false});
+canvas.addEventListener('touchmove', e=>{
+  e.preventDefault(); if(!drawing) return;
+  const p=getXY(e); ctx.lineTo(p.x,p.y); ctx.stroke();
+  hasSig=true;
+  document.getElementById('sig-hint').textContent='✓ Signature enregistrée';
+},{passive:false});
+canvas.addEventListener('touchend', ()=>{ drawing=false; },{passive:false});
+
+function clearSig(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  hasSig=false;
+  document.getElementById('sig-hint').textContent='✏ Signez ici';
 }
 
-// ── CHECKBOXES DOMAINES ───────────────────────────────────────────────────────
-document.querySelectorAll('.domaine-item input').forEach(cb => {
+// ── CHECKBOXES ────────────────────────────────────────────────────────────────
+document.querySelectorAll('.domaine-item input').forEach(cb=>{
   cb.addEventListener('change', function(){
     this.closest('.domaine-item').classList.toggle('checked', this.checked);
   });
@@ -423,204 +344,176 @@ document.getElementById('autre-cb').addEventListener('change', function(){
 });
 
 // ── RADIO ÉLECTRICITÉ ─────────────────────────────────────────────────────────
-document.querySelectorAll('input[name="electricite"]').forEach(r => {
+document.querySelectorAll('input[name="electricite"]').forEach(r=>{
   r.addEventListener('change', function(){
-    document.querySelectorAll('.radio-item').forEach(el => el.classList.remove('selected'));
+    document.querySelectorAll('.radio-item').forEach(el=>el.classList.remove('selected'));
     this.closest('.radio-item').classList.add('selected');
-    document.getElementById('puissance-detail').style.display = this.value === 'OUI' ? 'block' : 'none';
+    document.getElementById('puissance-detail').style.display = this.value==='OUI' ? 'block' : 'none';
   });
 });
 
 // ── LU ET APPROUVÉ ────────────────────────────────────────────────────────────
-document.getElementById('lu-approuve-cb').addEventListener('change', function(){
-  document.getElementById('lu-approuve-label').style.background = this.checked ? '#E1F5EE' : '#E8F4FB';
-  document.getElementById('lu-approuve-label').style.borderColor = this.checked ? '#5DCAA5' : '#1A78B4';
+document.getElementById('lu-cb').addEventListener('change', function(){
+  document.getElementById('lu-label').style.background = this.checked ? '#E1F5EE' : '#E8F4FB';
+  document.getElementById('lu-label').style.borderColor = this.checked ? '#5DCAA5' : '#1A78B4';
 });
+
+// ── COLLECTE DONNÉES ──────────────────────────────────────────────────────────
+let expoData = {};
+
+function collectData(){
+  const fd = document.getElementById('expo-form');
+  expoData = {
+    entreprise: fd.querySelector('[name="entreprise"]').value || '—',
+    nom: fd.querySelector('[name="nom"]').value,
+    prenom: fd.querySelector('[name="prenom"]').value,
+    adresse: fd.querySelector('[name="adresse"]').value,
+    code_postal: fd.querySelector('[name="code_postal"]').value,
+    commune: fd.querySelector('[name="commune"]').value,
+    telephone: fd.querySelector('[name="telephone"]').value,
+    email: fd.querySelector('[name="email"]').value,
+    effectif: fd.querySelector('[name="effectif"]').value,
+    domaines: [...fd.querySelectorAll('[name="domaines"]:checked')].map(d=>d.value).join(', ') || '—',
+    autre_detail: fd.querySelector('[name="autre_detail"]') ? fd.querySelector('[name="autre_detail"]').value : '',
+    electricite: fd.querySelector('[name="electricite"]:checked') ? fd.querySelector('[name="electricite"]:checked').value : '—',
+    puissance: fd.querySelector('[name="puissance"]') ? fd.querySelector('[name="puissance"]').value : '—',
+    fait_a: fd.querySelector('[name="fait_a"]').value,
+    fait_le: fd.querySelector('[name="fait_le"]').value,
+    signature: hasSig
+  };
+}
 
 // ── SOUMISSION ────────────────────────────────────────────────────────────────
 document.getElementById('expo-form').addEventListener('submit', async function(e){
   e.preventDefault();
 
-  // Vérifier signature
   if(!hasSig){
     alert('Merci de signer le dossier avant de l\'envoyer.');
     canvas.scrollIntoView({behavior:'smooth'});
     return;
   }
-
-  // Vérifier au moins un domaine
-  const domaines = document.querySelectorAll('input[name="domaines"]:checked');
-  if(domaines.length === 0){
+  const domaines = document.querySelectorAll('[name="domaines"]:checked');
+  if(domaines.length===0){
     alert('Merci de sélectionner au moins un domaine d\'activité.');
     return;
   }
-
-  // Vérifier électricité
-  if(!document.querySelector('input[name="electricite"]:checked')){
+  if(!document.querySelector('[name="electricite"]:checked')){
     alert('Merci d\'indiquer si vous avez besoin d\'un raccordement électrique.');
     return;
   }
 
+  collectData();
+
   const btn = document.getElementById('submit-btn');
-  btn.textContent = 'Envoi en cours...';
-  btn.disabled = true;
+  btn.textContent='Envoi en cours...'; btn.disabled=true;
 
-  // Construire les données
   const fd = new FormData(this);
+  fd.set('domaines', expoData.domaines);
+  fd.set('signature', 'Signature électronique apposée le ' + expoData.fait_le);
 
-  // Domaines cochés
-  const domainesList = [...domaines].map(d => d.value).join(', ');
-  fd.set('domaines', domainesList);
-
-  // Signature en base64 — on envoie juste une confirmation (pas la vraie image via Formspree)
-  fd.set('signature', hasSig ? 'Signature électronique apposée le ' + new Date().toLocaleDateString('fr-FR') : 'Non signée');
-
-  try {
-    const res = await fetch('https://formspree.io/f/xredyapj', {
-      method: 'POST',
-      body: fd,
-      headers: { 'Accept': 'application/json' }
+  try{
+    const res = await fetch('https://formspree.io/f/xredyapj',{
+      method:'POST', body:fd, headers:{'Accept':'application/json'}
     });
     if(res.ok){
-        // Collecter données pour PDF
-      const formData = {
-        entreprise: document.querySelector('[name="entreprise"]').value || '—',
-        nom: document.querySelector('[name="nom"]').value,
-        prenom: document.querySelector('[name="prenom"]').value,
-        adresse: document.querySelector('[name="adresse"]').value,
-        code_postal: document.querySelector('[name="code_postal"]').value,
-        commune: document.querySelector('[name="commune"]').value,
-        telephone: document.querySelector('[name="telephone"]').value,
-        email: document.querySelector('[name="email"]').value,
-        effectif: document.querySelector('[name="effectif"]').value,
-        domaines: [...document.querySelectorAll('[name="domaines"]:checked')].map(d=>d.value).join(', '),
-        autre_detail: document.querySelector('[name="autre_detail"]') ? document.querySelector('[name="autre_detail"]').value : '',
-        electricite: document.querySelector('[name="electricite"]:checked') ? document.querySelector('[name="electricite"]:checked').value : '—',
-        puissance: document.querySelector('[name="puissance"]') ? document.querySelector('[name="puissance"]').value : '—',
-        fait_a: document.querySelector('[name="fait_a"]').value,
-        fait_le: document.querySelector('[name="fait_le"]').value,
-        signature: hasSig
-      };
-      window._expoFormData = formData;
-
-      // Afficher page de remerciement
-      document.getElementById('expo-form').style.display = 'none';
-      document.querySelector('.deadline-banner').style.display = 'none';
-      document.getElementById('merci-page').style.display = 'block';
-      window.scrollTo({top:0, behavior:'smooth'});
+      // Afficher page remerciement
+      document.getElementById('expo-form').style.display='none';
+      document.querySelector('.deadline').style.display='none';
+      document.getElementById('merci').style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'});
     } else { throw new Error(); }
   } catch(err){
-    document.getElementById('msg-error').style.display = 'block';
-    btn.textContent = '📨 Envoyer mon dossier de candidature';
-    btn.disabled = false;
+    document.getElementById('msg-error').style.display='block';
+    btn.textContent='📨 Envoyer mon dossier de candidature';
+    btn.disabled=false;
   }
 });
 
 // ── GÉNÉRATION PDF ────────────────────────────────────────────────────────────
 function genererPDF(){
+  if(!window.jspdf){ alert('Chargement en cours, réessayez dans quelques secondes.'); return; }
   const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
-  const d = window._expoFormData;
-  if(!d){ alert('Données non disponibles.'); return; }
-
-  const bleu = [13, 79, 122];
-  const or = [184, 134, 11];
-  const gris = [244, 244, 240];
-  const texte = [42, 42, 53];
-  const w = 210, m = 18, cw = w - 2*m;
-
-  let y = 0;
+  const doc = new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  const d = expoData;
+  const bleu=[13,79,122], or=[184,134,11], grisF=[244,244,240], texteC=[42,42,53];
+  const W=210, M=18, CW=W-2*M;
+  let y=0;
 
   // En-tête
-  doc.setFillColor(...bleu);
-  doc.rect(0, 0, w, 40, 'F');
-  doc.setTextColor(212, 160, 23);
-  doc.setFontSize(16);
-  doc.setFont('helvetica','bold');
-  doc.text('FESTI SAINT CHRISTOPHE 2026 — 7ème Édition', w/2, 14, {align:'center'});
-  doc.setFontSize(11);
-  doc.setFont('helvetica','normal');
+  doc.setFillColor(...bleu); doc.rect(0,0,W,42,'F');
+  doc.setTextColor(212,160,23); doc.setFontSize(15); doc.setFont('helvetica','bold');
+  doc.text('FESTI SAINT CHRISTOPHE 2026',W/2,12,{align:'center'});
+  doc.setFontSize(10); doc.setFont('helvetica','normal');
   doc.setTextColor(255,255,255);
-  doc.text('« L'Essenciel » — Dimanche 28 juin 2026', w/2, 22, {align:'center'});
-  doc.text('Paroisse Saint Christophe, Kerlys, Fort-de-France', w/2, 29, {align:'center'});
-  doc.setFontSize(13);
-  doc.setFont('helvetica','bold');
-  doc.setTextColor(212,160,23);
-  doc.text('DOSSIER DE CANDIDATURE EXPOSANT', w/2, 37, {align:'center'});
+  doc.text('7ème Édition — « L\'Essenciel » — Dimanche 28 juin 2026',W/2,20,{align:'center'});
+  doc.text('Paroisse Saint Christophe, Kerlys, Fort-de-France',W/2,27,{align:'center'});
+  doc.setFontSize(12); doc.setFont('helvetica','bold'); doc.setTextColor(212,160,23);
+  doc.text('DOSSIER DE CANDIDATURE EXPOSANT',W/2,36,{align:'center'});
+  y=52;
 
-  y = 50;
-
-  // Fonction ligne
-  const ligne = (label, valeur, alt=false) => {
-    if(y > 265){ doc.addPage(); y = 20; }
-    if(alt){ doc.setFillColor(...gris); doc.rect(m, y-4, cw, 10, 'F'); }
-    doc.setFontSize(9); doc.setFont('helvetica','bold'); doc.setTextColor(...bleu);
-    doc.text(label, m+2, y+2);
-    doc.setFont('helvetica','normal'); doc.setTextColor(...texte);
-    doc.text(valeur||'—', m+55, y+2);
-    y += 11;
+  const sec = (t)=>{
+    if(y>265){doc.addPage();y=20;}
+    doc.setFillColor(...bleu); doc.rect(M,y-3,CW,9,'F');
+    doc.setFontSize(9); doc.setFont('helvetica','bold'); doc.setTextColor(212,160,23);
+    doc.text(t,M+3,y+3); y+=14;
+  };
+  const lig = (label, val, alt=false)=>{
+    if(y>268){doc.addPage();y=20;}
+    if(alt){doc.setFillColor(...grisF); doc.rect(M,y-3,CW,9,'F');}
+    doc.setFontSize(8.5); doc.setFont('helvetica','bold'); doc.setTextColor(...bleu);
+    doc.text(label,M+2,y+2);
+    doc.setFont('helvetica','normal'); doc.setTextColor(...texteC);
+    const lines = doc.splitTextToSize(val||'—', CW-55);
+    doc.text(lines,M+55,y+2);
+    y += Math.max(9, lines.length*5+4);
   };
 
-  const sectionTitre = (t) => {
-    if(y > 265){ doc.addPage(); y = 20; }
-    doc.setFillColor(...bleu);
-    doc.rect(m, y-2, cw, 10, 'F');
-    doc.setFontSize(10); doc.setFont('helvetica','bold'); doc.setTextColor(212,160,23);
-    doc.text(t, m+4, y+5);
-    y += 16;
-  };
+  sec('FICHE DE RENSEIGNEMENTS EXPOSANT');
+  lig('Entreprise / Association :', d.entreprise, false);
+  lig('Nom :', d.nom, true);
+  lig('Prénom :', d.prenom, false);
+  lig('Adresse :', d.adresse, true);
+  lig('Code postal :', d.code_postal, false);
+  lig('Commune :', d.commune, true);
+  lig('Téléphone :', d.telephone, false);
+  lig('Email :', d.email, true);
+  lig('Effectif sur le stand :', d.effectif, false);
+  y+=4;
 
-  // Fiche renseignements
-  sectionTitre('FICHE DE RENSEIGNEMENTS EXPOSANT');
-  ligne('Entreprise / Association :', d.entreprise, false);
-  ligne('Nom :', d.nom, true);
-  ligne('Prénom :', d.prenom, false);
-  ligne('Adresse :', d.adresse, true);
-  ligne('Code postal :', d.code_postal, false);
-  ligne('Commune :', d.commune, true);
-  ligne('Téléphone :', d.telephone, false);
-  ligne('Email :', d.email, true);
-  ligne('Effectif sur le stand :', d.effectif, false);
+  sec('DOMAINE(S) D\'ACTIVITÉ(S)');
+  doc.setFontSize(8.5); doc.setFont('helvetica','normal'); doc.setTextColor(...texteC);
+  const dl = doc.splitTextToSize(d.domaines, CW-4);
+  doc.text(dl,M+2,y); y+=dl.length*5+8;
+  if(d.autre_detail){ lig('Précision :', d.autre_detail, false); }
+  y+=4;
 
-  y += 4;
-  sectionTitre('DOMAINE(S) D'ACTIVITÉ(S)');
-  doc.setFontSize(9); doc.setFont('helvetica','normal'); doc.setTextColor(...texte);
-  const domainesLines = doc.splitTextToSize(d.domaines || '—', cw-4);
-  doc.text(domainesLines, m+2, y);
-  y += domainesLines.length * 6 + 8;
-  if(d.autre_detail){ ligne('Précision "Autre" :', d.autre_detail, true); }
+  sec('RACCORDEMENT ÉLECTRIQUE');
+  lig('Besoin d\'électricité :', d.electricite, false);
+  if(d.electricite==='OUI'){ lig('Puissance totale :', d.puissance, true); }
+  y+=4;
 
-  y += 4;
-  sectionTitre('RACCORDEMENT ÉLECTRIQUE');
-  ligne('Besoin électricité :', d.electricite, false);
-  if(d.electricite === 'OUI'){ ligne('Puissance totale :', d.puissance, true); }
+  sec('ENGAGEMENT & SIGNATURE');
+  lig('Conditions générales :', 'Lu et approuvé', false);
+  lig('Signature électronique :', d.signature ? 'Apposée le '+d.fait_le : 'Non signée', true);
+  lig('Fait à :', d.fait_a, false);
+  lig('Le :', d.fait_le, true);
+  y+=8;
 
-  y += 4;
-  sectionTitre('SIGNATURE');
-  ligne('Lu et approuvé :', 'Oui — conditions générales acceptées', false);
-  ligne('Signature électronique :', d.signature ? 'Apposée le '+d.fait_le : 'Non signée', true);
-  ligne('Fait à :', d.fait_a, false);
-  ligne('Le :', d.fait_le, true);
-
-  y += 8;
-  // Note conservation
-  doc.setFillColor(253,246,227);
-  doc.rect(m, y, cw, 16, 'F');
-  doc.setFontSize(8); doc.setFont('helvetica','italic'); doc.setTextColor(139,105,20);
-  doc.text('Document à conserver — Dossier envoyé au Comité des Fêtes de la Paroisse Saint Christophe', m+4, y+6);
-  doc.text('Date limite d'envoi : 14 juin 2026 | comitedfetes.stchristophe@gmail.com | +596 696 10 12 98', m+4, y+12);
-  y += 22;
+  // Note
+  if(y>272){doc.addPage();y=20;}
+  doc.setFillColor(253,246,227); doc.rect(M,y,CW,16,'F');
+  doc.setFontSize(7.5); doc.setFont('helvetica','italic'); doc.setTextColor(139,105,20);
+  doc.text('Document à conserver — Dossier envoyé au Comité des Fêtes de la Paroisse Saint Christophe',M+3,y+6);
+  doc.text('Date limite : 14 juin 2026  |  comitedfetes.stchristophe@gmail.com  |  +596 696 10 12 98',M+3,y+12);
 
   // Footer
-  doc.setFillColor(...bleu);
-  doc.rect(0, 285, w, 12, 'F');
-  doc.setFontSize(8); doc.setFont('helvetica','normal'); doc.setTextColor(212,160,23);
-  doc.text('FESTI SAINT CHRISTOPHE 2026 — comparoissestchristophe.github.io/Festi-Saint-Christophe-2026/', w/2, 293, {align:'center'});
+  doc.setFillColor(...bleu); doc.rect(0,285,W,12,'F');
+  doc.setFontSize(7.5); doc.setFont('helvetica','normal'); doc.setTextColor(212,160,23);
+  doc.text('FESTI SAINT CHRISTOPHE 2026 — comparoissestchristophe.github.io/Festi-Saint-Christophe-2026/',W/2,293,{align:'center'});
 
-  const nom = (d.nom+' '+d.prenom).replace(/\s+/g,'_');
-  doc.save('Dossier_Exposant_FESTI_2026_'+nom+'.pdf');
+  const nomFichier = 'Dossier_Exposant_FESTI_2026_'+(d.nom+'_'+d.prenom).replace(/\s+/g,'_')+'.pdf';
+  doc.save(nomFichier);
 }
-
 </script>
 </body>
 </html>
