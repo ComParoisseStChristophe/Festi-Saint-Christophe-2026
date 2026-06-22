@@ -28,10 +28,6 @@
       <button onclick="filtrer('2019')" class="filtre-btn" data-filter="2019">2019</button>
       <button onclick="filtrer('2018')" class="filtre-btn" data-filter="2018">2018</button>
       <button onclick="filtrer('2017')" class="filtre-btn" data-filter="2017">2017</button>
-      <button onclick="filtrerDossier('2017','photo')" class="filtre-btn" data-filter="2017-photo">📸 Photos 2017</button>
-      <button onclick="filtrerDossier('2017','video')" class="filtre-btn" data-filter="2017-video">🎬 Vidéos 2017</button>
-      <button onclick="filtrerDossier('2017','photo')" class="filtre-btn" data-filter="2017-photo" style="background:rgba(13,79,122,.1);border-color:#0D4F7A;color:#0D4F7A">📸 Photos 2017</button>
-      <button onclick="filtrerDossier('2017','video')" class="filtre-btn" data-filter="2017-video" style="background:rgba(212,160,23,.1);border-color:#D4A017;color:#B8860B">🎬 Vidéos 2017</button>
     </div>
 
     <!-- Grille galerie -->
@@ -151,7 +147,7 @@
 <style>
 .filtre-btn{background:var(--gris);border:1px solid var(--gris-ligne);color:var(--texte);font-size:13px;font-weight:500;padding:7px 16px;border-radius:20px;cursor:pointer;transition:.2s;font-family:'Outfit',sans-serif}
 .filtre-btn:hover,.filtre-btn.active{background:var(--bleu);color:#fff;border-color:var(--bleu)}
-.photo-card{border-radius:12px;overflow:hidden;background:var(--gris);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;transition:.2s;isolation:isolate}
+.photo-card{border-radius:12px;overflow:hidden;background:var(--gris);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;transition:.2s}
 .photo-card:hover{transform:scale(1.02)}
 .photo-card-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(13,79,122,.9));color:#fff;padding:20px 14px 12px;font-size:13px;font-weight:600}
 .photo-card-year{position:absolute;top:10px;left:10px;background:var(--or);color:var(--bleu);font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px}
@@ -160,7 +156,6 @@
 <script>
 initNav('galerie.html');
 
-// ── DONNÉES ──────────────────────────────────────────────────────────────────
 const PHOTOS = [
   {annee:'2025',label:'Village artisanal — 6ème édition',emoji:'🏪'},
   {annee:'2025',label:'Plateau artistique — Jacky RAPON',emoji:'🎤'},
@@ -213,148 +208,158 @@ const PHOTOS = [
   {annee:'2017',type:'video',id:'1FkMmEkyQ90_eW0Yhzzbj_QS1BuLXIB-l',label:'Miguel LOUISON'},
 ];
 
-const COLORS = {
-  '2025':'#8E44AD','2024':'#B8860B','2023':'#C0392B',
-  '2019':'#2A9D6A','2018':'#1A78B4','2017':'#0D4F7A'
-};
+const colors = {'2025':'#8E44AD','2024':'#B8860B','2023':'#C0392B','2019':'#2A9D6A','2018':'#1A78B4','2017':'#0D4F7A'};
 
-const COPYRIGHT = '© Paroisse Saint Christophe — Tous droits réservés';
-
-// ── RENDU D'UNE CARTE ────────────────────────────────────────────────────────
-function carteHTML(p) {
-  const col = COLORS[p.annee] || '#0D4F7A';
-  if (p.type === 'video') {
-    return '<div class="photo-card fade-up" style="background:' + col + '22;border:1px solid ' + col + '44" onclick="ouvrirVideo('' + p.id + '','' + p.label.replace(/'/g,"\'") + '')">'
-      + '<img src="https://drive.google.com/thumbnail?id=' + p.id + '&sz=w400" alt="' + p.label + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">'
-      + '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:5;pointer-events:none">'
-      + '<div style="width:56px;height:56px;background:rgba(212,160,23,.92);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px">▶</div>'
-      + '</div>'
-      + '<div style="position:absolute;top:10px;right:10px;background:#D4A017;color:#0D4F7A;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;z-index:10">VIDÉO</div>'
-      + '<div class="photo-card-year" style="background:' + col + ';z-index:10">' + p.annee + '</div>'
-      + '<div class="photo-card-label" style="z-index:10">' + p.label + '</div>'
-      + '</div>';
-  } else if (p.src) {
-    return '<div class="photo-card fade-up" style="background:' + col + '22;border:1px solid ' + col + '44" onclick="ouvrirPhoto('' + p.src + '','' + p.label.replace(/'/g,"\'") + '','' + p.annee + '')">'
-      + '<img src="' + p.src + '" alt="' + p.label + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">'
-      + '<div class="photo-card-year" style="background:' + col + ';z-index:10">' + p.annee + '</div>'
-      + '<div class="photo-card-label" style="z-index:10">' + p.label + '</div>'
-      + '</div>';
-  } else {
-    return '<div class="photo-card fade-up" style="background:' + col + '22;border:1px solid ' + col + '44">'
-      + '<div style="font-size:48px;display:flex;align-items:center;justify-content:center;height:100%">' + (p.emoji || '📸') + '</div>'
-      + '<div class="photo-card-year" style="background:' + col + ';z-index:10">' + p.annee + '</div>'
-      + '<div class="photo-card-label" style="z-index:10">' + p.label + '</div>'
-      + '</div>';
-  }
+function renderGalerie(filter){
+  const grid = document.getElementById('galerie-grid');
+  const photos = filter==='all' ? PHOTOS : PHOTOS.filter(p=>p.annee===filter);
+  grid.innerHTML = photos.map(p=>{
+    const col = colors[p.annee] || '#0D4F7A';
+    const annee = p.annee;
+    const label = p.label;
+    let inner = '';
+    let onclick = '';
+    if(p.type==='video'){
+      inner = `<img src="https://drive.google.com/thumbnail?id=${p.id}&sz=w400" alt="${label}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+          <div style="width:52px;height:52px;background:rgba(212,160,23,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px">▶</div>
+        </div>
+        <div style="position:absolute;top:10px;right:10px;background:#D4A017;color:#0D4F7A;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px">VIDÉO</div>`;
+      onclick = `openVideo('${p.id}','${label}')`;
+    } else if(p.src){
+      inner = `<img src="${p.src}" alt="${label}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">`;
+      onclick = `openLightbox('${p.src}','${label} — ${annee}')`;
+    } else {
+      inner = `<div style="font-size:48px;display:flex;align-items:center;justify-content:center;height:100%">${p.emoji||'📸'}</div>`;
+      onclick = '';
+    }
+    return `<div class="photo-card fade-up" style="background:${col}22;border:1px solid ${col}44;position:relative" onclick="${onclick}">
+      ${inner}
+      <div class="photo-card-year" style="background:${col}">${annee}</div>
+      <div class="photo-card-label">${label}</div>
+    </div>`;
+  }).join('');
+  initFadeUp();
 }
 
-// ── RENDU GRILLE ─────────────────────────────────────────────────────────────
-function afficherGrille(liste) {
-  document.getElementById('galerie-grid').innerHTML = liste.map(carteHTML).join('');
-  if (typeof initFadeUp === 'function') initFadeUp();
+function filtrerType(type){
+  document.querySelectorAll('.filtre-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  const grid = document.getElementById('galerie-grid');
+  const filtered = PHOTOS.filter(p=>p.type===type);
+  const photos = filtered;
+  grid.innerHTML = photos.map(p=>{
+    const col = colors[p.annee] || '#0D4F7A';
+    return `<div class="photo-card fade-up" style="background:${col}22;border:1px solid ${col}44;position:relative" onclick="openVideo('${p.id}','${p.label}')">
+      <img src="https://drive.google.com/thumbnail?id=${p.id}&sz=w400" alt="${p.label}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+        <div style="width:52px;height:52px;background:rgba(212,160,23,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px">▶</div>
+      </div>
+      <div style="position:absolute;top:10px;right:10px;background:#D4A017;color:#0D4F7A;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px">VIDÉO</div>
+      <div class="photo-card-year" style="background:${col}">${p.annee}</div>
+      <div class="photo-card-label">${p.label}</div>
+    </div>`;
+  }).join('');
+  initFadeUp();
 }
 
-// ── FILTRES ───────────────────────────────────────────────────────────────────
-function filtrer(annee) {
-  document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector('[data-filter="' + annee + '"]').classList.add('active');
-  const liste = annee === 'all' ? PHOTOS : PHOTOS.filter(p => p.annee === annee);
-  afficherGrille(liste);
+function filtrer(annee){
+  document.querySelectorAll('.filtre-btn').forEach(b=>b.classList.toggle('active',b.dataset.filter===annee));
+  renderGalerie(annee);
 }
 
-function filtrerDossier(annee, type) {
-  document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector('[data-filter="' + annee + '-' + type + '"]').classList.add('active');
-  const liste = PHOTOS.filter(p => p.annee === annee && (type === 'video' ? p.type === 'video' : p.type !== 'video' && p.src));
-  const titreSec = type === 'video'
-    ? '<div style="grid-column:1/-1;font-family:'Playfair Display',serif;font-size:18px;color:#0D4F7A;padding:8px 0 12px;border-bottom:2px solid #D4A017;margin-bottom:8px">🎬 Vidéos — FESTI SAINT CHRISTOPHE 2017 (' + liste.length + ')</div>'
-    : '<div style="grid-column:1/-1;font-family:'Playfair Display',serif;font-size:18px;color:#0D4F7A;padding:8px 0 12px;border-bottom:2px solid #D4A017;margin-bottom:8px">📸 Photos — FESTI SAINT CHRISTOPHE 2017 (' + liste.length + ')</div>';
-  document.getElementById('galerie-grid').innerHTML = titreSec + liste.map(carteHTML).join('');
-  if (typeof initFadeUp === 'function') initFadeUp();
-}
-
-// ── LIGHTBOX PHOTO ────────────────────────────────────────────────────────────
-function ouvrirPhoto(src, caption, annee) {
-  var lb = document.getElementById('lb-photo');
-  if (!lb) {
-    lb = document.createElement('div');
-    lb.id = 'lb-photo';
-    lb.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9000;align-items:center;justify-content:center;flex-direction:column;padding:20px;cursor:default';
-    lb.innerHTML = ''
-      + '<div style="position:relative;max-width:92vw">'
-      + '  <div id="lb-canvas-wrap" style="border-radius:10px;overflow:hidden;box-shadow:0 0 60px rgba(0,0,0,.9)"></div>'
-      + '  <button id="lb-close" style="position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:#D4A017;color:#0D4F7A;border:none;font-size:20px;font-weight:700;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center;z-index:10">×</button>'
-      + '</div>'
-      + '<div id="lb-caption" style="color:#fff;font-size:14px;margin-top:14px;text-align:center;opacity:.8;max-width:600px"></div>'
-      + '<div style="color:rgba(255,255,255,.35);font-size:11px;margin-top:4px">' + COPYRIGHT + '</div>'
-      + '<div style="color:rgba(255,255,255,.3);font-size:11px;margin-top:6px">Cliquez en dehors pour fermer</div>';
-    lb.addEventListener('click', function(e) { if (e.target === lb) lb.style.display = 'none'; });
-    document.body.appendChild(lb);
-    document.getElementById('lb-close').addEventListener('click', function() { lb.style.display = 'none'; });
-  }
-  // Rendu via canvas pour protéger l'image
-  var wrap = document.getElementById('lb-canvas-wrap');
-  wrap.innerHTML = '';
-  var img = new Image();
-  img.onload = function() {
-    var canvas = document.createElement('canvas');
-    var maxW = Math.min(img.naturalWidth, window.innerWidth * 0.9);
-    var ratio = maxW / img.naturalWidth;
-    canvas.width = img.naturalWidth;
-    canvas.height = img.naturalHeight;
-    canvas.style.cssText = 'max-width:90vw;max-height:78vh;display:block';
-    canvas.getContext('2d').drawImage(img, 0, 0);
-    canvas.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-    canvas.addEventListener('dragstart', function(e) { e.preventDefault(); });
-    wrap.appendChild(canvas);
-  };
-  img.crossOrigin = 'anonymous';
-  img.src = src;
-  document.getElementById('lb-caption').textContent = caption + ' — ' + annee;
-  lb.style.display = 'flex';
-}
-
-// ── LECTEUR VIDÉO ─────────────────────────────────────────────────────────────
-function ouvrirVideo(id, titre) {
-  var lb = document.getElementById('lb-video');
-  if (!lb) {
-    lb = document.createElement('div');
-    lb.id = 'lb-video';
-    lb.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:9000;align-items:center;justify-content:center;flex-direction:column;padding:20px;cursor:default';
-    lb.innerHTML = ''
-      + '<div style="position:relative;width:100%;max-width:820px">'
-      + '  <div style="position:relative;border-radius:10px;overflow:hidden;background:#000">'
-      + '    <iframe id="lb-iframe" width="100%" height="460" frameborder="0" allowfullscreen allow="autoplay; encrypted-media" style="display:block"></iframe>'
-      + '  </div>'
-      + '  <button id="lb-video-close" style="position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:#D4A017;color:#0D4F7A;border:none;font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10">×</button>'
-      + '</div>'
-      + '<div id="lb-video-titre" style="color:#fff;font-size:14px;margin-top:14px;text-align:center;opacity:.8"></div>'
-      + '<div style="color:rgba(255,255,255,.35);font-size:11px;margin-top:4px">' + COPYRIGHT + '</div>'
-      + '<div style="color:rgba(255,255,255,.3);font-size:11px;margin-top:6px">Cliquez en dehors pour fermer</div>';
-    lb.addEventListener('click', function(e) {
-      if (e.target === lb) { document.getElementById('lb-iframe').src = ''; lb.style.display = 'none'; }
-    });
-    document.body.appendChild(lb);
-    document.getElementById('lb-video-close').addEventListener('click', function() {
-      document.getElementById('lb-iframe').src = ''; lb.style.display = 'none';
-    });
-  }
-  document.getElementById('lb-iframe').src = 'https://drive.google.com/file/d/' + id + '/preview';
-  document.getElementById('lb-video-titre').textContent = titre + ' — FESTI SAINT CHRISTOPHE 2017';
-  document.getElementById('lb-video').style.display = 'flex';
-}
-
-// ── PROTECTION ───────────────────────────────────────────────────────────────
-document.addEventListener('contextmenu', function(e) {
-  if (e.target.tagName === 'IMG') { e.preventDefault(); return false; }
-});
-document.addEventListener('dragstart', function(e) {
-  if (e.target.tagName === 'IMG') e.preventDefault();
-});
-
-// ── INIT ──────────────────────────────────────────────────────────────────────
-afficherGrille(PHOTOS);
+renderGalerie('all');
 </script>
+
+
+
+<!-- Modale formulaire contact -->
+<div id="contact-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;align-items:center;justify-content:center;padding:16px">
+  <div style="background:#fff;border-radius:16px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;padding:28px;position:relative">
+    <button onclick="closeModal()" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;color:#666;line-height:1">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:#0D4F7A;margin-bottom:20px">Envoyer un message</h3>
+    <form id="modal-form" action="https://formspree.io/f/mzdwaajl" method="POST" style="display:flex;flex-direction:column;gap:14px">
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Nom & Prénom</label>
+        <input type="text" name="nom" placeholder="Votre nom" required style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Outfit',sans-serif;outline:none">
+      </div>
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Email</label>
+        <input type="email" name="email" placeholder="votre@email.com" required style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Outfit',sans-serif;outline:none">
+      </div>
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Je suis</label>
+        <select name="profil" style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Outfit',sans-serif;outline:none;background:#fff">
+          <option>Paroissien(ne)</option>
+          <option>Potentiel partenaire / sponsor</option>
+          <option>Exposant intéressé</option>
+          <option>Journaliste / Média</option>
+          <option>Artiste / Bénévole</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div>
+        <label style="display:block;font-size:12px;font-weight:600;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Message</label>
+        <textarea name="message" placeholder="Votre message..." required style="width:100%;padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Outfit',sans-serif;outline:none;height:110px;resize:vertical"></textarea>
+      </div>
+      <button type="submit" id="modal-submit" style="background:#0D4F7A;color:#D4A017;font-size:15px;font-weight:700;padding:13px;border:none;border-radius:10px;cursor:pointer;font-family:'Outfit',sans-serif">Envoyer le message →</button>
+      <div id="modal-success" style="display:none;background:#E1F5EE;border-radius:8px;padding:12px;text-align:center;color:#085041;font-size:14px;font-weight:600">✓ Message envoyé ! Nous vous répondrons très vite.</div>
+      <div id="modal-error" style="display:none;background:#FCEBEB;border-radius:8px;padding:12px;text-align:center;color:#791F1F;font-size:14px">Une erreur est survenue. Veuillez réessayer.</div>
+    </form>
+  </div>
+</div>
+
+<!-- Bouton flottant -->
+<button onclick="openModal()" style="position:fixed;bottom:24px;right:24px;background:#D4A017;color:#0D4F7A;font-size:14px;font-weight:700;padding:14px 22px;border-radius:50px;border:none;box-shadow:0 4px 20px rgba(0,0,0,.25);z-index:999;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif">
+  ✉ Nous contacter
+</button>
+
+<script>
+function openModal(){
+  const m=document.getElementById('contact-modal');
+  m.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  const m=document.getElementById('contact-modal');
+  m.style.display='none';
+  document.body.style.overflow='';
+}
+// Fermer en cliquant en dehors
+document.getElementById('contact-modal').addEventListener('click',function(e){
+  if(e.target===this)closeModal();
+});
+// Soumission formulaire
+const mf=document.getElementById('modal-form');
+if(mf){mf.addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('modal-submit');
+  btn.textContent='Envoi en cours...';btn.disabled=true;
+  try{
+    const r=await fetch(mf.action,{method:'POST',body:new FormData(mf),headers:{'Accept':'application/json'}});
+    if(r.ok){
+      document.getElementById('modal-success').style.display='block';
+      document.getElementById('modal-error').style.display='none';
+      mf.reset();btn.textContent='Message envoyé ✓';
+    }else{throw new Error();}
+  }catch(err){
+    document.getElementById('modal-error').style.display='block';
+    document.getElementById('modal-success').style.display='none';
+    btn.textContent='Envoyer le message →';btn.disabled=false;
+  }
+});}
+</script>
+<script>
+// Désactiver clic droit globalement sur les images de la galerie
+document.addEventListener('contextmenu', function(e){
+  if(e.target.tagName==='IMG' || e.target.closest('.photo-card')){
+    e.preventDefault();
+    return false;
+  }
+});
+document.addEventListener('dragstart', function(e){
+  if(e.target.tagName==='IMG') e.preventDefault();
+});
 </script>
 </body>
 </html>
