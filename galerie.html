@@ -12,28 +12,17 @@
 <div class="page-hero">
   <div class="page-hero-inner" style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px">
     <div class="page-hero-label">Souvenirs</div>
-    <h1>Galerie <em>photos & vidéos</em></h1>
+    <h1>Galerie <em>photos &amp; vidéos</em></h1>
     <p>Les plus beaux moments des 7 éditions du FESTI SAINT CHRISTOPHE.</p>
   </div>
 </div>
 
 <section class="sec bg-blanc">
   <div class="sec-inner">
-    <!-- Filtre par année — généré dynamiquement -->
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px" id="filtres"></div>
-
+    <!-- Navigation galerie — générée dynamiquement -->
+    <div id="nav-galerie" style="margin-bottom:32px"></div>
     <!-- Grille galerie -->
-    <div id="galerie-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
-      <!-- Les cartes photo sont générées dynamiquement -->
-    </div>
-
-    <!-- Message upload -->
-    <div style="margin-top:48px;background:var(--bleu-clair);border:2px dashed var(--bleu2);border-radius:16px;padding:40px;text-align:center" class="fade-up">
-      <div style="font-size:40px;margin-bottom:12px">📸</div>
-      <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--bleu);margin-bottom:8px">Ajoutez vos photos !</h3>
-      <p style="font-size:15px;color:var(--texte2);max-width:480px;margin:0 auto 20px;line-height:1.7">Vous avez des photos ou vidéos des éditions précédentes ? Partagez-les avec la communauté !</p>
-      <a href="contact.html" class="btn btn-primary">Nous contacter pour partager →</a>
-    </div>
+    <div id="galerie-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px"></div>
   </div>
 </section>
 
@@ -46,39 +35,33 @@
     <div class="grid-3">
       <div class="card">
         <div style="height:160px;background:var(--bleu);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative;overflow:hidden">
-          <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.05),rgba(255,255,255,.05) 1px,transparent 1px,transparent 8px)"></div>
-          <div style="width:52px;height:52px;border-radius:50%;background:var(--or);display:flex;align-items:center;justify-content:center;position:relative;z-index:1">
+          <div style="width:52px;height:52px;border-radius:50%;background:var(--or);display:flex;align-items:center;justify-content:center">
             <span style="border-style:solid;border-width:9px 0 9px 16px;border-color:transparent transparent transparent var(--bleu);margin-left:4px;display:inline-block"></span>
           </div>
-          <div style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);color:#fff;font-size:10px;font-weight:600;padding:3px 8px;border-radius:10px;letter-spacing:1px">Bientôt</div>
+          <div style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);color:#fff;font-size:10px;font-weight:600;padding:3px 8px;border-radius:10px">Bientôt</div>
         </div>
         <div style="font-size:11px;color:var(--bleu2);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Début juin</div>
         <div style="font-size:15px;font-weight:600;color:var(--texte)">L'Essenciel du Père Jean-Michel</div>
-        <div style="font-size:12px;color:var(--texte2);margin-top:4px">Lancement officiel du FESTI 2026</div>
       </div>
       <div class="card">
         <div style="height:160px;background:var(--bleu);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative;overflow:hidden">
-          <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.05),rgba(255,255,255,.05) 1px,transparent 1px,transparent 8px)"></div>
-          <div style="width:52px;height:52px;border-radius:50%;background:var(--or);display:flex;align-items:center;justify-content:center;position:relative;z-index:1">
+          <div style="width:52px;height:52px;border-radius:50%;background:var(--or);display:flex;align-items:center;justify-content:center">
             <span style="border-style:solid;border-width:9px 0 9px 16px;border-color:transparent transparent transparent var(--bleu);margin-left:4px;display:inline-block"></span>
           </div>
-          <div style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);color:#fff;font-size:10px;font-weight:600;padding:3px 8px;border-radius:10px;letter-spacing:1px">Bientôt</div>
+          <div style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);color:#fff;font-size:10px;font-weight:600;padding:3px 8px;border-radius:10px">Bientôt</div>
         </div>
         <div style="font-size:11px;color:var(--bleu2);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Semaine 2</div>
         <div style="font-size:15px;font-weight:600;color:var(--texte)">L'Essenciel de FAIV'</div>
-        <div style="font-size:12px;color:var(--texte2);margin-top:4px">Artiste martiniquaise</div>
       </div>
       <div class="card">
         <div style="height:160px;background:var(--bleu);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative;overflow:hidden">
-          <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.05),rgba(255,255,255,.05) 1px,transparent 1px,transparent 8px)"></div>
-          <div style="width:52px;height:52px;border-radius:50%;background:var(--or);display:flex;align-items:center;justify-content:center;position:relative;z-index:1">
+          <div style="width:52px;height:52px;border-radius:50%;background:var(--or);display:flex;align-items:center;justify-content:center">
             <span style="border-style:solid;border-width:9px 0 9px 16px;border-color:transparent transparent transparent var(--bleu);margin-left:4px;display:inline-block"></span>
           </div>
           <div style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);color:#fff;font-size:10px;font-weight:600;padding:3px 8px;border-radius:10px">J–7</div>
         </div>
         <div style="font-size:11px;color:var(--bleu2);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">J–7</div>
         <div style="font-size:15px;font-weight:600;color:var(--texte)">Teaser officiel 2026</div>
-        <div style="font-size:12px;color:var(--texte2);margin-top:4px">Programme complet dévoilé !</div>
       </div>
     </div>
   </div>
@@ -108,23 +91,19 @@
       </div>
       <div>
         <h4 style="font-size:12px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:14px">Contact</h4>
-        <div style="color:rgba(255,255,255,.7);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Pastorale communication</div>
         <a href="tel:+596696101298" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:10px">+596 696 10 12 98</a>
         <a href="mailto:com.stchristophe@gmail.com" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:6px">com.stchristophe@gmail.com</a>
         <a href="mailto:comitedfetes.stchristophe@gmail.com" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:6px">comitedfetes.stchristophe@gmail.com</a>
         <a href="mailto:paroisse.stchristophe@eglisemartinique.fr" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:10px">paroisse.stchristophe@eglisemartinique.fr</a>
         <div style="display:flex;flex-direction:column;gap:6px;margin-top:4px">
           <a href="https://www.facebook.com/ParoisseSaintChristophe" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">
-            <span style="background:#1877F2;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0">f</span>
-            Paroisse Saint Christophe
+            <span style="background:#1877F2;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0">f</span>Paroisse Saint Christophe
           </a>
           <a href="https://www.youtube.com/@paroissesaintchristophe" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">
-            <span style="background:#FF0000;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;flex-shrink:0">▶</span>
-            Paroisse Saint Christophe
+            <span style="background:#FF0000;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;flex-shrink:0">▶</span>Paroisse Saint Christophe
           </a>
           <a href="https://wa.me/596696101298" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">
-            <span style="background:#25D366;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;flex-shrink:0">W</span>
-            WhatsApp Paroisse Saint Christophe
+            <span style="background:#25D366;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;flex-shrink:0">W</span>WhatsApp Paroisse Saint Christophe
           </a>
         </div>
       </div>
@@ -136,182 +115,253 @@
   </div>
 </footer>
 
+<!-- Modale contact -->
+<div id="contact-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;align-items:center;justify-content:center;padding:16px">
+  <div style="background:#fff;border-radius:16px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;padding:28px;position:relative">
+    <button onclick="closeModal()" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;color:#666">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:#0D4F7A;margin-bottom:20px">Envoyer un message</h3>
+    <form id="modal-form" action="https://formspree.io/f/mzdwaajl" method="POST" style="display:flex;flex-direction:column;gap:14px">
+      <input type="text" name="nom" placeholder="Votre nom" required style="padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Outfit',sans-serif;outline:none">
+      <input type="email" name="email" placeholder="votre@email.com" required style="padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Outfit',sans-serif;outline:none">
+      <textarea name="message" placeholder="Votre message..." required style="padding:11px 14px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px;font-family:'Outfit',sans-serif;outline:none;height:110px;resize:vertical"></textarea>
+      <button type="submit" style="background:#0D4F7A;color:#D4A017;font-size:15px;font-weight:700;padding:13px;border:none;border-radius:10px;cursor:pointer;font-family:'Outfit',sans-serif">Envoyer →</button>
+    </form>
+  </div>
+</div>
+<button onclick="openModal()" style="position:fixed;bottom:24px;right:24px;background:#D4A017;color:#0D4F7A;font-size:14px;font-weight:700;padding:14px 22px;border-radius:50px;border:none;box-shadow:0 4px 20px rgba(0,0,0,.25);z-index:999;cursor:pointer;font-family:'Outfit',sans-serif">✉ Nous contacter</button>
+
 <style>
-.filtre-btn{background:var(--gris);border:1px solid var(--gris-ligne);color:var(--texte);font-size:13px;font-weight:500;padding:7px 16px;border-radius:20px;cursor:pointer;transition:.2s;font-family:'Outfit',sans-serif}
-.filtre-btn:hover,.filtre-btn.active{background:var(--bleu);color:#fff;border-color:var(--bleu)}
-.photo-card{border-radius:12px;overflow:hidden;background:var(--gris);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;transition:.2s;isolation:isolate}
-.photo-card:hover{transform:scale(1.02)}
-.photo-card-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(13,79,122,.9));color:#fff;padding:20px 14px 12px;font-size:13px;font-weight:600}
-.photo-card-year{position:absolute;top:10px;left:10px;background:var(--or);color:var(--bleu);font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px}
+.btn-filtre{background:#F4F4F0;border:1.5px solid #e0e0e0;color:#2A2A35;font-size:13px;font-weight:600;padding:8px 18px;border-radius:20px;cursor:pointer;transition:.2s;font-family:'Outfit',sans-serif;white-space:nowrap}
+.btn-filtre:hover{background:#0D4F7A;color:#fff;border-color:#0D4F7A}
+.btn-filtre.actif{background:#0D4F7A;color:#fff;border-color:#0D4F7A}
+.btn-filtre.btn-retour{background:#F4F4F0;color:#0D4F7A;border-color:#0D4F7A;font-weight:700}
+.btn-filtre.btn-photos{background:rgba(13,79,122,.08);color:#0D4F7A;border-color:#0D4F7A}
+.btn-filtre.btn-videos{background:rgba(212,160,23,.1);color:#B8860B;border-color:#D4A017}
+.btn-filtre.btn-photos.actif,.btn-filtre.btn-videos.actif{background:#0D4F7A;color:#D4A017;border-color:#0D4F7A}
+.carte{border-radius:12px;overflow:hidden;background:#F4F4F0;aspect-ratio:4/3;position:relative;cursor:pointer;transition:.2s}
+.carte:hover{transform:scale(1.02)}
+.carte img{width:100%;height:100%;object-fit:cover;display:block}
+.carte-emoji{font-size:48px;display:flex;align-items:center;justify-content:center;height:100%}
+.carte-annee{position:absolute;top:10px;left:10px;background:#D4A017;color:#0D4F7A;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px;z-index:5}
+.carte-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(13,79,122,.9));color:#fff;padding:20px 14px 12px;font-size:13px;font-weight:600;z-index:5}
+.carte-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:4;pointer-events:none}
+.carte-badge-video{position:absolute;top:10px;right:10px;background:#D4A017;color:#0D4F7A;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;z-index:5}
+.sec-titre-galerie{grid-column:1/-1;font-family:'Playfair Display',serif;font-size:18px;color:#0D4F7A;padding:8px 0 14px;border-bottom:2px solid #D4A017;margin-bottom:4px}
 </style>
+
 <script src="nav.js"></script>
 <script>
 initNav('galerie.html');
 
-// ── DONNÉES ───────────────────────────────────────────────────────────────────
-const PHOTOS = [
-  // 2025
-  {annee:'2025',label:'Village artisanal — 6ème édition',emoji:'🏪'},
-  {annee:'2025',label:'Plateau artistique — Jacky RAPON',emoji:'🎤'},
-  // 2024
-  {annee:'2024',label:'Concert BÈLÈ LÉGLIZ — 5ème édition',emoji:'🎶'},
-  {annee:'2024',label:'Animations — jeux gonflables',emoji:'🎈'},
-  // 2023
-  {annee:'2023',label:'Jean-Michel CABRIMOL sur scène',emoji:'🌟'},
-  {annee:'2023',label:'Reprise après COVID — grand retour !',emoji:'🙌'},
-  // 2019
-  {annee:'2019',label:'Garden Party — Entre Terre et Mer',emoji:'🌊'},
-  {annee:'2019',label:'Anna TEKO — prestation internationale',emoji:'🎵'},
-  // 2018
-  {annee:'2018',label:'Course de vieux pneus — An Tan Lontan',emoji:'🏃'},
-  {annee:'2018',label:'Stands exposants — 2ème édition',emoji:'🛒'},
-  // 2017 — Photos
-  {annee:'2017',type:'photo',src:'images/festi_2017_01.jpg',label:'Village exposants — stands artisanaux'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_02.jpg',label:'Stand plantes & décorations'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_03.jpg',label:'Stand vêtements & artisanat'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_04.jpg',label:'Stand bijoux — Pearls Design'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_05.jpg',label:'Stand pâtisseries & produits locaux'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_06.jpg',label:'Exposition de tableaux'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_07.jpg',label:'Stand bijoux & vêtements'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_08.jpg',label:'Stand confiseries & friandises'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_09.jpg',label:'Vue générale du village exposants'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_10.jpg',label:'Jeux de société — Monopoly'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_11.jpg',label:'Jeux de dominos'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_12.jpg',label:'Structures gonflables pour enfants'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_13.jpg',label:'Public nombreux — temps fort'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_14.jpg',label:'Familles & paroissiens réunis'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_15.jpg',label:'Scène — plateau artistique'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_16.jpg',label:'Performance scénique'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_17.jpg',label:'Concert — duo sur scène'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_18.jpg',label:'Vue depuis la scène — public impressionnant'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_19.jpg',label:'Public en liesse'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_20.jpg',label:'Debout pour la fête !'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_21.jpg',label:'Public en liesse — ambiance festive'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_22.jpg',label:'Majorettes — spectacle chorégraphique'},
-  {annee:'2017',type:'photo',src:'images/festi_2017_23.jpg',label:'Messe dominicale — église comble'},
-  // 2017 — Vidéos
-  {annee:'2017',type:'video',id:'10lwY_ygYnj7rrUOly5c0rCd2p6szhenr',label:'Conteur Nestor MIJÉRÉ'},
-  {annee:'2017',type:'video',id:'1k_FfNuR-H9Vdx9lRHwTvuF8hobUgDxKQ',label:'Danse AM4 — 01'},
-  {annee:'2017',type:'video',id:'1W_6dzzwqO6loVmAgas9Ps9DNXot36JWL',label:'Danse AM4 — 02'},
-  {annee:'2017',type:'video',id:'1VcRbJVtF7JxXjt8E1G5asqqVWzDrzeNy',label:'Émergence Foyale — 01'},
-  {annee:'2017',type:'video',id:'1W_ioKvKK9Fdxt5Sv155-8Q4IKXJLiVGi',label:'Émergence Foyale — 02'},
-  {annee:'2017',type:'video',id:'1oUtPkHsDseiZBHAO-hR-qEG-5Y0_v51c',label:'Émergence Foyale — 03'},
-  {annee:'2017',type:'video',id:'1faYfxlrL1UJibdfIAOta6m79R-X8EeIz',label:'Groupe de danse'},
-  {annee:'2017',type:'video',id:'1Ap25E2uxrCr4wrE1nBgosNLMXUkHXvRP',label:'Jeu de chaises musicales — 01'},
-  {annee:'2017',type:'video',id:'1vJHvqHXs_bZsa_YPARq_sebpVmxAuy23',label:'Jeu de chaises musicales — 02'},
-  {annee:'2017',type:'video',id:'1wsi17k-aPauygOgo1qLmLivd4NbfLWfu',label:'Jeu de chaises musicales — 03'},
-  {annee:'2017',type:'video',id:'16KlNh7wHhn3JYlGMTebcYentgcJEpdlU',label:'Jeu de chaises musicales — 04'},
-  {annee:'2017',type:'video',id:'19vWLB_Gn-cW8e5__PMbpyWFPkt3nnFzE',label:'Le penseur des temps modernes'},
-  {annee:'2017',type:'video',id:'1dth9ajz6PQANAmSNPPG6QK2V3UzkcRMa',label:'Marcé — 01'},
-  {annee:'2017',type:'video',id:'1HyWeaRrZW5Pl_Fo80K9fhav3BEMjmxxj',label:'Marcé — 02'},
-  {annee:'2017',type:'video',id:'1QCOMh4S99_L68mCtzpxEfUa6FAHOgdHo',label:'Mascottes de Danielle RENÉ-CORAIL'},
-  {annee:'2017',type:'video',id:'1FkMmEkyQ90_eW0Yhzzbj_QS1BuLXIB-l',label:'Miguel LOUISON'},
-];
-
-const COLORS = {
-  '2025':'#8E44AD','2024':'#B8860B','2023':'#C0392B',
-  '2019':'#2A9D6A','2018':'#1A78B4','2017':'#0D4F7A'
+// ─────────────────────────────────────────────────────────────────────────────
+// DONNÉES
+// ─────────────────────────────────────────────────────────────────────────────
+var DATA = {
+  '2025': {
+    photos: [
+      {label:'Village artisanal — 6ème édition', emoji:'🏪'},
+      {label:'Plateau artistique — Jacky RAPON', emoji:'🎤'},
+    ],
+    videos: []
+  },
+  '2024': {
+    photos: [
+      {label:'Concert BÈLÈ LÉGLIZ — 5ème édition', emoji:'🎶'},
+      {label:'Animations — jeux gonflables', emoji:'🎈'},
+    ],
+    videos: []
+  },
+  '2023': {
+    photos: [
+      {label:'Jean-Michel CABRIMOL sur scène', emoji:'🌟'},
+      {label:'Reprise après COVID — grand retour !', emoji:'🙌'},
+    ],
+    videos: []
+  },
+  '2019': {
+    photos: [
+      {label:'Garden Party — Entre Terre et Mer', emoji:'🌊'},
+      {label:'Anna TEKO — prestation internationale', emoji:'🎵'},
+    ],
+    videos: []
+  },
+  '2018': {
+    photos: [
+      {label:'Course de vieux pneus — An Tan Lontan', emoji:'🏃'},
+      {label:'Stands exposants — 2ème édition', emoji:'🛒'},
+    ],
+    videos: []
+  },
+  '2017': {
+    photos: [
+      {src:'images/festi_2017_01.jpg', label:'Village exposants — stands artisanaux'},
+      {src:'images/festi_2017_02.jpg', label:'Stand plantes & décorations'},
+      {src:'images/festi_2017_03.jpg', label:'Stand vêtements & artisanat'},
+      {src:'images/festi_2017_04.jpg', label:'Stand bijoux — Pearls Design'},
+      {src:'images/festi_2017_05.jpg', label:'Stand pâtisseries & produits locaux'},
+      {src:'images/festi_2017_06.jpg', label:'Exposition de tableaux'},
+      {src:'images/festi_2017_07.jpg', label:'Stand bijoux & vêtements'},
+      {src:'images/festi_2017_08.jpg', label:'Stand confiseries & friandises'},
+      {src:'images/festi_2017_09.jpg', label:'Vue générale du village exposants'},
+      {src:'images/festi_2017_10.jpg', label:'Jeux de société — Monopoly'},
+      {src:'images/festi_2017_11.jpg', label:'Jeux de dominos'},
+      {src:'images/festi_2017_12.jpg', label:'Structures gonflables pour enfants'},
+      {src:'images/festi_2017_13.jpg', label:'Public nombreux — temps fort'},
+      {src:'images/festi_2017_14.jpg', label:'Familles & paroissiens réunis'},
+      {src:'images/festi_2017_15.jpg', label:'Scène — plateau artistique'},
+      {src:'images/festi_2017_16.jpg', label:'Performance scénique'},
+      {src:'images/festi_2017_17.jpg', label:'Concert — duo sur scène'},
+      {src:'images/festi_2017_18.jpg', label:'Vue depuis la scène'},
+      {src:'images/festi_2017_19.jpg', label:'Public en liesse'},
+      {src:'images/festi_2017_20.jpg', label:'Debout pour la fête !'},
+      {src:'images/festi_2017_21.jpg', label:'Public — ambiance festive'},
+      {src:'images/festi_2017_22.jpg', label:'Majorettes — spectacle chorégraphique'},
+      {src:'images/festi_2017_23.jpg', label:'Messe dominicale — église comble'},
+    ],
+    videos: [
+      {id:'10lwY_ygYnj7rrUOly5c0rCd2p6szhenr', label:'Conteur Nestor MIJÉRÉ'},
+      {id:'1k_FfNuR-H9Vdx9lRHwTvuF8hobUgDxKQ', label:'Danse AM4 — 01'},
+      {id:'1W_6dzzwqO6loVmAgas9Ps9DNXot36JWL', label:'Danse AM4 — 02'},
+      {id:'1VcRbJVtF7JxXjt8E1G5asqqVWzDrzeNy', label:'Émergence Foyale — 01'},
+      {id:'1W_ioKvKK9Fdxt5Sv155-8Q4IKXJLiVGi', label:'Émergence Foyale — 02'},
+      {id:'1oUtPkHsDseiZBHAO-hR-qEG-5Y0_v51c', label:'Émergence Foyale — 03'},
+      {id:'1faYfxlrL1UJibdfIAOta6m79R-X8EeIz', label:'Groupe de danse'},
+      {id:'1Ap25E2uxrCr4wrE1nBgosNLMXUkHXvRP', label:'Jeu de chaises musicales — 01'},
+      {id:'1vJHvqHXs_bZsa_YPARq_sebpVmxAuy23', label:'Jeu de chaises musicales — 02'},
+      {id:'1wsi17k-aPauygOgo1qLmLivd4NbfLWfu', label:'Jeu de chaises musicales — 03'},
+      {id:'16KlNh7wHhn3JYlGMTebcYentgcJEpdlU', label:'Jeu de chaises musicales — 04'},
+      {id:'19vWLB_Gn-cW8e5__PMbpyWFPkt3nnFzE', label:'Le penseur des temps modernes'},
+      {id:'1dth9ajz6PQANAmSNPPG6QK2V3UzkcRMa', label:'Marcé — 01'},
+      {id:'1HyWeaRrZW5Pl_Fo80K9fhav3BEMjmxxj', label:'Marcé — 02'},
+      {id:'1QCOMh4S99_L68mCtzpxEfUa6FAHOgdHo', label:'Mascottes de Danielle RENÉ-CORAIL'},
+      {id:'1FkMmEkyQ90_eW0Yhzzbj_QS1BuLXIB-l', label:'Miguel LOUISON'},
+    ]
+  }
 };
 
-const COPYRIGHT = '© Paroisse Saint Christophe — Tous droits réservés';
+var COULEURS = {'2025':'#8E44AD','2024':'#B8860B','2023':'#C0392B','2019':'#2A9D6A','2018':'#1A78B4','2017':'#0D4F7A'};
+var ANNEES = ['2025','2024','2023','2019','2018','2017'];
+var COPYRIGHT = '© Paroisse Saint Christophe — Tous droits réservés';
 
-// ── ÉTAT NAVIGATION ───────────────────────────────────────────────────────────
-// Arbre de navigation : annee → sous-dossier (null = tout, 'photo', 'video')
-let navAnnee = 'all';
-let navSous  = null;
+// État courant
+var etatAnnee = null;  // null = vue d'ensemble
+var etatSous  = null;  // null, 'photo', 'video'
 
-// ── RENDU FILTRES ─────────────────────────────────────────────────────────────
-function renderFiltres() {
-  var container = document.getElementById('filtres');
-  var annees = ['all','2025','2024','2023','2019','2018','2017'];
-
-  if (navAnnee === 'all') {
-    // Niveau 1 : années
-    container.innerHTML = annees.map(function(a) {
-      var label = a === 'all' ? 'Toutes les éditions' : a;
-      var actif = navAnnee === a;
-      return '<button class="filtre-btn' + (actif?' active':'') + '" onclick="selAnnee('' + a + '')">' + label + '</button>';
-    }).join('');
-  } else {
-    // Niveau 2 : année sélectionnée + ses sous-dossiers
-    var hasPhotos = PHOTOS.some(function(p){ return p.annee===navAnnee && p.type==='photo'; });
-    var hasVideos = PHOTOS.some(function(p){ return p.annee===navAnnee && p.type==='video'; });
-    var btns = '<button class="filtre-btn" onclick="selAnnee('all')">← Toutes les éditions</button>';
-    btns += '<button class="filtre-btn' + (navSous===null?' active':'') + '" onclick="selSous(null)">' + navAnnee + ' — Tout</button>';
-    if (hasPhotos) btns += '<button class="filtre-btn' + (navSous==='photo'?' active':'') + '" onclick="selSous('photo')">📸 Photos ' + navAnnee + '</button>';
-    if (hasVideos) btns += '<button class="filtre-btn' + (navSous==='video'?' active':'') + '" onclick="selSous('video')">🎬 Vidéos ' + navAnnee + '</button>';
-    container.innerHTML = btns;
-  }
+// ─────────────────────────────────────────────────────────────────────────────
+// NAVIGATION
+// ─────────────────────────────────────────────────────────────────────────────
+function aller(annee, sous) {
+  etatAnnee = annee;
+  etatSous  = sous;
+  rendrePage();
 }
 
-// ── RENDU GRILLE ──────────────────────────────────────────────────────────────
-function renderGrille() {
-  var liste;
-  if (navAnnee === 'all') {
-    liste = PHOTOS;
-  } else if (navSous === null) {
-    liste = PHOTOS.filter(function(p){ return p.annee === navAnnee; });
+function rendrePage() {
+  var nav = document.getElementById('nav-galerie');
+  var grid = document.getElementById('galerie-grid');
+
+  if (etatAnnee === null) {
+    // ── NIVEAU 1 : Vue d'ensemble des années ──
+    nav.innerHTML = '<div style="display:flex;gap:10px;flex-wrap:wrap">'
+      + '<button class="btn-filtre actif">Toutes les éditions</button>'
+      + ANNEES.map(function(a) {
+          return '<button class="btn-filtre" onclick="aller(\'' + a + '\',null)">' + a + '</button>';
+        }).join('')
+      + '</div>';
+
+    // Afficher une carte par année
+    grid.innerHTML = ANNEES.map(function(a) {
+      var col = COULEURS[a];
+      var nb = DATA[a].photos.length + DATA[a].videos.length;
+      return '<div class="carte" onclick="aller(\'' + a + '\',null)" style="background:' + col + '22;border:2px solid ' + col + '44">'
+        + '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px;padding:20px">'
+        + '<div style="font-family:\'Playfair Display\',serif;font-size:52px;font-weight:900;color:' + col + '">' + a + '</div>'
+        + '<div style="font-size:13px;color:#555">' + nb + ' média(s)</div>'
+        + '<div style="display:flex;gap:8px">'
+        + (DATA[a].photos.length ? '<span style="background:' + col + '22;color:' + col + ';border:1px solid ' + col + ';font-size:11px;padding:3px 10px;border-radius:10px;font-weight:600">📸 ' + DATA[a].photos.length + ' photos</span>' : '')
+        + (DATA[a].videos.length ? '<span style="background:#D4A01722;color:#B8860B;border:1px solid #D4A017;font-size:11px;padding:3px 10px;border-radius:10px;font-weight:600">🎬 ' + DATA[a].videos.length + ' vidéos</span>' : '')
+        + '</div>'
+        + '</div>'
+        + '</div>';
+    }).join('');
+
+  } else if (etatSous === null) {
+    // ── NIVEAU 2 : Sous-dossiers d'une année ──
+    var col = COULEURS[etatAnnee];
+    var hasP = DATA[etatAnnee].photos.length > 0;
+    var hasV = DATA[etatAnnee].videos.length > 0;
+
+    nav.innerHTML = '<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">'
+      + '<button class="btn-filtre btn-retour" onclick="aller(null,null)">← Toutes les éditions</button>'
+      + '<button class="btn-filtre actif">' + etatAnnee + '</button>'
+      + (hasP ? '<button class="btn-filtre btn-photos" onclick="aller(\'' + etatAnnee + '\',\'photo\')">📸 Photos ' + etatAnnee + ' (' + DATA[etatAnnee].photos.length + ')</button>' : '')
+      + (hasV ? '<button class="btn-filtre btn-videos" onclick="aller(\'' + etatAnnee + '\',\'video\')">🎬 Vidéos ' + etatAnnee + ' (' + DATA[etatAnnee].videos.length + ')</button>' : '')
+      + '</div>';
+
+    // Afficher 2 grandes cartes : Photos et Vidéos
+    grid.innerHTML = ''
+      + (hasP ? '<div class="carte" onclick="aller(\'' + etatAnnee + '\',\'photo\')" style="background:' + col + '22;border:2px solid ' + col + '44">'
+        + '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:16px;padding:24px">'
+        + '<div style="font-size:52px">📸</div>'
+        + '<div style="font-family:\'Playfair Display\',serif;font-size:22px;font-weight:700;color:' + col + '">Photos ' + etatAnnee + '</div>'
+        + '<div style="font-size:13px;color:#666">' + DATA[etatAnnee].photos.length + ' photos</div>'
+        + '</div></div>' : '')
+      + (hasV ? '<div class="carte" onclick="aller(\'' + etatAnnee + '\',\'video\')" style="background:#D4A01722;border:2px solid #D4A01744">'
+        + '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:16px;padding:24px">'
+        + '<div style="font-size:52px">🎬</div>'
+        + '<div style="font-family:\'Playfair Display\',serif;font-size:22px;font-weight:700;color:#B8860B">Vidéos ' + etatAnnee + '</div>'
+        + '<div style="font-size:13px;color:#666">' + DATA[etatAnnee].videos.length + ' vidéos</div>'
+        + '</div></div>' : '');
+
   } else {
-    liste = PHOTOS.filter(function(p){ return p.annee === navAnnee && p.type === navSous; });
+    // ── NIVEAU 3 : Contenu Photos ou Vidéos ──
+    var col = COULEURS[etatAnnee];
+    var liste = etatSous === 'photo' ? DATA[etatAnnee].photos : DATA[etatAnnee].videos;
+    var ico = etatSous === 'photo' ? '📸' : '🎬';
+    var titre = ico + ' ' + (etatSous === 'photo' ? 'Photos' : 'Vidéos') + ' ' + etatAnnee;
+
+    nav.innerHTML = '<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">'
+      + '<button class="btn-filtre btn-retour" onclick="aller(null,null)">← Toutes les éditions</button>'
+      + '<button class="btn-filtre" onclick="aller(\'' + etatAnnee + '\',null)">' + etatAnnee + '</button>'
+      + '<button class="btn-filtre ' + (etatSous==='photo'?'btn-photos actif':'btn-photos') + '" onclick="aller(\'' + etatAnnee + '\',\'photo\')">📸 Photos ' + etatAnnee + ' (' + DATA[etatAnnee].photos.length + ')</button>'
+      + (DATA[etatAnnee].videos.length ? '<button class="btn-filtre ' + (etatSous==='video'?'btn-videos actif':'btn-videos') + '" onclick="aller(\'' + etatAnnee + '\',\'video\')">🎬 Vidéos ' + etatAnnee + ' (' + DATA[etatAnnee].videos.length + ')</button>' : '')
+      + '</div>';
+
+    grid.innerHTML = '<div class="sec-titre-galerie">' + titre + ' — FESTI SAINT CHRISTOPHE (' + liste.length + ')</div>'
+      + liste.map(function(p) {
+          if (etatSous === 'photo') {
+            if (p.src) {
+              return '<div class="carte" onclick="ouvrirPhoto(\'' + p.src + '\',\'' + p.label.replace(/'/g,"\\'") + '\',\'' + etatAnnee + '\')">'
+                + '<img src="' + p.src + '" alt="' + p.label + '" loading="lazy">'
+                + '<div class="carte-annee" style="background:' + col + '">' + etatAnnee + '</div>'
+                + '<div class="carte-label">' + p.label + '</div>'
+                + '</div>';
+            } else {
+              return '<div class="carte">'
+                + '<div class="carte-emoji">' + (p.emoji||'📸') + '</div>'
+                + '<div class="carte-annee" style="background:' + col + '">' + etatAnnee + '</div>'
+                + '<div class="carte-label">' + p.label + '</div>'
+                + '</div>';
+            }
+          } else {
+            return '<div class="carte" onclick="ouvrirVideo(\'' + p.id + '\',\'' + p.label.replace(/'/g,"\\'") + '\')">'
+              + '<img src="https://drive.google.com/thumbnail?id=' + p.id + '&sz=w400" alt="' + p.label + '" loading="lazy">'
+              + '<div class="carte-play"><div style="width:56px;height:56px;background:rgba(212,160,23,.92);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px">▶</div></div>'
+              + '<div class="carte-badge-video">VIDÉO</div>'
+              + '<div class="carte-annee" style="background:' + col + '">' + etatAnnee + '</div>'
+              + '<div class="carte-label">' + p.label + '</div>'
+              + '</div>';
+          }
+        }).join('');
   }
 
-  // Titre de section
-  var titre = '';
-  if (navAnnee !== 'all' && navSous !== null) {
-    var ico = navSous === 'photo' ? '📸 Photos' : '🎬 Vidéos';
-    titre = '<div style="grid-column:1/-1;font-family:'Playfair Display',serif;font-size:18px;color:#0D4F7A;padding:8px 0 14px;border-bottom:2px solid #D4A017;margin-bottom:4px">'
-          + ico + ' — FESTI SAINT CHRISTOPHE ' + navAnnee + ' <span style="font-size:13px;color:#888;font-family:'Outfit',sans-serif">(' + liste.length + ')</span></div>';
-  }
-
-  document.getElementById('galerie-grid').innerHTML = titre + liste.map(carteHTML).join('');
+  window.scrollTo({top:0, behavior:'smooth'});
   if (typeof initFadeUp === 'function') initFadeUp();
 }
 
-// ── NAVIGATION ────────────────────────────────────────────────────────────────
-function selAnnee(a) {
-  navAnnee = a;
-  navSous  = null;
-  renderFiltres();
-  renderGrille();
-}
-
-function selSous(s) {
-  navSous = s;
-  renderFiltres();
-  renderGrille();
-}
-
-// ── CARTE ─────────────────────────────────────────────────────────────────────
-function carteHTML(p) {
-  var col = COLORS[p.annee] || '#0D4F7A';
-  var annee = p.annee;
-  var label = p.label;
-  if (p.type === 'video') {
-    return '<div class="photo-card fade-up" style="background:' + col + '22;border:1px solid ' + col + '44" onclick="ouvrirVideo('' + p.id + '','' + label.replace(/'/g,"\'") + '')">'
-      + '<img src="https://drive.google.com/thumbnail?id=' + p.id + '&sz=w400" alt="' + label + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">'
-      + '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:5;pointer-events:none">'
-      + '<div style="width:56px;height:56px;background:rgba(212,160,23,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px">▶</div>'
-      + '</div>'
-      + '<div style="position:absolute;top:10px;right:10px;background:#D4A017;color:#0D4F7A;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;z-index:10">VIDÉO</div>'
-      + '<div class="photo-card-year" style="background:' + col + '">' + annee + '</div>'
-      + '<div class="photo-card-label">' + label + '</div>'
-      + '</div>';
-  } else if (p.src) {
-    return '<div class="photo-card fade-up" style="background:' + col + '22;border:1px solid ' + col + '44" onclick="ouvrirPhoto('' + p.src + '','' + label.replace(/'/g,"\'") + '','' + annee + '')">'
-      + '<img src="' + p.src + '" alt="' + label + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">'
-      + '<div class="photo-card-year" style="background:' + col + '">' + annee + '</div>'
-      + '<div class="photo-card-label">' + label + '</div>'
-      + '</div>';
-  } else {
-    return '<div class="photo-card fade-up" style="background:' + col + '22;border:1px solid ' + col + '44">'
-      + '<div style="font-size:48px;display:flex;align-items:center;justify-content:center;height:100%">' + (p.emoji||'📸') + '</div>'
-      + '<div class="photo-card-year" style="background:' + col + '">' + annee + '</div>'
-      + '<div class="photo-card-label">' + label + '</div>'
-      + '</div>';
-  }
-}
-
-// ── LIGHTBOX PHOTO ────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// LIGHTBOX PHOTO
+// ─────────────────────────────────────────────────────────────────────────────
 function ouvrirPhoto(src, caption, annee) {
   var lb = document.getElementById('lb-photo');
   if (!lb) {
@@ -319,39 +369,41 @@ function ouvrirPhoto(src, caption, annee) {
     lb.id = 'lb-photo';
     lb.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9000;align-items:center;justify-content:center;flex-direction:column;padding:20px';
     lb.innerHTML = '<div style="position:relative;max-width:92vw">'
-      + '<div id="lb-canvas-wrap" style="border-radius:10px;overflow:hidden;box-shadow:0 0 60px rgba(0,0,0,.9)"></div>'
-      + '<button onclick="document.getElementById('lb-photo').style.display='none'" style="position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:#D4A017;color:#0D4F7A;border:none;font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10">×</button>'
+      + '<div id="lb-wrap" style="border-radius:10px;overflow:hidden;box-shadow:0 0 60px rgba(0,0,0,.9)"></div>'
+      + '<button onclick="document.getElementById(\'lb-photo\').style.display=\'none\'" style="position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:#D4A017;color:#0D4F7A;border:none;font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center">×</button>'
       + '</div>'
-      + '<div id="lb-caption" style="color:#fff;font-size:14px;margin-top:14px;text-align:center;opacity:.8;max-width:600px"></div>'
+      + '<div id="lb-cap" style="color:#fff;font-size:14px;margin-top:14px;text-align:center;opacity:.8;max-width:600px"></div>'
       + '<div style="color:rgba(255,255,255,.45);font-size:11px;margin-top:5px">' + COPYRIGHT + '</div>'
       + '<div style="color:rgba(255,255,255,.3);font-size:11px;margin-top:6px">Cliquez en dehors pour fermer</div>';
     lb.addEventListener('click', function(e){ if(e.target===lb) lb.style.display='none'; });
     document.body.appendChild(lb);
   }
-  var wrap = document.getElementById('lb-canvas-wrap');
-  wrap.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;padding:30px;color:#fff;font-size:13px">Chargement...</div>';
+  var wrap = document.getElementById('lb-wrap');
+  wrap.innerHTML = '<div style="padding:30px;color:#fff;font-size:13px;text-align:center">Chargement...</div>';
   var img = new Image();
-  img.onload = function(){
+  img.onload = function() {
     var canvas = document.createElement('canvas');
-    canvas.width  = img.naturalWidth;
+    canvas.width = img.naturalWidth;
     canvas.height = img.naturalHeight;
     canvas.style.cssText = 'max-width:90vw;max-height:76vh;display:block';
     canvas.getContext('2d').drawImage(img, 0, 0);
     canvas.addEventListener('contextmenu', function(e){ e.preventDefault(); });
-    canvas.addEventListener('dragstart',   function(e){ e.preventDefault(); });
+    canvas.addEventListener('dragstart', function(e){ e.preventDefault(); });
     wrap.innerHTML = '';
     wrap.appendChild(canvas);
   };
-  img.onerror = function(){
+  img.onerror = function() {
     wrap.innerHTML = '<img src="' + src + '" style="max-width:90vw;max-height:76vh;display:block;border-radius:8px">';
   };
   img.crossOrigin = 'anonymous';
   img.src = src;
-  document.getElementById('lb-caption').textContent = caption + ' — ' + annee;
+  document.getElementById('lb-cap').textContent = caption + ' — ' + annee;
   lb.style.display = 'flex';
 }
 
-// ── LECTEUR VIDÉO ─────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// LECTEUR VIDÉO
+// ─────────────────────────────────────────────────────────────────────────────
 function ouvrirVideo(id, titre) {
   var lb = document.getElementById('lb-video');
   if (!lb) {
@@ -362,9 +414,9 @@ function ouvrirVideo(id, titre) {
       + '<div style="border-radius:10px;overflow:hidden;background:#000">'
       + '<iframe id="lb-iframe" width="100%" height="460" frameborder="0" allowfullscreen allow="autoplay;encrypted-media" style="display:block"></iframe>'
       + '</div>'
-      + '<button onclick="document.getElementById('lb-iframe').src='';document.getElementById('lb-video').style.display='none'" style="position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:#D4A017;color:#0D4F7A;border:none;font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10">×</button>'
+      + '<button onclick="document.getElementById(\'lb-iframe\').src=\'\';document.getElementById(\'lb-video\').style.display=\'none\'" style="position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:#D4A017;color:#0D4F7A;border:none;font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center">×</button>'
       + '</div>'
-      + '<div id="lb-video-titre" style="color:#fff;font-size:14px;margin-top:14px;text-align:center;opacity:.8"></div>'
+      + '<div id="lb-vtitre" style="color:#fff;font-size:14px;margin-top:14px;text-align:center;opacity:.8"></div>'
       + '<div style="color:rgba(255,255,255,.45);font-size:11px;margin-top:5px">' + COPYRIGHT + '</div>'
       + '<div style="color:rgba(255,255,255,.3);font-size:11px;margin-top:6px">Cliquez en dehors pour fermer</div>';
     lb.addEventListener('click', function(e){
@@ -373,11 +425,13 @@ function ouvrirVideo(id, titre) {
     document.body.appendChild(lb);
   }
   document.getElementById('lb-iframe').src = 'https://drive.google.com/file/d/' + id + '/preview';
-  document.getElementById('lb-video-titre').textContent = titre + ' — FESTI SAINT CHRISTOPHE 2017';
+  document.getElementById('lb-vtitre').textContent = titre + ' — FESTI SAINT CHRISTOPHE 2017';
   document.getElementById('lb-video').style.display = 'flex';
 }
 
-// ── PROTECTION ────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// PROTECTION
+// ─────────────────────────────────────────────────────────────────────────────
 document.addEventListener('contextmenu', function(e){
   if(e.target.tagName==='IMG'){ e.preventDefault(); return false; }
 });
@@ -385,10 +439,17 @@ document.addEventListener('dragstart', function(e){
   if(e.target.tagName==='IMG') e.preventDefault();
 });
 
-// ── INIT ──────────────────────────────────────────────────────────────────────
-renderFiltres();
-renderGrille();
-</script>
+// ─────────────────────────────────────────────────────────────────────────────
+// MODALE CONTACT
+// ─────────────────────────────────────────────────────────────────────────────
+function openModal(){ document.getElementById('contact-modal').style.display='flex'; document.body.style.overflow='hidden'; }
+function closeModal(){ document.getElementById('contact-modal').style.display='none'; document.body.style.overflow=''; }
+document.getElementById('contact-modal').addEventListener('click',function(e){ if(e.target===this)closeModal(); });
+
+// ─────────────────────────────────────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────────────────────────────────────
+rendrePage();
 </script>
 </body>
 </html>
