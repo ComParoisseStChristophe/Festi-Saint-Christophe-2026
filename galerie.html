@@ -19,20 +19,8 @@
 
 <section class="sec bg-blanc">
   <div class="sec-inner">
-    <!-- Filtre par année -->
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px" id="filtres">
-      <button onclick="filtrer('all')" class="filtre-btn active" data-filter="all">Toutes les éditions</button>
-      <button onclick="filtrer('2025')" class="filtre-btn" data-filter="2025">2025</button>
-      <button onclick="filtrer('2024')" class="filtre-btn" data-filter="2024">2024</button>
-      <button onclick="filtrer('2023')" class="filtre-btn" data-filter="2023">2023</button>
-      <button onclick="filtrer('2019')" class="filtre-btn" data-filter="2019">2019</button>
-      <button onclick="filtrer('2018')" class="filtre-btn" data-filter="2018">2018</button>
-      <button onclick="filtrer('2017')" class="filtre-btn" data-filter="2017">2017</button>
-      <button onclick="filtrerDossier('2017','photo')" class="filtre-btn" data-filter="2017-photo">📸 Photos 2017</button>
-      <button onclick="filtrerDossier('2017','video')" class="filtre-btn" data-filter="2017-video">🎬 Vidéos 2017</button>
-      <button onclick="filtrerDossier('2017','photo')" class="filtre-btn" data-filter="2017-photo" style="background:rgba(13,79,122,.1);border-color:#0D4F7A;color:#0D4F7A">📸 Photos 2017</button>
-      <button onclick="filtrerDossier('2017','video')" class="filtre-btn" data-filter="2017-video" style="background:rgba(212,160,23,.1);border-color:#D4A017;color:#B8860B">🎬 Vidéos 2017</button>
-    </div>
+    <!-- Filtre par année — généré dynamiquement -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px" id="filtres"></div>
 
     <!-- Grille galerie -->
     <div id="galerie-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
