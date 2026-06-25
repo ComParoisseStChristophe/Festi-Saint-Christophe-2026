@@ -13,7 +13,7 @@
   <div class="page-hero-inner" style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px">
     <div class="page-hero-label">Joue & apprends</div>
     <h1>Quiz <em>du FESTI</em></h1>
-    <p>20 questions sur l'histoire du FESTI, la paroisse et le thème 2026. 15 secondes par question !</p>
+    <p>20 questions tirées au sort parmi 50 — questions et réponses mélangées à chaque partie !</p>
   </div>
 </div>
 
@@ -53,18 +53,9 @@
         <a href="mailto:comitedfetes.stchristophe@gmail.com" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:6px">comitedfetes.stchristophe@gmail.com</a>
         <a href="mailto:paroisse.stchristophe@eglisemartinique.fr" style="display:block;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none;margin-bottom:10px">paroisse.stchristophe@eglisemartinique.fr</a>
         <div style="display:flex;flex-direction:column;gap:6px;margin-top:4px">
-          <a href="https://www.facebook.com/ParoisseSaintChristophe" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">
-            <span style="background:#1877F2;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0">f</span>
-            Paroisse Saint Christophe
-          </a>
-          <a href="https://www.youtube.com/@paroissesaintchristophe" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">
-            <span style="background:#FF0000;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;flex-shrink:0">▶</span>
-            Paroisse Saint Christophe
-          </a>
-          <a href="https://wa.me/596696101298" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none">
-            <span style="background:#25D366;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;flex-shrink:0">W</span>
-            WhatsApp Paroisse Saint Christophe
-          </a>
+          <a href="https://www.facebook.com/ParoisseSaintChristophe" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none"><span style="background:#1877F2;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0">f</span>Paroisse Saint Christophe</a>
+          <a href="https://www.youtube.com/@paroissesaintchristophe" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none"><span style="background:#FF0000;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;flex-shrink:0">▶</span>Paroisse Saint Christophe</a>
+          <a href="https://wa.me/596696101298" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:13px;text-decoration:none"><span style="background:#25D366;width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;flex-shrink:0">W</span>WhatsApp Paroisse Saint Christophe</a>
         </div>
       </div>
     </div>
@@ -119,100 +110,494 @@
 <script>
 initNav('quiz.html');
 (function(){
-const QS=[
-  {q:"En quelle année a eu lieu la toute première édition du FESTI SAINT CHRISTOPHE ?",a:["2017","2015","2019","2020"],c:0,ok:"Oui ! Le 9 juillet 2017, sous l'impulsion du Père Arnauld HOUÉVOYÉHA.",ko:"C'était le 9 juillet 2017 — la 1ère édition fondatrice !"},
-  {q:"Quel était le thème de la 1ère édition en 2017 ?",a:["Nou Tout Sé Frè","Sa Té Bèl An Tan Lontan","Journée dédiée à la Famille","Entre Terre et Mer"],c:2,ok:"Bravo ! La famille était au cœur de cette édition fondatrice.",ko:"C'était la famille — thème cher à l'Église et à notre évêque Mgr Macaire."},
-  {q:"Quel artiste martiniquais s'est produit lors de la 1ère édition, auquel la 7ème rend hommage ?",a:["José VERSOL","Claudy LARGEN","Jacky RAPON","Jean-Michel CABRIMOL"],c:1,ok:"Oui ! Claudy LARGEN (1958–2021), dont le souvenir est honoré en 2026.",ko:"Il s'agissait de Claudy LARGEN, disparu en 2021."},
-  {q:"Quel était le thème de la 2ème édition en 2018 ?",a:["Vini Gloriyé Bondié","Sa Té Bèl An Tan Lontan","L'Essenciel","Effata"],c:1,ok:"Correct ! Un retour nostalgique aux jeux et saveurs d'antan.",ko:"C'était « Sa Té Bèl An Tan Lontan » — un voyage dans le passé !"},
-  {q:"En 2019, le FESTI a innové avec un nouveau format. Lequel ?",a:["Pique-nique en forêt","Concert en plein air","Garden Party","Marché de Noël"],c:2,ok:"Exact ! Une Garden Party « Entre Terre et Mer ».",ko:"C'était une Garden Party, dans une ambiance entre terre et mer."},
-  {q:"Combien d'années le FESTI a-t-il été suspendu à cause du COVID ?",a:["1 an","2 ans","3 ans","4 ans"],c:2,ok:"Oui, 3 longues années (2020, 2021, 2022) avant le grand retour en 2023.",ko:"3 ans de pause (2020-2022) avant de retrouver la communauté en 2023."},
-  {q:"Quel était le thème de la 4ème édition en 2023 ?",a:["Vini Gloriyé Bondié","Effata, Ouvè Tjèw Ba Bondié","Nou Tout Sé Frè","L'Essenciel"],c:2,ok:"Bravo ! « Nous sommes tous frères » — un beau message après la pandémie.",ko:"C'était « Nou Tout Sé Frè » — un appel à la fraternité retrouvée."},
-  {q:"Quel groupe assure le concert final de la 5ème édition (2024) ?",a:["José VERSOL","Jean-Michel CABRIMOL","BÈLÈ LÉGLIZ","Jacky RAPON"],c:2,ok:"Oui ! BÈLÈ LÉGLIZ, fidèles depuis la 1ère édition.",ko:"C'est BÈLÈ LÉGLIZ — présents depuis la toute première édition !"},
-  {q:"Quels deux artistes ont illuminé la 6ème édition en 2025 ?",a:["FAIV' et José VERSOL","Jacky RAPON et José VERSOL","Jean-Michel CABRIMOL et Stella GONIS","Anna TEKO et Marcé"],c:1,ok:"Exact ! Jacky RAPON et José VERSOL — deux grandes pointures martiniquaises.",ko:"C'était Jacky RAPON et José VERSOL, un plateau d'exception !"},
-  {q:"En quelle année le Père Jean-Michel MONCONTHOUR est-il devenu curé ?",a:["2019","2021","2022","2023"],c:2,ok:"Oui ! Il a pris les rênes de la paroisse en septembre 2022.",ko:"C'est en septembre 2022 qu'il est arrivé !"},
-  {q:"En quelle année a été achevée l'église Saint Christophe ?",a:["1945","1955","1958","1966"],c:2,ok:"Exact ! L'église a été achevée le 19 octobre 1958.",ko:"L'église Saint Christophe a été achevée en 1958 !"},
-  {q:"À qui est dédiée la salle paroissiale construite en 1966 ?",a:["Saint Christophe","Jean XXIII","Mgr Macaire","Père Arnauld"],c:1,ok:"Bravo ! La salle Jean XXIII, en hommage au pape du Concile Vatican II.",ko:"C'est la salle Jean XXIII — en l'honneur du pape qui a convoqué Vatican II."},
-  {q:"Dans quel quartier de Fort-de-France se trouve la paroisse ?",a:["Terres Sainville","Kerlys","Dillon","Sainte-Thérèse"],c:1,ok:"Oui ! À Kerlys, sur un terrain acquis en 1955.",ko:"La paroisse est à Kerlys — terrain acquis en juin 1955."},
-  {q:"Quel journal a couvert la 1ère édition du FESTI le 10 juillet 2017 ?",a:["Le Monde","Antilla","France-Antilles","RCI"],c:2,ok:"Exact ! France-Antilles a titré « Familles en fête à Saint Christophe ».",ko:"C'est France-Antilles qui a couvert l'événement le 10 juillet 2017."},
-  {q:"Que signifie le jeu de mot dans « L'Essenciel » ?",a:["Essence de la vie","Essentiel + Sens + Ciel","Saint Christophe + Ciel","Festival + Essentiel"],c:1,ok:"Parfait ! Essentiel + Sens + Ciel — trois dimensions en un seul mot.",ko:"« L'Essenciel » combine Essentiel, le mot Sens, et le Ciel !"},
-  {q:"En écho à quel événement le thème « L'Essenciel » a-t-il été choisi ?",a:["La Fête de la Musique","Le Carnaval de Martinique","Le Festival d'Art Sacré","La Semaine Sainte"],c:2,ok:"Bravo ! En résonance avec le Festival d'Art Sacré de la Martinique 2026.",ko:"C'est le Festival d'Art Sacré de la Martinique 2026 qui inspire ce thème."},
-  {q:"Quel verset biblique est la citation principale du thème 2026 ?",a:["Jean 3,16","Philippiens 4,4","Matthieu 22,37-38","Psaume 23"],c:2,ok:"Exact ! « Tu aimeras le Seigneur de tout ton cœur... » — Mt 22,37-38.",ko:"C'est Matthieu 22,37-38 : « Tu aimeras le Seigneur de tout ton cœur... »"},
-  {q:"Quel groupe assure le concert final de la 7ème édition en 2026 ?",a:["BÈLÈ LÉGLIZ","Pastorale des Artistes du Diocèse","José VERSOL","FAIV'"],c:1,ok:"Oui ! La Pastorale des Artistes du Diocèse de Martinique !",ko:"C'est la Pastorale des Artistes du Diocèse — une pléiade d'artistes martiniquais !"},
-  {q:"À quelle heure se tient la 1ère messe de la journée du 28 juin 2026 ?",a:["07H30","06H15","08H30","05H00"],c:1,ok:"Bravo ! La journée commence tôt — 1ère messe à 06H15 !",ko:"La 1ère messe commence à 06H15 — le petit-déjeuner suit juste après !"},
-  {q:"Combien de messes y aura-t-il le 28 juin 2026 ?",a:["1","2","3","4"],c:2,ok:"Exact ! 3 messes : 06H15, 08H30 et 10H30.",ko:"Il y aura 3 messes : 06H15, 08H30 et 10H30 !"},
+
+// ── BANQUE DE 50 QUESTIONS ────────────────────────────────────────────────────
+// Format : {q, a:[4 réponses], c:index correct, ok:message succès, ko:message échec}
+const BANQUE = [
+
+  // ── ÉDITIONS & HISTOIRE ──────────────────────────────────────────────────
+  {q:"En quelle année a eu lieu la toute première édition du FESTI SAINT CHRISTOPHE ?",
+   a:["2017","2015","2019","2020"],c:0,
+   ok:"Oui ! Le 9 juillet 2017, sous l'impulsion du Père Arnauld HOUÉVOYÉHA.",
+   ko:"C'était le 9 juillet 2017 — la 1ère édition fondatrice !"},
+
+  {q:"Quel était le thème de la 1ère édition en 2017 ?",
+   a:["Nou Tout Sé Frè","Sa Té Bèl An Tan Lontan","Journée dédiée à la Famille","Entre Terre et Mer"],c:2,
+   ok:"Bravo ! La famille était au cœur de cette édition fondatrice.",
+   ko:"C'était la famille — thème cher à l'Église et à notre évêque."},
+
+  {q:"Quel artiste martiniquais s'est produit lors de la 1ère édition, auquel la 7ème rend hommage ?",
+   a:["José VERSOL","Claudy LARGEN","Jacky RAPON","Jean-Michel CABRIMOL"],c:1,
+   ok:"Oui ! Claudy LARGEN (1958–2021), dont le souvenir est honoré en 2026.",
+   ko:"Il s'agissait de Claudy LARGEN, disparu en 2021."},
+
+  {q:"Quel était le thème de la 2ème édition en 2018 ?",
+   a:["Vini Gloriyé Bondié","Sa Té Bèl An Tan Lontan","L'Essenciel","Effata"],c:1,
+   ok:"Correct ! Un retour nostalgique aux jeux et saveurs d'antan.",
+   ko:"C'était « Sa Té Bèl An Tan Lontan » — un voyage dans le passé !"},
+
+  {q:"En 2019, le FESTI a innové avec un nouveau format. Lequel ?",
+   a:["Pique-nique en forêt","Concert en plein air","Garden Party","Marché de Noël"],c:2,
+   ok:"Exact ! Une Garden Party « Entre Terre et Mer ».",
+   ko:"C'était une Garden Party, dans une ambiance entre terre et mer."},
+
+  {q:"Combien d'années le FESTI a-t-il été suspendu à cause du COVID-19 ?",
+   a:["1 an","2 ans","3 ans","4 ans"],c:2,
+   ok:"Oui, 3 longues années (2020, 2021, 2022) avant le grand retour en 2023.",
+   ko:"3 ans de pause (2020-2022) avant de retrouver la communauté en 2023."},
+
+  {q:"Quel était le thème de la 4ème édition en 2023 ?",
+   a:["Vini Gloriyé Bondié","Effata, Ouvè Tjèw Ba Bondié","Nou Tout Sé Frè","L'Essenciel"],c:2,
+   ok:"Bravo ! « Nous sommes tous frères » — un beau message après la pandémie.",
+   ko:"C'était « Nou Tout Sé Frè » — un appel à la fraternité retrouvée."},
+
+  {q:"Quel groupe assure le concert final de la 5ème édition (2024) ?",
+   a:["José VERSOL","Jean-Michel CABRIMOL","BÈLÈ LÉGLIZ","Jacky RAPON"],c:2,
+   ok:"Oui ! BÈLÈ LÉGLIZ, fidèles depuis la 1ère édition.",
+   ko:"C'est BÈLÈ LÉGLIZ — présents depuis la toute première édition !"},
+
+  {q:"Quels deux artistes ont illuminé la 6ème édition en 2025 ?",
+   a:["FAIV' et José VERSOL","Jacky RAPON et José VERSOL","Jean-Michel CABRIMOL et Stella GONIS","Anna TEKO et Marcé"],c:1,
+   ok:"Exact ! Jacky RAPON et José VERSOL — deux grandes pointures martiniquaises.",
+   ko:"C'était Jacky RAPON et José VERSOL, un plateau d'exception !"},
+
+  {q:"Quelle artiste internationale s'est produite à l'édition 2019 ?",
+   a:["Stella GONIS","Claudy LARGEN","Anna TEKO","FAIV'"],c:2,
+   ok:"Bravo ! Anna TEKO — une présence internationale remarquée !",
+   ko:"C'était Anna TEKO, une artiste internationale invitée en 2019."},
+
+  {q:"Quel était le thème de la 5ème édition en 2024 ?",
+   a:["Nou Tout Sé Frè","Vini Gloriyé Bondié","L'Essenciel","Sa Té Bèl An Tan Lontan"],c:1,
+   ok:"Exact ! « Venez glorifier le Seigneur » — un beau cri de louange !",
+   ko:"C'était « Vini Gloriyé Bondié » — venez glorifier le Seigneur !"},
+
+  {q:"Quel était le thème de la 6ème édition en 2025 ?",
+   a:["Effata, Ouvè Tjèw Ba Bondié","Vini Gloriyé Bondié","Nou Tout Sé Frè","L'Essenciel"],c:0,
+   ok:"Oui ! « Ouvre ton cœur à Dieu » — en référence au miracle d'Effata.",
+   ko:"C'était « Effata, Ouvè Tjèw Ba Bondié » — en référence à Marc 7,31-37."},
+
+  {q:"En quelle année le FESTI a-t-il fait son grand retour après le COVID ?",
+   a:["2021","2022","2023","2024"],c:2,
+   ok:"Oui ! Le FESTI a retrouvé sa communauté en 2023 avec le thème Nou Tout Sé Frè.",
+   ko:"C'est en 2023 que le FESTI a repris, avec le thème « Nou Tout Sé Frè »."},
+
+  {q:"Combien y a-t-il eu d'éditions du FESTI SAINT CHRISTOPHE en 2026 ?",
+   a:["5ème","6ème","7ème","8ème"],c:2,
+   ok:"Exact ! 2026 marque la 7ème édition du FESTI SAINT CHRISTOPHE.",
+   ko:"2026 c'est la 7ème édition — un anniversaire symbolique !"},
+
+  {q:"Quel artiste martiniquais était présent lors de la 1ère et de la 2ème édition du FESTI ?",
+   a:["Anna TEKO","FAIV'","Marcé","Jean-Michel CABRIMOL"],c:2,
+   ok:"Bravo ! Marcé, l'artiste emblématique martiniquais, présent en 2017 et 2018.",
+   ko:"C'était Marcé — un artiste martiniquais emblématique présent en 2017 et 2018."},
+
+  // ── PROGRAMME 2026 ────────────────────────────────────────────────────────
+  {q:"À quelle heure se tient la 1ère messe de la journée du 28 juin 2026 ?",
+   a:["07H30","06H15","08H30","05H00"],c:1,
+   ok:"Bravo ! La journée commence tôt — 1ère messe à 06H15 !",
+   ko:"La 1ère messe commence à 06H15 — le petit-déjeuner suit juste après !"},
+
+  {q:"Combien de messes y aura-t-il le 28 juin 2026 ?",
+   a:["1","2","3","4"],c:2,
+   ok:"Exact ! 3 messes : 06H15, 08H30 et 10H30.",
+   ko:"Il y aura 3 messes : 06H15, 08H30 et 10H30 !"},
+
+  {q:"À quelle heure ouvre le Village FESTI le 28 juin 2026 ?",
+   a:["06H00","07H30","08H00","09H00"],c:1,
+   ok:"Oui ! Le Village avec ses stands ouvre à 07H30.",
+   ko:"Le Village FESTI ouvre à 07H30 — juste après la 1ère messe !"},
+
+  {q:"Quel groupe assure le concert final de la 7ème édition en 2026 ?",
+   a:["BÈLÈ LÉGLIZ","Pastorale des Artistes du Diocèse","José VERSOL","FAIV'"],c:1,
+   ok:"Oui ! La Pastorale des Artistes du Diocèse de Martinique !",
+   ko:"C'est la Pastorale des Artistes du Diocèse — une pléiade d'artistes !"},
+
+  {q:"À quelle heure commence le concert de clôture du FESTI 2026 ?",
+   a:["16H00","17H00","18H00","19H00"],c:2,
+   ok:"Exact ! Le concert final commence à 18H00.",
+   ko:"Le concert de clôture commence à 18H00 !"},
+
+  {q:"À quelle heure se clôture officiellement le FESTI 2026 ?",
+   a:["18H00","19H00","20H00","21H00"],c:2,
+   ok:"Oui ! La clôture est prévue à 20H00.",
+   ko:"La clôture officielle du FESTI 2026 est à 20H00."},
+
+  {q:"Quel artiste martiniquaise est au programme du plateau 2026 ?",
+   a:["Anna TEKO","Stella GONIS","FAIV'","Sonia DERSION"],c:2,
+   ok:"Bravo ! FAIV' — une voix engagée de la scène musicale martiniquaise.",
+   ko:"C'est FAIV' qui est au programme du plateau artistique 2026 !"},
+
+  {q:"Quel artiste est aussi au programme avec FAIV' lors de l'édition 2026 ?",
+   a:["Marcé","Jean-Michel CABRIMOL","Joël ZABULON","Anna TEKO"],c:2,
+   ok:"Exact ! FAIV' et Joël ZABULON forment un duo pour cette édition.",
+   ko:"C'est Joël ZABULON qui accompagne FAIV' sur scène en 2026 !"},
+
+  {q:"Quel est le style musical présenté par Willy à 13H30 le 28 juin ?",
+   a:["Zouk","Gwo Ka","Bèlè de rue","Reggae"],c:2,
+   ok:"Oui ! Le Bèlè de rue — un art traditionnel martiniquais !",
+   ko:"C'est le Bèlè de rue, une expression culturelle de la Martinique."},
+
+  {q:"Quel type de spectacle est prévu à 14H15 le 28 juin 2026 ?",
+   a:["Concert de gospel","Défilé de mode","Spectacle de cirque","Théâtre"],c:1,
+   ok:"Exact ! Un défilé de mode valorisant les robes traditionnelles martiniquaises.",
+   ko:"C'est un défilé de mode — valorisant le patrimoine vestimentaire martiniquais !"},
+
+  // ── THÈME 2026 ────────────────────────────────────────────────────────────
+  {q:"Que signifie le jeu de mot dans « L'Essenciel » ?",
+   a:["Essence de la vie","Essentiel + Sens + Ciel","Saint Christophe + Ciel","Festival + Essentiel"],c:1,
+   ok:"Parfait ! Essentiel + Sens + Ciel — trois dimensions en un seul mot.",
+   ko:"« L'Essenciel » combine Essentiel, le mot Sens, et le Ciel !"},
+
+  {q:"En écho à quel événement le thème « L'Essenciel » a-t-il été choisi ?",
+   a:["La Fête de la Musique","Le Carnaval de Martinique","Le Festival d'Art Sacré","La Semaine Sainte"],c:2,
+   ok:"Bravo ! En résonance avec le Festival d'Art Sacré de la Martinique 2026.",
+   ko:"C'est le Festival d'Art Sacré de la Martinique 2026 qui inspire ce thème."},
+
+  {q:"Quel verset biblique est la citation principale du thème 2026 ?",
+   a:["Jean 3,16","Philippiens 4,4","Matthieu 22,37-38","Psaume 23"],c:2,
+   ok:"Exact ! « Tu aimeras le Seigneur de tout ton cœur... » — Mt 22,37-38.",
+   ko:"C'est Matthieu 22,37-38 : « Tu aimeras le Seigneur de tout ton cœur... »"},
+
+  {q:"Quelle lettre dans « L'Essenciel » rappelle notre vocation à la transcendance ?",
+   a:["L","E","S","C"],c:3,
+   ok:"Bravo ! Le « c » de ciel rappelle que notre horizon dépasse le visible.",
+   ko:"C'est le « c » de ciel — notre horizon dépasse le visible !"},
+
+  {q:"Quelle est la devise du FESTI SAINT CHRISTOPHE 2026 ?",
+   a:["Vivre ensemble","Revenir à ce qui compte vraiment","Aimer et servir","Foi, joie et fraternité"],c:1,
+   ok:"Exact ! « Revenir à ce qui compte vraiment » — l'essence du thème.",
+   ko:"La devise est « Revenir à ce qui compte vraiment » !"},
+
+  {q:"Quel deuxième verset biblique accompagne le thème 2026 ?",
+   a:["Jean 15,12","Matthieu 5,3","Philippiens 4,4","Apocalypse 21,5"],c:2,
+   ok:"Oui ! « Réjouissez-vous dans le Seigneur en tout temps ! » — Ph 4,4.",
+   ko:"C'est Philippiens 4,4 : « Réjouissez-vous dans le Seigneur en tout temps ! »"},
+
+  // ── PAROISSE & HISTOIRE ────────────────────────────────────────────────────
+  {q:"En quelle année a été achevée l'église Saint Christophe ?",
+   a:["1945","1955","1958","1966"],c:2,
+   ok:"Exact ! L'église a été achevée le 19 octobre 1958.",
+   ko:"L'église Saint Christophe a été achevée en 1958 !"},
+
+  {q:"À qui est dédiée la salle paroissiale construite en 1966 ?",
+   a:["Saint Christophe","Jean XXIII","Mgr Macaire","Père Arnauld"],c:1,
+   ok:"Bravo ! La salle Jean XXIII, en hommage au pape du Concile Vatican II.",
+   ko:"C'est la salle Jean XXIII — en l'honneur du pape qui a convoqué Vatican II."},
+
+  {q:"Dans quel quartier de Fort-de-France se trouve la paroisse Saint Christophe ?",
+   a:["Terres Sainville","Kerlys","Dillon","Sainte-Thérèse"],c:1,
+   ok:"Oui ! À Kerlys, sur un terrain acquis en 1955.",
+   ko:"La paroisse est à Kerlys — terrain acquis en juin 1955."},
+
+  {q:"En quelle année le terrain de la paroisse a-t-il été acquis ?",
+   a:["1950","1952","1955","1960"],c:2,
+   ok:"Exact ! Le terrain de Kerlys a été acquis en juin 1955.",
+   ko:"C'est en juin 1955 que le terrain de Kerlys a été acquis."},
+
+  {q:"En quelle année le Père Jean-Michel MONCONTHOUR est-il devenu curé ?",
+   a:["2019","2021","2022","2023"],c:2,
+   ok:"Oui ! Il a pris les rênes de la paroisse en septembre 2022.",
+   ko:"C'est en septembre 2022 qu'il est arrivé comme curé !"},
+
+  {q:"Quel Père a fondé le FESTI SAINT CHRISTOPHE en 2017 ?",
+   a:["Père Jean-Michel MONCONTHOUR","Père Rémy JOSEPH-PÉRALD","Père Arnauld HOUÉVOYÉHA","Père Xavier MARTIN"],c:2,
+   ok:"Oui ! Le Père Arnauld HOUÉVOYÉHA est le fondateur du FESTI.",
+   ko:"C'est le Père Arnauld HOUÉVOYÉHA qui a fondé le FESTI en 2017."},
+
+  {q:"Quel Père était curé lors de l'édition 2019 ?",
+   a:["Père Arnauld HOUÉVOYÉHA","Père Rémy JOSEPH-PÉRALD","Père Jean-Michel MONCONTHOUR","Père Xavier MARTIN"],c:1,
+   ok:"Bravo ! Le Père Rémy JOSEPH-PÉRALD a succédé au Père Arnauld.",
+   ko:"C'était le Père Rémy JOSEPH-PÉRALD — nouveau curé en 2019 !"},
+
+  {q:"Quel est le nom complet de la paroisse ?",
+   a:["Paroisse Notre-Dame de Martinique","Paroisse Saint Christophe de Fort-de-France","Paroisse du Sacré-Cœur","Paroisse Saint-Louis de France"],c:1,
+   ok:"Exact ! La Paroisse Saint Christophe de Fort-de-France.",
+   ko:"C'est la Paroisse Saint Christophe de Fort-de-France !"},
+
+  {q:"Saint Christophe est le patron de quelle catégorie de personnes ?",
+   a:["Les pêcheurs","Les voyageurs et automobilistes","Les agriculteurs","Les marins"],c:1,
+   ok:"Bravo ! Saint Christophe est le patron des voyageurs et automobilistes.",
+   ko:"Saint Christophe est le patron des voyageurs et automobilistes !"},
+
+  {q:"Quel journal a couvert la 1ère édition du FESTI le 10 juillet 2017 ?",
+   a:["Le Monde","Antilla","France-Antilles","RCI"],c:2,
+   ok:"Exact ! France-Antilles a titré « Familles en fête à Saint Christophe ».",
+   ko:"C'est France-Antilles qui a couvert l'événement le 10 juillet 2017."},
+
+  {q:"Quelle radio a diffusé un journal sur le FESTI 2017 ?",
+   a:["Radio Saint-Louis","RCI Radio","ATV Radio","Radio Fréquence Martinique"],c:1,
+   ok:"Exact ! RCI Radio a diffusé un journal consacré au FESTI 2017.",
+   ko:"C'est RCI Radio qui a couvert le FESTI 2017 dans ses journaux !"},
+
+  {q:"Quelle chaîne TV a diffusé un journal sur le FESTI 2017 ?",
+   a:["ATV","Canal+ Antilles","Martinique la 1ère","Via ATV"],c:2,
+   ok:"Oui ! Martinique la 1ère a diffusé deux journaux sur le FESTI 2017.",
+   ko:"C'est Martinique la 1ère qui a couvert le FESTI dans ses journaux !"},
+
+  // ── EXPOSANTS & ANIMATIONS ────────────────────────────────────────────────
+  {q:"Quelle surface individuelle est prévue pour chaque exposant au FESTI ?",
+   a:["5 m²","9 m²","12 m²","15 m²"],c:1,
+   ok:"Exact ! Environ 9 m² — un chapiteau 3x3 est à prévoir par l'exposant.",
+   ko:"C'est environ 9 m² — avec un chapiteau 3x3 à prévoir !"},
+
+  {q:"Quelle est la participation financière demandée aux exposants du FESTI ?",
+   a:["50 euros fixes","Rien, c'est gratuit","Un don libre à la paroisse","20 euros par mètre carré"],c:2,
+   ok:"Bravo ! La participation est libre — un don fait à la paroisse au choix de l'exposant.",
+   ko:"La participation est un don libre à la paroisse — aucun tarif fixe !"},
+
+  {q:"Jusqu'à quelle heure le Village FESTI est-il ouvert le 28 juin 2026 ?",
+   a:["17H00","18H00","19H00","20H00"],c:3,
+   ok:"Oui ! Le Village FESTI est ouvert de 07H30 à 20H00.",
+   ko:"Le Village FESTI ferme à 20H00 — en même temps que la clôture !"},
+
+  {q:"Quel type de produits peut-on trouver chez les exposants du FESTI ?",
+   a:["Uniquement des produits religieux","Alimentaire, artisanat, bijoux, mode, art...","Uniquement de la nourriture","Uniquement des vêtements"],c:1,
+   ok:"Exact ! Le FESTI accueille une grande diversité d'exposants locaux.",
+   ko:"Le FESTI accueille alimentation, artisanat, bijoux, mode, art et bien plus !"},
+
+  // ── QUESTIONS SPIRITUELLES ────────────────────────────────────────────────
+  {q:"Quelle est la boussole spirituelle du FESTI SAINT CHRISTOPHE ?",
+   a:["La tradition","Le Christ","La communauté","La culture martiniquaise"],c:1,
+   ok:"Bravo ! Notre boussole c'est le Christ — tout part et revient à Lui.",
+   ko:"Notre boussole c'est le Christ ! Tout part et revient à Lui."},
+
+  {q:"Quel est l'objectif premier du FESTI selon ses fondateurs ?",
+   a:["Générer des revenus pour la paroisse","Rassembler plutôt que diviser, servir plutôt que se servir","Promouvoir la culture martiniquaise","Organiser un concert annuel"],c:1,
+   ok:"Parfait ! Servir plutôt que se servir, rassembler plutôt que diviser.",
+   ko:"C'est servir plutôt que se servir, rassembler plutôt que diviser !"},
+
+  {q:"Le FESTI se veut un lieu de quoi selon sa vision ?",
+   a:["Compétition artistique","Rencontre, fraternité, culture et espérance","Marché commercial","Spectacle uniquement"],c:1,
+   ok:"Oui ! Un lieu de rencontre, de fraternité, de culture et d'espérance.",
+   ko:"Le FESTI est un lieu de rencontre, fraternité, culture et espérance !"},
+
+  {q:"Que dit la vision du FESTI sur la foi ?",
+   a:["La foi se pratique uniquement à l'église","La foi se vit aussi dans la fête","La foi ne peut s'exprimer en public","La foi et la fête sont incompatibles"],c:1,
+   ok:"Exact ! Le FESTI affirme que la foi se vit aussi dans la fête.",
+   ko:"Le FESTI affirme que la foi se vit aussi dans la fête !"},
+
+  // ── QUESTIONS CRÉOLES & CULTURE ───────────────────────────────────────────
+  {q:"Que signifie « Nou Tout Sé Frè » en français ?",
+   a:["Nous aimons la fête","Nous sommes tous frères","Nous sommes tous unis","Nous chantons ensemble"],c:1,
+   ok:"Bravo ! « Nous sommes tous frères » — thème de la 4ème édition 2023.",
+   ko:"« Nou Tout Sé Frè » signifie « Nous sommes tous frères » !"},
+
+  {q:"Que signifie « Vini Gloriyé Bondié » en français ?",
+   a:["Venez fêter ensemble","Venez glorifier Dieu","Venez partager le repas","Venez danser avec nous"],c:1,
+   ok:"Exact ! « Venez glorifier Dieu » — thème de la 5ème édition 2024.",
+   ko:"« Vini Gloriyé Bondié » signifie « Venez glorifier Dieu » !"},
+
+  {q:"Que signifie « Effata » dans le thème de la 6ème édition ?",
+   a:["Réjouis-toi","Ouvre-toi","Viens à moi","Lève-toi"],c:1,
+   ok:"Oui ! « Effata » signifie « Ouvre-toi » — en référence à Marc 7,31-37.",
+   ko:"« Effata » signifie « Ouvre-toi » — le miracle de Jésus en Marc 7 !"},
+
+  {q:"Que signifie « Sa Té Bèl An Tan Lontan » ?",
+   a:["C'était beau en ces temps anciens","Nous étions tous ensemble","La fête est belle","Le temps passe vite"],c:0,
+   ok:"Exact ! « C'était beau en ces temps anciens » — nostalgie et tradition.",
+   ko:"« Sa Té Bèl An Tan Lontan » = « C'était beau en ces temps anciens » !"},
+
+  {q:"Le Bèlè est un art traditionnel de quelle île ?",
+   a:["Guadeloupe","Saint-Martin","Martinique","Haïti"],c:2,
+   ok:"Oui ! Le Bèlè est un art traditionnel martiniquais.",
+   ko:"Le Bèlè est un art traditionnel de la Martinique !"},
+
+  {q:"Qu'est-ce que la Pastorale des Artistes du Diocèse de Martinique ?",
+   a:["Un groupe de danse folklorique","Un ensemble musical d'artistes chrétiens du Diocèse","Une école de musique","Un label musical martiniquais"],c:1,
+   ok:"Bravo ! Un ensemble d'artistes chrétiens du Diocèse de Martinique.",
+   ko:"C'est un ensemble d'artistes chrétiens du Diocèse de Martinique !"},
 ];
-// Mélange Fisher-Yates
-function shuffle(arr){
-  const a=[...arr];
-  for(let i=a.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [a[i],a[j]]=[a[j],a[i]];
+
+// ── CONFIGURATION ─────────────────────────────────────────────────────────────
+const NB_QUESTIONS = 20;
+
+// ── UTILITAIRES ──────────────────────────────────────────────────────────────
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
 }
-// Mélanger aussi les réponses en gardant trace de la bonne
-function shuffleAnswers(q){
-  const indexed = q.a.map((a,i)=>({a,correct:i===q.c}));
+
+function shuffleAnswers(q) {
+  const indexed = q.a.map((a, i) => ({a, correct: i === q.c}));
   const shuffled = shuffle(indexed);
   return {
     ...q,
-    a: shuffled.map(x=>x.a),
-    c: shuffled.findIndex(x=>x.correct)
+    a: shuffled.map(x => x.a),
+    c: shuffled.findIndex(x => x.correct)
   };
 }
-const QS_SHUFFLED = shuffle(QS).map(shuffleAnswers);
-let cur=0,score=0,answered=false,timer=null,timeLeft=15;
-const TOTAL=QS_SHUFFLED.length;
-const app=document.getElementById('quiz-app');
-function beep(ok){try{const ctx=new(window.AudioContext||window.webkitAudioContext)();const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.value=ok?880:220;g.gain.setValueAtTime(.25,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+(ok?.4:.3));o.start();o.stop(ctx.currentTime+(ok?.4:.3));}catch(e){}}
-function render(){
-  if(cur>=TOTAL){renderEnd();return;}
-  const q=QS_SHUFFLED[cur],pct=Math.round((cur/TOTAL)*100),circ=2*Math.PI*22,dash=circ*(timeLeft/15);
-  app.innerHTML=`<div class="qz-header"><div class="qz-title">Quiz FESTI SAINT CHRISTOPHE</div><div class="qz-sub">7 éditions · Paroisse · « L'Essenciel » · 2026</div></div>
-    <div class="qz-meta"><span class="qz-qnum">Question ${cur+1} / ${TOTAL}</span>
-      <div class="qz-timer-ring"><svg width="50" height="50" viewBox="0 0 50 50"><circle cx="25" cy="25" r="22" fill="none" stroke="#E6F1FB" stroke-width="4"/><circle cx="25" cy="25" r="22" fill="none" stroke="${timeLeft<=5?'#E24B4A':'#D4A017'}" stroke-width="4" stroke-dasharray="${circ}" stroke-dashoffset="${circ-dash}" stroke-linecap="round"/></svg><div class="qz-timer-num">${timeLeft}</div></div>
-      <span class="qz-score-badge">${score} pt${score>1?'s':''}</span></div>
+
+function tirerQuestions() {
+  return shuffle(BANQUE).slice(0, NB_QUESTIONS).map(shuffleAnswers);
+}
+
+// ── ÉTAT ──────────────────────────────────────────────────────────────────────
+let QS, cur, score, answered, timer, timeLeft;
+const TOTAL = NB_QUESTIONS;
+const app = document.getElementById('quiz-app');
+
+function init() {
+  QS = tirerQuestions();
+  cur = 0; score = 0; answered = false; timeLeft = 15;
+}
+
+// ── SON ───────────────────────────────────────────────────────────────────────
+function beep(ok) {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.connect(g); g.connect(ctx.destination);
+    o.frequency.value = ok ? 880 : 220;
+    g.gain.setValueAtTime(.25, ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + (ok ? .4 : .3));
+    o.start(); o.stop(ctx.currentTime + (ok ? .4 : .3));
+  } catch(e) {}
+}
+
+// ── RENDU QUESTION ────────────────────────────────────────────────────────────
+function render() {
+  if (cur >= TOTAL) { renderEnd(); return; }
+  const q = QS[cur];
+  const pct = Math.round((cur / TOTAL) * 100);
+  const circ = 2 * Math.PI * 22;
+  const dash = circ * (timeLeft / 15);
+  app.innerHTML = `
+    <div class="qz-header">
+      <div class="qz-title">Quiz FESTI SAINT CHRISTOPHE</div>
+      <div class="qz-sub">7 éditions · Paroisse · « L'Essenciel » · 2026</div>
+    </div>
+    <div class="qz-meta">
+      <span class="qz-qnum">Question ${cur+1} / ${TOTAL}</span>
+      <div class="qz-timer-ring">
+        <svg width="50" height="50" viewBox="0 0 50 50">
+          <circle cx="25" cy="25" r="22" fill="none" stroke="#E6F1FB" stroke-width="4"/>
+          <circle cx="25" cy="25" r="22" fill="none" stroke="${timeLeft<=5?'#E24B4A':'#D4A017'}" stroke-width="4"
+            stroke-dasharray="${circ}" stroke-dashoffset="${circ-dash}" stroke-linecap="round"/>
+        </svg>
+        <div class="qz-timer-num">${timeLeft}</div>
+      </div>
+      <span class="qz-score-badge">${score} pt${score>1?'s':''}</span>
+    </div>
     <div class="qz-progress-bar"><div class="qz-progress-fill" style="width:${pct}%"></div></div>
     <div class="qz-question"><p>${q.q}</p></div>
-    <div class="qz-answers">${q.a.map((a,i)=>`<button class="qz-answer" onclick="pick(${i})">${a}</button>`).join('')}</div>
+    <div class="qz-answers">
+      ${q.a.map((a, i) => `<button class="qz-answer" onclick="pick(${i})">${a}</button>`).join('')}
+    </div>
     <div class="qz-feedback hidden" id="fb"></div>
     <button class="qz-next" id="nxt" disabled onclick="next()">Question suivante →</button>`;
 }
-window.pick=function(i){
-  if(answered)return;answered=true;clearInterval(timer);
-  const q=QS_SHUFFLED[cur];
-  document.querySelectorAll('.qz-answer').forEach((b,idx)=>{b.disabled=true;if(idx===q.c)b.classList.add('correct');else if(idx===i&&i!==q.c)b.classList.add('wrong');});
-  const ok=i===q.c;if(ok)score++;beep(ok);
-  const fb=document.getElementById('fb');fb.className='qz-feedback '+(ok?'ok':'ko');fb.textContent=(ok?'✓ ':'✗ ')+(ok?q.ok:q.ko);
-  document.getElementById('nxt').disabled=false;
+
+// ── RÉPONSE ───────────────────────────────────────────────────────────────────
+window.pick = function(i) {
+  if (answered) return;
+  answered = true;
+  clearInterval(timer);
+  const q = QS[cur];
+  document.querySelectorAll('.qz-answer').forEach((b, idx) => {
+    b.disabled = true;
+    if (idx === q.c) b.classList.add('correct');
+    else if (idx === i && i !== q.c) b.classList.add('wrong');
+  });
+  const ok = i === q.c;
+  if (ok) score++;
+  beep(ok);
+  const fb = document.getElementById('fb');
+  fb.className = 'qz-feedback ' + (ok ? 'ok' : 'ko');
+  fb.textContent = (ok ? '✓ ' : '✗ ') + (ok ? q.ok : q.ko);
+  document.getElementById('nxt').disabled = false;
 };
-window.next=function(){cur++;answered=false;timeLeft=15;render();startTimer();};
-function startTimer(){
+
+window.next = function() {
+  cur++; answered = false; timeLeft = 15;
+  render(); startTimer();
+};
+
+// ── TIMER ─────────────────────────────────────────────────────────────────────
+function startTimer() {
   clearInterval(timer);
-  timer=setInterval(()=>{
+  timer = setInterval(() => {
     timeLeft--;
-    if(timeLeft<=0){clearInterval(timer);if(!answered){answered=true;const q=QS[cur];document.querySelectorAll('.qz-answer').forEach((b,i)=>{b.disabled=true;if(i===q.c)b.classList.add('correct');});const fb=document.getElementById('fb');fb.className='qz-feedback ko';fb.textContent='⏱ Temps écoulé ! '+q.ko;document.getElementById('nxt').disabled=false;beep(false);}}
-    else{const ring=document.querySelector('#quiz-app .qz-timer-ring circle:last-child'),num=document.querySelector('#quiz-app .qz-timer-num');if(ring&&num){const c=2*Math.PI*22;ring.setAttribute('stroke-dashoffset',c-(c*(timeLeft/15)));ring.setAttribute('stroke',timeLeft<=5?'#E24B4A':'#D4A017');num.textContent=timeLeft;num.style.color=timeLeft<=5?'#E24B4A':'#0D4F7A';}}
-  },1000);
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      if (!answered) {
+        answered = true;
+        const q = QS[cur];
+        document.querySelectorAll('.qz-answer').forEach((b, i) => {
+          b.disabled = true;
+          if (i === q.c) b.classList.add('correct');
+        });
+        const fb = document.getElementById('fb');
+        fb.className = 'qz-feedback ko';
+        fb.textContent = '⏱ Temps écoulé ! ' + q.ko;
+        document.getElementById('nxt').disabled = false;
+        beep(false);
+      }
+    } else {
+      const ring = document.querySelector('#quiz-app .qz-timer-ring circle:last-child');
+      const num  = document.querySelector('#quiz-app .qz-timer-num');
+      if (ring && num) {
+        const c = 2 * Math.PI * 22;
+        ring.setAttribute('stroke-dashoffset', c - (c * (timeLeft / 15)));
+        ring.setAttribute('stroke', timeLeft <= 5 ? '#E24B4A' : '#D4A017');
+        num.textContent = timeLeft;
+        num.style.color = timeLeft <= 5 ? '#E24B4A' : '#0D4F7A';
+      }
+    }
+  }, 1000);
 }
-function renderEnd(){
+
+// ── FIN ───────────────────────────────────────────────────────────────────────
+function renderEnd() {
   clearInterval(timer);
-  const pct=Math.round((score/TOTAL)*100);
-  let msg,badge;
-  if(pct>=90){msg="Félicitations ! Tu connais le FESTI sur le bout des doigts. À toi l'honneur le 28 juin !";badge="Expert du FESTI ⭐⭐⭐";}
-  else if(pct>=70){msg="Très bien ! Tu es un bon connaisseur de la paroisse et de son histoire.";badge="Bon connaisseur ⭐⭐";}
-  else if(pct>=50){msg="Pas mal ! Viens découvrir encore plus lors du FESTI le 28 juin !";badge="Amateur du FESTI ⭐";}
-  else{msg="C'est un début ! Le 28 juin, tu sauras tout !";badge="Apprenti festivalier";}
-  app.innerHTML=`<div class="qz-header"><div class="qz-title">Quiz terminé !</div><div class="qz-sub">FESTI SAINT CHRISTOPHE · 28 juin 2026</div></div>
-    <div class="qz-end"><div class="qz-end-score">${score}</div><div class="qz-end-total">/ ${TOTAL} bonnes réponses</div>
-    <div style="margin:10px 0"><span class="qz-end-badge">${badge}</span></div>
-    <div class="qz-end-msg">${msg}</div>
-    <div style="background:#E8F4FB;border-radius:10px;padding:12px;margin:12px 0;font-size:13px;color:#0D4F7A"><strong>Dimanche 28 juin 2026</strong><br>Paroisse Saint Christophe · Kerlys, Fort-de-France<br><em>« L'Essenciel »</em></div>
-    <button class="qz-restart" onclick="restart()">Rejouer le quiz</button>
-    <div style="margin-top:16px"><a href="2026.html" style="color:var(--bleu2);font-size:14px;font-weight:600;text-decoration:none">Voir le programme 2026 →</a></div></div>`;
+  const pct = Math.round((score / TOTAL) * 100);
+  let msg, badge;
+  if (pct >= 90) {
+    msg = "Félicitations ! Tu connais le FESTI sur le bout des doigts. À toi l'honneur le 28 juin !";
+    badge = "Expert du FESTI ⭐⭐⭐";
+  } else if (pct >= 70) {
+    msg = "Très bien ! Tu es un bon connaisseur de la paroisse et de son histoire.";
+    badge = "Bon connaisseur ⭐⭐";
+  } else if (pct >= 50) {
+    msg = "Pas mal ! Viens découvrir encore plus lors du FESTI le 28 juin !";
+    badge = "Amateur du FESTI ⭐";
+  } else {
+    msg = "C'est un début ! Le 28 juin, tu sauras tout sur le FESTI !";
+    badge = "Apprenti festivalier";
+  }
+  app.innerHTML = `
+    <div class="qz-header"><div class="qz-title">Quiz terminé !</div><div class="qz-sub">FESTI SAINT CHRISTOPHE · 28 juin 2026</div></div>
+    <div class="qz-end">
+      <div class="qz-end-score">${score}</div>
+      <div class="qz-end-total">/ ${TOTAL} bonnes réponses (${pct}%)</div>
+      <div style="margin:10px 0"><span class="qz-end-badge">${badge}</span></div>
+      <div class="qz-end-msg">${msg}</div>
+      <div style="background:#E8F4FB;border-radius:10px;padding:12px;margin:12px 0;font-size:13px;color:#0D4F7A">
+        <strong>Dimanche 28 juin 2026</strong><br>
+        Paroisse Saint Christophe · Kerlys, Fort-de-France<br>
+        <em>« L'Essenciel » — Entrée libre !</em>
+      </div>
+      <button class="qz-restart" onclick="restart()">🔀 Rejouer avec d'autres questions</button>
+      <div style="margin-top:16px">
+        <a href="2026.html" style="color:var(--bleu2);font-size:14px;font-weight:600;text-decoration:none">Voir le programme 2026 →</a>
+      </div>
+    </div>`;
 }
-window.restart=function(){cur=0;score=0;answered=false;timeLeft=15;render();startTimer();};
-render();startTimer();
+
+window.restart = function() {
+  clearInterval(timer);
+  init();
+  render();
+  startTimer();
+};
+
+// ── DÉMARRAGE ─────────────────────────────────────────────────────────────────
+init();
+render();
+startTimer();
 })();
 </script>
 </body>
