@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 120" width="280" height="120">
+  <!-- Fond bleu pharmacie -->
+  <rect width="280" height="120" rx="10" fill="#0087C8"/>
+  <!-- Croix verte pharmacie -->
+  <g transform="translate(22,18)">
+    <rect x="11" y="0" width="14" height="36" rx="3" fill="#00C853"/>
+    <rect x="0" y="11" width="36" height="14" rx="3" fill="#00C853"/>
+  </g>
+  <!-- Texte PHARMACIE -->
+  <text x="72" y="42" font-family="Arial Black, sans-serif" font-size="17" font-weight="900" fill="#fff" letter-spacing="1">PHARMACIE</text>
+  <!-- Texte de la -->
+  <text x="72" y="64" font-family="Arial, sans-serif" font-size="14" font-style="italic" fill="rgba(255,255,255,0.85)">de la</text>
+  <!-- Texte Cité -->
+  <text x="112" y="64" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#FF8C00" letter-spacing="1">Cité</text>
+  <!-- Ligne décorative -->
+  <rect x="72" y="72" width="185" height="2" rx="1" fill="rgba(255,255,255,0.3)"/>
+  <!-- Texte adresse -->
+  <text x="72" y="88" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.75)">Bât. AB · Av. Salvador ALLENDE · Cité Dillon</text>
+  <!-- VitaPharma badge -->
+  <rect x="72" y="96" width="70" height="16" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="107" y="108" font-family="Arial, sans-serif" font-size="9" fill="#fff" text-anchor="middle">VitaPharma</text>
+</svg>
