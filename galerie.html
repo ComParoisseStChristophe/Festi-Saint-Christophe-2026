@@ -210,6 +210,14 @@ function aller(annee, sous) {
   window.scrollTo({top: Math.max(0, document.getElementById('nav-galerie').offsetTop - 80), behavior:'smooth'});
 }
 
+function clicAffiche(el) {
+  var src = el.getAttribute('data-affsrc');
+  var id  = el.getAttribute('data-affid');
+  var ann = el.getAttribute('data-annee');
+  if (src) { ouvrirPhoto(src, 'Affiche FESTI ' + ann, ann); }
+  else      { ouvrirPhotoDrive(id, 'Affiche FESTI ' + ann, ann); }
+}
+
 function rendrePage() {
   var nav = document.getElementById('nav-galerie');
   var grid = document.getElementById('galerie-grid');
@@ -253,15 +261,16 @@ function rendrePage() {
     var afficheHTML = '';
     if (d.affiche) {
       var imgSrc = d.affiche.src ? d.affiche.src : 'https://drive.google.com/thumbnail?id='+d.affiche.drive+'&sz=w600';
+      var affId = d.affiche.drive || '';
+      var affSrc = d.affiche.src || '';
       afficheHTML = '<div class="affiche-entete">'
-        +'<img src="'+imgSrc+'" alt="'+d.affiche.label+'" style="height:180px;border-radius:8px;object-fit:contain;flex-shrink:0;cursor:zoom-in" oncontextmenu="return false" onclick="(d.affiche.src?ouvrirPhoto(d.affiche.src,\'Affiche\',\''+etatAnnee+'\'):ouvrirPhotoDrive(d.affiche.drive,\'Affiche\',\''+etatAnnee+'\'))" title="Agrandir">'
-        +'<div style="font-size:11px;color:#888;margin-top:4px">🔍 Cliquez pour agrandir</div>'
+        +'<img src="'+imgSrc+'" alt="'+d.affiche.label+'" data-affsrc="'+affSrc+'" data-affid="'+affId+'" data-annee="'+etatAnnee+'" style="height:180px;border-radius:8px;object-fit:contain;flex-shrink:0;cursor:zoom-in" oncontextmenu="return false" onclick="clicAffiche(this)" title="Cliquez pour agrandir">'
         +'<div><div style="font-family:\'Playfair Display\',serif;font-size:20px;color:#0D4F7A;font-weight:700;margin-bottom:8px">FESTI SAINT CHRISTOPHE '+etatAnnee+'</div>'
         +'<div style="font-size:14px;color:#555;font-style:italic">'+d.affiche.label+'</div>'
-        +'<div style="font-size:12px;color:#aaa;margin-top:6px">'+COPYRIGHT+'</div></div>'
+        +'<div style="font-size:12px;color:#888;margin-top:4px">🔍 Cliquez sur l\'affiche pour l\'agrandir</div>'
+        +'<div style="font-size:11px;color:#aaa;margin-top:4px">'+COPYRIGHT+'</div></div>'
         +'</div>';
     }
-
     grid.style.gridTemplateColumns = 'repeat(auto-fill,minmax(200px,1fr))';
     var cartes = afficheHTML;
     if(d.photos.length) cartes += carteGrande('📸','Photos',d.photos.length,'photos',col,'#0D4F7A');
@@ -394,7 +403,7 @@ function creerLightboxPhoto() {
     +   '<button id="lb-prev" onclick="lbNaviguer(-1)" style="flex-shrink:0;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);font-size:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s">&#8249;</button>'
     +   '<div style="position:relative">'
     +     '<div id="lb-wrap" style="border-radius:10px;overflow:hidden;box-shadow:0 0 60px rgba(0,0,0,.9)"></div>'
-    +     '<button onclick="document.getElementById('lb-photo').style.display='none'" style="position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:#D4A017;color:#0D4F7A;border:none;font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10">&#215;</button>'
+    +     '<button onclick="document.getElementById(\'lb-photo\').style.display=\'none\';" style="position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:#D4A017;color:#0D4F7A;border:none;font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10">&#215;</button>'
     +   '</div>'
     +   '<button id="lb-next" onclick="lbNaviguer(1)" style="flex-shrink:0;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);font-size:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s">&#8250;</button>'
     + '</div>'
