@@ -357,59 +357,97 @@ function carteGrande(ico, nom, nb, sous, colBg, colText) {
     +'</div>';
 }
 
+// ── NAVIGATION PHOTOS ─────────────────────────────────────────────────────
+var lbIndex = 0;
+var lbListe = [];
+
 function ouvrirPhoto(src, caption, annee) {
-  var lb = document.getElementById('lb-photo');
-  if (!lb) {
-    lb = document.createElement('div');
-    lb.id = 'lb-photo';
-    lb.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9000;align-items:center;justify-content:center;flex-direction:column;padding:20px';
-    lb.innerHTML = '<div style="position:relative;max-width:92vw">'
-      +'<div id="lb-wrap" style="border-radius:10px;overflow:hidden;box-shadow:0 0 60px rgba(0,0,0,.9)"></div>'
-      +'<button onclick="document.getElementById(\'lb-photo\').style.display=\'none\'" style="position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:#D4A017;color:#0D4F7A;border:none;font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center">×</button>'
-      +'</div>'
-      +'<div id="lb-cap" style="color:#fff;font-size:14px;margin-top:14px;text-align:center;opacity:.8;max-width:600px"></div>'
-      +'<div style="color:rgba(255,255,255,.45);font-size:11px;margin-top:5px">'+COPYRIGHT+'</div>'
-      +'<div style="color:rgba(255,255,255,.3);font-size:11px;margin-top:6px">Cliquez en dehors pour fermer</div>';
-    lb.addEventListener('click', function(e){ if(e.target===lb) lb.style.display='none'; });
-    document.body.appendChild(lb);
-  }
+  var d = DATA[annee||etatAnnee];
+  lbListe = (d && d.photos) ? d.photos : [];
+  lbIndex = lbListe.findIndex(function(p){
+    return (p.src && p.src === src) || (p.drive && src.indexOf(p.drive) >= 0);
+  });
+  if (lbIndex < 0) lbIndex = 0;
+  creerLightboxPhoto();
+  chargerPhotoLb(src, caption, annee||etatAnnee);
+  document.getElementById('lb-photo').style.display = 'flex';
+}
+
+function ouvrirPhotoDrive(id, caption, annee) {
+  var d = DATA[annee||etatAnnee];
+  lbListe = (d && d.photos) ? d.photos : [];
+  lbIndex = lbListe.findIndex(function(p){ return p.drive === id; });
+  if (lbIndex < 0) lbIndex = 0;
+  var src = 'https://drive.google.com/thumbnail?id='+id+'&sz=w1200';
+  creerLightboxPhoto();
+  chargerPhotoLb(src, caption, annee||etatAnnee);
+  document.getElementById('lb-photo').style.display = 'flex';
+}
+
+function creerLightboxPhoto() {
+  if (document.getElementById('lb-photo')) return;
+  var lb = document.createElement('div');
+  lb.id = 'lb-photo';
+  lb.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9000;align-items:center;justify-content:center;flex-direction:column;padding:16px';
+  lb.innerHTML = ''
+    + '<div style="display:flex;align-items:center;gap:10px;max-width:95vw">'
+    +   '<button id="lb-prev" onclick="lbNaviguer(-1)" style="flex-shrink:0;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);font-size:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s">&#8249;</button>'
+    +   '<div style="position:relative">'
+    +     '<div id="lb-wrap" style="border-radius:10px;overflow:hidden;box-shadow:0 0 60px rgba(0,0,0,.9)"></div>'
+    +     '<button onclick="document.getElementById('lb-photo').style.display='none'" style="position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:#D4A017;color:#0D4F7A;border:none;font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10">&#215;</button>'
+    +   '</div>'
+    +   '<button id="lb-next" onclick="lbNaviguer(1)" style="flex-shrink:0;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);font-size:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s">&#8250;</button>'
+    + '</div>'
+    + '<div id="lb-cap" style="color:#fff;font-size:14px;margin-top:12px;text-align:center;opacity:.8;max-width:600px"></div>'
+    + '<div id="lb-compteur" style="color:rgba(255,255,255,.4);font-size:12px;margin-top:3px"></div>'
+    + '<div style="color:rgba(255,255,255,.45);font-size:11px;margin-top:4px">'+COPYRIGHT+'</div>'
+    + '<div style="color:rgba(255,255,255,.3);font-size:11px;margin-top:4px">&#8249; &#8250; ou &#8592; &#8594; pour naviguer &middot; Clic en dehors pour fermer</div>';
+  lb.addEventListener('click', function(e){ if(e.target===lb) lb.style.display='none'; });
+  document.addEventListener('keydown', function(e){
+    var ph = document.getElementById('lb-photo');
+    if(ph && ph.style.display==='flex'){
+      if(e.key==='ArrowLeft')  lbNaviguer(-1);
+      if(e.key==='ArrowRight') lbNaviguer(1);
+      if(e.key==='Escape')     ph.style.display='none';
+    }
+  });
+  document.body.appendChild(lb);
+}
+
+function chargerPhotoLb(src, caption, annee) {
   var wrap = document.getElementById('lb-wrap');
-  wrap.innerHTML = '<div style="padding:30px;color:#fff;font-size:13px;text-align:center">Chargement...</div>';
+  wrap.innerHTML = '<div style="padding:40px 80px;color:#fff;font-size:13px;text-align:center;min-width:200px">Chargement...</div>';
   var img = new Image();
   img.onload = function() {
     var canvas = document.createElement('canvas');
     canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
-    canvas.style.cssText = 'max-width:90vw;max-height:76vh;display:block';
+    canvas.style.cssText = 'max-width:82vw;max-height:72vh;display:block';
     canvas.getContext('2d').drawImage(img, 0, 0);
     canvas.addEventListener('contextmenu', function(e){ e.preventDefault(); });
-    canvas.addEventListener('dragstart', function(e){ e.preventDefault(); });
+    canvas.addEventListener('dragstart',   function(e){ e.preventDefault(); });
     wrap.innerHTML = ''; wrap.appendChild(canvas);
   };
-  img.onerror = function(){ wrap.innerHTML = '<img src="'+src+'" style="max-width:90vw;max-height:76vh;display:block;border-radius:8px">'; };
+  img.onerror = function(){
+    wrap.innerHTML = '<img src="'+src+'" style="max-width:82vw;max-height:72vh;display:block;border-radius:8px">';
+  };
   img.crossOrigin = 'anonymous'; img.src = src;
-  document.getElementById('lb-cap').textContent = caption + ' — ' + annee;
-  lb.style.display = 'flex';
+  var cap  = document.getElementById('lb-cap');
+  var cpt  = document.getElementById('lb-compteur');
+  var prev = document.getElementById('lb-prev');
+  var next = document.getElementById('lb-next');
+  if(cap)  cap.textContent = caption + ' — ' + annee;
+  if(cpt)  cpt.textContent = lbListe.length > 1 ? (lbIndex+1) + ' / ' + lbListe.length : '';
+  if(prev) prev.style.opacity = lbIndex > 0 ? '1' : '0.2';
+  if(next) next.style.opacity = lbIndex < lbListe.length-1 ? '1' : '0.2';
 }
 
-function ouvrirPhotoDrive(id, caption, annee) {
-  var lb = document.getElementById('lb-drive');
-  if (!lb) {
-    lb = document.createElement('div');
-    lb.id = 'lb-drive';
-    lb.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9000;align-items:center;justify-content:center;flex-direction:column;padding:20px';
-    lb.innerHTML = '<div style="position:relative;max-width:92vw">'
-      +'<img id="lb-drive-img" style="max-width:90vw;max-height:76vh;display:block;border-radius:10px;box-shadow:0 0 60px rgba(0,0,0,.9)" oncontextmenu="return false" ondragstart="return false">'
-      +'<button onclick="document.getElementById(\'lb-drive\').style.display=\'none\'" style="position:absolute;top:-14px;right:-14px;width:32px;height:32px;border-radius:50%;background:#D4A017;color:#0D4F7A;border:none;font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center">×</button>'
-      +'</div>'
-      +'<div id="lb-drive-cap" style="color:#fff;font-size:14px;margin-top:14px;text-align:center;opacity:.8;max-width:600px"></div>'
-      +'<div style="color:rgba(255,255,255,.45);font-size:11px;margin-top:5px">'+COPYRIGHT+'</div>'
-      +'<div style="color:rgba(255,255,255,.3);font-size:11px;margin-top:6px">Cliquez en dehors pour fermer</div>';
-    lb.addEventListener('click', function(e){ if(e.target===lb) lb.style.display='none'; });
-    document.body.appendChild(lb);
-  }
-  document.getElementById('lb-drive-img').src = 'https://drive.google.com/thumbnail?id='+id+'&sz=w1200';
-  document.getElementById('lb-drive-cap').textContent = caption + ' — ' + annee;
-  document.getElementById('lb-drive').style.display = 'flex';
+function lbNaviguer(dir) {
+  var newIdx = lbIndex + dir;
+  if(newIdx < 0 || newIdx >= lbListe.length) return;
+  lbIndex = newIdx;
+  var p = lbListe[lbIndex];
+  var src = p.src ? p.src : 'https://drive.google.com/thumbnail?id='+p.drive+'&sz=w1200';
+  chargerPhotoLb(src, p.label, etatAnnee);
 }
 
 function ouvrirVideo(id, titre, annee) {
