@@ -96,7 +96,7 @@ canvas{display:block;cursor:crosshair;touch-action:none}
 
   <!-- DEADLINE -->
   <div class="deadline">
-    <strong>📅 Date limite d'envoi du dossier : 24 juin 2026</strong>
+    <strong>📅 Date limite d'envoi du dossier : 27 juin 2026</strong>
     <span>Seuls les dossiers dûment complétés et signés seront pris en compte.</span>
   </div>
 
@@ -228,7 +228,7 @@ canvas{display:block;cursor:crosshair;touch-action:none}
       </div>
     </div>
 
-    <button type="submit" class="btn-submit" id="submit-btn">📨 Envoyer mon dossier de candidature</button>
+    <button type="submit" class="btn-submit" id="submit-btn">📨 Finaliser mon dossier de candidature</button>
     <div class="msg-error" id="msg-error">Une erreur est survenue. Veuillez réessayer ou contacter le Comité des Fêtes au +596 696 10 12 98.</div>
 
   </form>
@@ -240,7 +240,7 @@ canvas{display:block;cursor:crosshair;touch-action:none}
       <img src="logo_paroisse_rond.png" class="merci-logo" alt="Paroisse">
       <div class="merci-icon">🙏</div>
       <h2 class="merci-titre">Mèsi ! Merci !</h2>
-      <h3 class="merci-sous">Votre dossier de candidature a bien été reçu.</h3>
+      <h3 class="merci-sous">Votre dossier de candidature a bien été enregistré, n'oubliez surtout pas de faire une copie et envoyez le fichier PDF à l'adresse mail indiquée.</h3>
       <div class="merci-verset">
         <p>« Tu aimeras le Seigneur ton Dieu de tout ton cœur,<br>de toute ton âme et de tout ton esprit.<br>Voilà le grand commandement, le premier. »</p>
         <cite>— Matthieu 22, 37-38</cite>
@@ -519,7 +519,7 @@ function genererPDF(){
   doc.setFillColor(253,246,227); doc.rect(M,y,CW,16,'F');
   doc.setFontSize(7.5); doc.setFont('helvetica','italic'); doc.setTextColor(139,105,20);
   doc.text('Document à conserver — Dossier envoyé au Comité des Fêtes de la Paroisse Saint Christophe',M+3,y+6);
-  doc.text('Date limite : 24 juin 2026  |  comitedfetes.stchristophe@gmail.com  |  +596 696 10 12 98',M+3,y+12);
+  doc.text('Date limite : 27 juin 2026  |  comitedfetes.stchristophe@gmail.com  |  +596 696 10 12 98',M+3,y+12);
 
   // Footer
   doc.setFillColor(...bleu); doc.rect(0,285,W,12,'F');
